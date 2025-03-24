@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<items>
+    <item>
+        <title>[COLOR white][B]RÁDIO MELODIA RJ[/B][/COLOR]</title>
+        <link>https://24363.live.streamtheworld.com:443/MELODIAFMAAC_SC</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/melodia-rj.png</thumbnail>
+    </item>
+    <item>
+        <title>[COLOR white][B]RÁDIO FELIZ[/B][/COLOR]</title>
+        <link>https://cloud1.cdnseguro.com:5520/stream/1/</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/feliz.png</thumbnail>
+    </item>
+    <item>
+        <title>[COLOR white][B]RÁDIO NOSSA SÃO PAULO[/B][/COLOR]</title>
+        <link>https://servidor24-2.brlogic.com:8544/live</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/nossa-sao-paulo.png</thumbnail>
+    </item>
+    <item>
+        <title>[COLOR white][B]FM 93 RJ[/B][/COLOR]</title>
+        <link>https://24223.live.streamtheworld.com:443/FM93_SC</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/93-rj.png</thumbnail>
+    </item>
+    <item>
+        <title>[COLOR white][B]RÁDIO IPDA DEUS E AMOR[/B][/COLOR]</title>
+        <link>https://26523.live.streamtheworld.com:443/RJ_RADIOONLINE_SC</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/ipda-deus-e-amor.png</thumbnail>
+    </item>
+    <item>
+        <title>[COLOR white][B]RÁDIO ZONA SUL[/B][/COLOR]</title>
+        <link>https://player.voxhd.com.br/proxy/7162</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/zona-sul.png</thumbnail>
+    </item>
+    <item>
+        <title>[COLOR white][B]RÁDIO BOA SALVADOR[/B][/COLOR]</title>
+        <link>https://8915.brasilstream.com.br/stream</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/boa-salvador.png</thumbnail>
+    </item>
+    <item>
+        <title>[COLOR white][B]RÁDIO NOVO SALVADOR[/B][/COLOR]</title>
+        <link>https://stream.live.novotempo.com/radio/smil:rntSalvadorBA.smil/chunklist_b64000_slpor.m3u8</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/novo-salvador.png</thumbnail>
+    </item>
+    <item>
+        <title>[COLOR white][B]RÁDIO GOSPEL SALVADOR[/B][/COLOR]</title>
+        <link>https://servidor31.brlogic.com:8018/live</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/gospel-salvador.png</thumbnail>
+    </item>
+    <item>
+        <title>[COLOR white][B]RÁDIO SARA BRASÍLIA[/B][/COLOR]</title>
+        <link>https://vfzwzgn2cp.map.azionedge.net/primary/radiorasp.sdp/media_08e16291-a0a3-4f39-aa48-c0b8580a9fb9_24148.ts</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/sara-brasilia.png</thumbnail>
+    </item>
+
+<radio>
+    <item>
+        <title>[COLOR white][B]RÁDIO FORTALEZA[/B][/COLOR]</title>
+        <link>https://streaming-prod.brandaodeveloper.com.br:8000/stream</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/logos-fortaleza.png</thumbnail>
+    </item>
+
+    <item>
+        <title>[COLOR white][B]RÁDIO 107 FM BH[/B][/COLOR]</title>
+        <link>https://stm27.srvaudio.com.br:9330/stream/1/</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/107-bh.png</thumbnail>
+    </item>
+
+    <item>
+        <title>[COLOR white][B]RÁDIO SARA PORTO ALEGRE[/B][/COLOR]</title>
+        <link>https://hts07.brascast.com:13482/live</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/sara-porto-alegre.png</thumbnail>
+    </item>
+
+    <item>
+        <title>[COLOR white][B]RÁDIO VIDA ANDIRÁ[/B][/COLOR]</title>
+        <link>https://hts06.brascast.com:9294/live</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/vida-andira.png</thumbnail>
+    </item>
+
+    <item>
+        <title>[COLOR white][B]RÁDIO GOSPEL CURITIBA[/B][/COLOR]</title>
+        <link>https://www.appradio.app:8161/live</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/gospel-curitiba.png</thumbnail>
+    </item>
+    <item>
+        <title>[COLOR white][B]RÁDIO NOVO CURITIBA[/B][/COLOR]</title>
+        <link>https://stream.live.novotempo.com/radio/smil:radionovotempo.smil/chunklist_b96000_slpor.m3u8</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/novo-curitiba.png</thumbnail>
+    </item>
+    <item>
+        <title>[COLOR white][B]BBN CURITIBA[/B][/COLOR]</title>
+        <link>https://audio-edge-es6pf.mia.g.radiomast.io/ec065d59-f358-48c9-a288-4efc797e5860</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/bbn-curitiba.png</thumbnail>
+    </item>
+
+    <item>
+        <title>[COLOR white][B]PLENITUDE RECIFE[/B][/COLOR]</title>
+        <link>https://stm.painelmegahost.com.br:7008/stream/1/</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/plenitude-recife.png</thumbnail>
+    </item>
+
+    <item>
+        <title>[COLOR white][B]NOVA FM RECIFE[/B][/COLOR]</title>
+        <link>https://stm3.voxhd.com.br:7690/stream/1/</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/nova-fm-recife.png</thumbnail>
+    </item>
+
+    <item>
+        <title>[COLOR white][B]BOAS RECIFE[/B][/COLOR]</title>
+        <link>https://directradios.net/proxy/rbc2?mp=/stream</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/boas-recife.png</thumbnail>
+    </item>
+    <item>
+        <title>[COLOR white][B]TAMANDARÉ RECIFE[/B][/COLOR]</title>
+        <link>https://s45.maxcast.com.br:8058/live</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/tamandare-recife.png</thumbnail>
+    </item>
+
+    <item>
+        <title>[COLOR white][B]EVANGÉLICA RECIFE[/B][/COLOR]</title>
+        <link>https://directradios.net/proxy/evangelica?mp=/stream/1/</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/evangelica-recife.png</thumbnail>
+    </item>
+
+    <item>
+        <title>[COLOR white][B]LIBERDADE BELÉM[/B][/COLOR]</title>
+        <link>https://s28.maxcast.com.br:8060/live</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/liberdade-belem.png</thumbnail>
+    </item>
+
+    <item>
+        <title>[COLOR white][B]AMAZÔNIA BELÉM[/B][/COLOR]</title>
+        <link>https://s03.maxcast.com.br:8112/live</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/amazonia-belem.png</thumbnail>
+    </item>
+
+    <item>
+        <title>[COLOR white][B]BOAS NOVAS BELÉM[/B][/COLOR]</title>
+        <link>https://boasnovasaac.jmvstream.com/stream/1/</link>
+        <thumbnail>https://cdn.instant.audio/images/logos/radiosaovivo-net/boas-novas-belem.png</thumbnail>
+    </item>
+
+</items>
+

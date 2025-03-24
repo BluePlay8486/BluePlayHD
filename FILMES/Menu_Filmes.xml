@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<channels>
+
+<channel>
+<name>[B][COLOR aquamarine]OPÇÃO:[/COLOR] [COLOR white]TORRENT[/COLOR][/B]</name>  <thumbnail>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/LOGO.png</thumbnail>    <fanart>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/fanart.jpg</fanart>  <externallink>https://github.com/BluePlay8486/BluePlay/raw/refs/heads/main/BluePlay/FILMES/filmes_channels%20(2).xml</externallink>
+</channel>
+    
+    <channel>
+<name>[B][COLOR aquamarine]OPÇÃO:[/COLOR] [COLOR white]LINK DIRETO[/COLOR][/B]</name> <thumbnail>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/LOGO.png</thumbnail>    <fanart>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/fanart.jpg</fanart>     <externallink>https://raw.githubusercontent.com/BluePlay8486/BluePlay/refs/heads/main/ARES%20AREA%20DE%20FILMES%20E%20ETC/ARES%20FILMES/LINK%20DIRETO/FILMES.txt</externallink>
+</channel>
+    
+</channels>
+     
