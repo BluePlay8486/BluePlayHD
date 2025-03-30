@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <channels>
 
-  <channel>
-        <name>[B][COLOR yellow]●[/COLOR] [COLOR white]FILMES[/COLOR][/B]</name>
-        <thumbnail>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FILMES.png</thumbnail>
-        <fanart>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png</fanart>
-        <info>Explore um vasto catálogo de filmes com os melhores lançamentos, clássicos inesquecíveis e produções de diversos gêneros. Encontre desde ação eletrizante até dramas emocionantes, tudo organizado para facilitar sua navegação. Escolha seu filme favorito e aproveite!
+<channel>
+<name>[B][COLOR yellow]●[/COLOR] [COLOR white]FILMES[/COLOR][/B]</name>
+<thumbnail>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FILMES.png</thumbnail>
+<fanart>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png</fanart>
+<info>[COLOR aquamarine]AREAS DE PEDIDOS DE USUÁRIOS: [/COLOR] Os seus Pedidos de Filmes e Séries e etc ficam aqui faça seu pedido no Site abaixo e espere até adicionamos ao Add-on!
 
-[B][COLOR aquamarine]DOAÇÃO:[/COLOR][/B]
+[B][COLOR aquamarine]SITE DE PEDIDOS[/COLOR][/B]
 
-[COLOR blue]TeamBluePlay@gmail.com[/COLOR]</info>
-        <externallink>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Pedidos%20de%20Usu%C3%A1rios/FILMES/Pedidos.xml</externallink>
-    </channel>
+            
+[B][COLOR white]https://tinyurl.com/BluePlay-Pedidos[/COLOR][/B]</info>
+<externallink>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Pedidos%20de%20Usu%C3%A1rios/FILMES/Pedidos.xml</externallink>
+</channel>
 
-    <channel>
-        <name>[B][COLOR yellow]●[/COLOR] [COLOR white]SÉRIES[/COLOR][/B]</name>
-        <thumbnail>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/S%C3%89RIES.png</thumbnail>
-        <fanart>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png</fanart>
-        <info>Explore uma seleção de séries envolventes, com histórias que vão te prender do começo ao fim. De comédias leves a tramas intensas, temos séries imperdíveis para todos os gostos. Navegue e encontre sua próxima maratona!
+<channel>
+<name>[B][COLOR yellow]●[/COLOR] [COLOR white]SÉRIES[/COLOR][/B]</name>
+<thumbnail>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/S%C3%89RIES.png</thumbnail>
+<fanart>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png</fanart>
+<info>[COLOR aquamarine]AREAS DE PEDIDOS DE USUÁRIOS: [/COLOR] Os seus Pedidos de Filmes e Séries e etc ficam aqui faça seu pedido no Site abaixo e espere até adicionamos ao Add-on!
 
-[B][COLOR aquamarine]DOAÇÃO:[/COLOR][/B]
+[B][COLOR aquamarine]SITE DE PEDIDOS[/COLOR][/B]
 
-[COLOR blue]TeamBluePlay@gmail.com[/COLOR]</info>
-        <externallink>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Pedidos%20de%20Usu%C3%A1rios/S%C3%89RIES/Pedidos.xml</externallink>
-    </channel>
+            
+[B][COLOR white]https://tinyurl.com/BluePlay-Pedidos[/COLOR][/B]</info>
+<externallink>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Pedidos%20de%20Usu%C3%A1rios/S%C3%89RIES/Pedidos.xml</externallink>
+</channel>
 
-  <channels>
+<channels>
