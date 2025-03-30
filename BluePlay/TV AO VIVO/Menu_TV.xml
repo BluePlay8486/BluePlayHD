@@ -5,15 +5,15 @@
 <name>[B][COLOR aquamarine]OPÇÃO:[/COLOR][COLOR white] CANAIS AO VIVO[/COLOR][/B]</name>
 <thumbnail>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/CANAIS%20AO%20VIVO.png</thumbnail>
 <fanart>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png</fanart>
-<info>Canais Ao Vivo em HD</info>
+<info>Canais Ao Vivo em HD, Full HD, SD.</info>
 <externallink>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/BluePlay/TV%20AO%20VIVO/CANAIS%20AO%20VIVO/TV%20AO%20VIVO.txt</externallink>
 </channel>
 
 <channel>
 <name>[B][COLOR aquamarine]OPÇÃO:[/COLOR][COLOR white] ESPORTES[/COLOR][/B]</name>
-<thumbnail>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/GR%C3%8AMIO%20JACAREEMSE_20250130_113910_0000.png</thumbnail>
-<fanart>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/images_(4)-_tvSM6ZD9-transformed.jpeg</fanart>
-<info>Futebol Ao Vivo</info>
+<thumbnail>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/ESPORTES.png</thumbnail>
+<fanart>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png</fanart>
+<info>Futebol Ao Vivo Aproveite só tem no BluePlay!</info>
 <externallink>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/BluePlay/TV%20AO%20VIVO/ESPORTES/ESPORTES.txt</externallink>
 </channel>
 
@@ -21,7 +21,7 @@
 <name>[B][COLOR aquamarine]OPÇÃO:[/COLOR][COLOR white] PLUTO TV[/COLOR][/B]</name>
 <thumbnail>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/images.png</thumbnail>
 <fanart>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/images%20(6).jpeg</fanart>
-<info>Pluto Tv Aproveite</info>
+<info>Pluto Tv Aproveite Ao Máximo o BluePlay!</info>
 <externallink>https://github.com/BluePlay8486/BluePlay/raw/refs/heads/main/BluePlay/TV%20AO%20VIVO/PLUTO%20TV/PLUTO_TV.txt</externallink>
 </channel>
 
