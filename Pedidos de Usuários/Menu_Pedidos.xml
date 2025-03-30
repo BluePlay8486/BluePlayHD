@@ -1,1 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<channels>
 
+  <channel>
+        <name>[B][COLOR yellow]●[/COLOR] [COLOR white]FILMES[/COLOR][/B]</name>
+        <thumbnail>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FILMES.png</thumbnail>
+        <fanart>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png</fanart>
+        <info>Explore um vasto catálogo de filmes com os melhores lançamentos, clássicos inesquecíveis e produções de diversos gêneros. Encontre desde ação eletrizante até dramas emocionantes, tudo organizado para facilitar sua navegação. Escolha seu filme favorito e aproveite!
+
+[B][COLOR aquamarine]DOAÇÃO:[/COLOR][/B]
+
+[COLOR blue]TeamBluePlay@gmail.com[/COLOR]</info>
+        <externallink>https://github.com/BluePlay8486/BluePlay/raw/refs/heads/main/BluePlay/FILMES/Menu_Filmes1.xml</externallink>
+    </channel>
+
+    <channel>
+        <name>[B][COLOR yellow]●[/COLOR] [COLOR white]SÉRIES[/COLOR][/B]</name>
+        <thumbnail>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/S%C3%89RIES.png</thumbnail>
+        <fanart>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png</fanart>
+        <info>Explore uma seleção de séries envolventes, com histórias que vão te prender do começo ao fim. De comédias leves a tramas intensas, temos séries imperdíveis para todos os gostos. Navegue e encontre sua próxima maratona!
+
+[B][COLOR aquamarine]DOAÇÃO:[/COLOR][/B]
+
+[COLOR blue]TeamBluePlay@gmail.com[/COLOR]</info>
+        <externallink>https://github.com/BluePlay8486/BluePlay/raw/refs/heads/main/BluePlay/S%C3%89RIES/MENUS/Menu_Series2.xml</externallink>
+    </channel>
+
+  <channels>
