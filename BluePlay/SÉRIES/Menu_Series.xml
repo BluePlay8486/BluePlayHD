@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<channels>
+
+<channel>
+<name>[B][COLOR aquamarine]SERVIDOR:[/COLOR] [COLOR white]1[/COLOR][/B]</name> 
+<thumbnail>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/SERVIDOR%201.png</thumbnail>
+<fanart>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png</fanart> 
+<externallink></externallink>
+</channel>
+    
+<channel>
+<name>[B][COLOR aquamarine]SERVIDOR:[/COLOR] [COLOR white]2[/COLOR][/B]</name> 
+<thumbnail>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/SERVIDOR%202.png</thumbnail>    
+<fanart>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png</fanart>    
+<externallink></externallink>
+</channel>
+    
+</channels>
+     
