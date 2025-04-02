@@ -1,60 +1,3 @@
-
-ga
-QUINTA-FEIRA
-As mensagens são protegidas com a criptografia de ponta a ponta e ficam somente entre você e os participantes desta conversa. Nem mesmo o WhatsApp pode lê-las ou ouvi-las. Clique para saber mais.
-Gerador de XML para Kodi
-blueplay8486.github.io
-Esse é o gerador só de filmes 
-
-
-https://blueplay8486.github.io/BluePlay-Web-Filmes/
-14:06
-Gerador de XML
-blueplay8486.github.io
-Esse é o gerador de séries que é um porquinho complicado mais vou te ensinar 
-
-
-
-https://blueplay8486.github.io/BluePlay-Web/
-14:06
-https://dropload.io/
-14:28
-plugin.video.youtube.zip
-ZIP•1 MB
-21:01
-SEXTA-FEIRA
-Supermercado Peg-Pag
-🛒 Venha fazer parte da nossa equipe! 🎯 Estamos contratando: ➡️ Repositor; ➡️ Auxiliar de Limpeza; ➡️ Empacotador. ✔️ Requisitos: Maior de 18 anos. Ensino Médio completo. Ser proativo,...
-www.facebook.com
-https://www.facebook.com/share/p/1KtLWFvPw8/?mibextid=qi2Omg
-01:05
-Mensagem apagada
-17:21
-SÁBADO
-https://tinyurl.com/Painel-Admin
-21:43
-https://tinyurl.com/BluePlay-Pedidos
-21:43
-<link>plugin://plugin.video.youtube/play/?video_id=hvmmuHfjxcY$$lsname=[COLOR aquamarine]TRAILER youtube i.d[/COLOR]</link>
-22:20
-DOMINGO
-Gerador de XML para Kodi
-tinyurl.com
-Tá pronto a atualização quer se queria 
-
-
-https://tinyurl.com/Gerador-de-XML-Filmes
-16:01
-SEGUNDA-FEIRA
-plugin.video.BluePlay (1).zip
-ZIP•3 MB
-00:45
-https://tinyurl.com/Gerador-de-XML-Filmes
-20:22
-HOJE
-Assim
-
-
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 
 <channels>
@@ -62,12 +5,7 @@ Assim
  <channel>
   <name>Fleabag</name>
   <thumbnail>https://www.themoviedb.org/t/p/w600_and_h900_bestv2/27vEYsRKa3eAniwmoccOoluEXQ1.jpg</thumbnail>
- <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<items>
-
-
-
-<fanart>https://www.themoviedb.org/t/p/original/hXdQ4MWsEOX6qg6VydKrLb3YJ4g.jpg</fanart>
+  <fanart>https://www.themoviedb.org/t/p/original/hXdQ4MWsEOX6qg6VydKrLb3YJ4g.jpg</fanart>
   <date>21.07.2016</date>
   <genre>Comédia, Drama</genre>
   <info>Uma mulher autêntica que tenta retomar sua vida, enquanto rejeita a ajuda de qualquer um que tente se manter ao seu lado durante a sua crise.</info>
@@ -87,9 +25,5 @@ Assim
    </item>
   </items>
  </channel>
-
-</items>
  
 </channels>
-
-
