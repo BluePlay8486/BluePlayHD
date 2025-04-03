@@ -59,6 +59,13 @@
 </channel>
 
 <channel>
+<name>[B][COLOR aquamarine]FILMES[/COLOR] [COLOR white]| DOCUMENTARIA[/COLOR][/B]</name>
+<thumbnail>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/FILMES.png</thumbnail>
+<fanart>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png</fanart>
+<externallink>https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/refs/heads/main/ARES%20%C3%81REA%20DE%20FILMES%20E%20S%C3%89RIES/FILMES/DOCUMENTARIOS.XML</externallink>
+</channel>
+  
+<channel>
 <name>[B][COLOR aquamarine]FILMES[/COLOR] [COLOR white]| FICÇÃO[/COLOR][/B]</name>
 <thumbnail>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/FILMES.png</thumbnail>
 <fanart>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png</fanart>
