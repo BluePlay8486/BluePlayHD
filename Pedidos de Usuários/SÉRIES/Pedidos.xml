@@ -1,7 +1,49 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <channels>
 
+<item>
+    <title>[COLOR white][B]Demolidor: Renascido[/B][/COLOR]</title>
+    <thumbnail>https://image.tmdb.org/t/p/w500/eODcpeaj6jFoVG1kBVpNFyFh45I.jpg</thumbnail>
+    <fanart>https://image.tmdb.org/t/p/original/hrsRczdsAHBLTDzlIqt82bxY0Tt.jpg</fanart>
+    <info>
+        [COLOR yellow]Gênero:[/COLOR] Drama, Crime
+        [COLOR yellow]Sinopse:[/COLOR] Matt Murdock, um advogado cego com habilidades fantásticas, luta por justiça através de seu agitado escritório de advocacia.
+    </info>
 
+    <!-- Temporada 1 -->
+    <folder>
+        <title>[COLOR yellow][B]TEMPORADA 1ª[/B][/COLOR]</title>
+        <item>
+            <title>[COLOR white]EPISÓDIO 1[/COLOR]</title>
+            <link>plugin://plugin.video.resolverurl?url=http://cdn.pthdtv.top:80/series/630922725/4540063.mp4</link>
+        </item>
+        <item>
+            <title>[COLOR white]EPISÓDIO 2[/COLOR]</title>
+            <link>plugin://plugin.video.resolverurl?url=http://cdn.pthdtv.top:80/series/630922725/4540063.mp4</link>
+        </item>
+        <item>
+            <title>[COLOR white]EPISÓDIO 3[/COLOR]</title>
+            <link>plugin://plugin.video.resolverurl?url=http://cdn.pthdtv.top:80/series/630922725/4540063.mp4</link>
+        </item>
+    </folder>
+
+    <!-- Temporada 2 -->
+    <folder>
+        <title>[COLOR yellow][B]TEMPORADA 2ª[/B][/COLOR]</title>
+        <item>
+            <title>[COLOR white]EPISÓDIO 1[/COLOR]</title>
+            <link>plugin://plugin.video.resolverurl?url=http://cdn.pthdtv.top:80/series/630922725/4540063.mp4</link>
+        </item>
+        <item>
+            <title>[COLOR white]EPISÓDIO 2[/COLOR]</title>
+            <link>plugin://plugin.video.resolverurl?url=http://cdn.pthdtv.top:80/series/630922725/4540063.mp4</link>
+        </item>
+        <item>
+            <title>[COLOR white]EPISÓDIO 3[/COLOR]</title>
+            <link>plugin://plugin.video.resolverurl?url=http://cdn.pthdtv.top:80/series/630922725/4540063.mp4</link>
+        </item>
+    </folder>
+</item>
 
 
 
