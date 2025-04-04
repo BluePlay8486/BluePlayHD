@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <channels>
-  <channel>
+<channel>
     <name>Demolidor: Renascido</name>
     <thumbnail>https://image.tmdb.org/t/p/w500/eODcpeaj6jFoVG1kBVpNFyFh45I.jpg</thumbnail>
     <fanart>https://image.tmdb.org/t/p/original/hrsRczdsAHBLTDzlIqt82bxY0Tt.jpg</fanart>
@@ -11,18 +11,18 @@
         <title>Demolidor: Renascido - 1ª Temporada</title>
         <thumbnail>https://image.tmdb.org/t/p/w500/eODcpeaj6jFoVG1kBVpNFyFh45I.jpg</thumbnail>
         <fanart>https://image.tmdb.org/t/p/original/hrsRczdsAHBLTDzlIqt82bxY0Tt.jpg</fanart>
-        <link>plugin://plugin.video.resolverurl?url=ndnd$$lsname=[COLOR white]EPISÓDIO 1[/COLOR]</link>
-        <link>plugin://plugin.video.resolverurl?url=jerj$$lsname=[COLOR white]EPISÓDIO 2[/COLOR]</link>
-        <link>plugin://plugin.video.resolverurl?url=rnrn$$lsname=[COLOR white]EPISÓDIO 3[/COLOR]</link>
-        <link>plugin://plugin.video.resolverurl?url=ebrb$$lsname=[COLOR white]EPISÓDIO 4[/COLOR]</link>
-        <link>plugin://plugin.video.resolverurl?url=ne$$lsname=[COLOR white]EPISÓDIO 5[/COLOR]</link>
-        <link>plugin://plugin.video.resolverurl?url=hdhd$$lsname=[COLOR white]EPISÓDIO 6[/COLOR]</link>
-        <link>plugin://plugin.video.resolverurl?url=ejr$$lsname=[COLOR white]EPISÓDIO 7[/COLOR]</link>
-        <link>plugin://plugin.video.resolverurl?url=enebr$$lsname=[COLOR white]EPISÓDIO 8[/COLOR]</link>
-        <link>plugin://plugin.video.resolverurl?url=ebnr$$lsname=[COLOR white]EPISÓDIO 9[/COLOR]</link>
+        <link>plugin://plugin.video.resolverurl?url=ggh$$lsname=[COLOR white]EPISÓDIO 1[/COLOR] - [COLOR yellow]Meia Hora do Céu[/COLOR]</link>
+        <link>plugin://plugin.video.resolverurl?url=ghh$$lsname=[COLOR white]EPISÓDIO 2[/COLOR] - [COLOR yellow]Ótica[/COLOR]</link>
+        <link>plugin://plugin.video.resolverurl?url=vhh$$lsname=[COLOR white]EPISÓDIO 3[/COLOR] - [COLOR yellow]A Palma da Sua Mão[/COLOR]</link>
+        <link>plugin://plugin.video.resolverurl?url=njj$$lsname=[COLOR white]EPISÓDIO 4[/COLOR] - [COLOR yellow]Sic Semper Sistema[/COLOR]</link>
+        <link>plugin://plugin.video.resolverurl?url=nnnn$$lsname=[COLOR white]EPISÓDIO 5[/COLOR] - [COLOR yellow]Com Juros[/COLOR]</link>
+        <link>plugin://plugin.video.resolverurl?url=nnn$$lsname=[COLOR white]EPISÓDIO 6[/COLOR] - [COLOR yellow]Força Excessiva[/COLOR]</link>
+        <link>plugin://plugin.video.resolverurl?url=nnnm$$lsname=[COLOR white]EPISÓDIO 7[/COLOR] - [COLOR yellow]Arte pela Arte[/COLOR]</link>
+        <link>plugin://plugin.video.resolverurl?url=mmm$$lsname=[COLOR white]EPISÓDIO 8[/COLOR] - [COLOR yellow]Episódio 8[/COLOR]</link>
+        <link>plugin://plugin.video.resolverurl?url=m$$lsname=[COLOR white]EPISÓDIO 9[/COLOR] - [COLOR yellow]Episódio 9[/COLOR]</link>
       </item>
     </items>
-  </channel>
+</channel>
   
   <channel>
     <name>Demolidor: Renascido</name>
