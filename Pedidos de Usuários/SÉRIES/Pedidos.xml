@@ -1,56 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<items>
-
-<item>
-    <title>[COLOR white][B]Demolidor: Renascido[/B][/COLOR]</title>
+<channels>
+  <channel>
+    <name>Demolidor: Renascido</name>
     <thumbnail>https://image.tmdb.org/t/p/w500/eODcpeaj6jFoVG1kBVpNFyFh45I.jpg</thumbnail>
     <fanart>https://image.tmdb.org/t/p/original/hrsRczdsAHBLTDzlIqt82bxY0Tt.jpg</fanart>
-    <info>
-        [COLOR yellow]Gênero:[/COLOR] Drama, Crime
-        [COLOR yellow]Sinopse:[/COLOR] Matt Murdock, um advogado cego com habilidades fantásticas, luta por justiça através de seu agitado escritório de advocacia.
-    </info>
-
-    <!-- Temporada 1 -->
-    <folder>
-        <title>[COLOR yellow][B]TEMPORADA 1ª[/B][/COLOR]</title>
-        <item>
-            <title>[COLOR white]EPISÓDIO 1[/COLOR]</title>
-            <link>plugin://plugin.video.resolverurl?url=http://cdn.pthdtv.top:80/series/630922725/4540063.mp4</link>
-        </item>
-        <item>
-            <title>[COLOR white]EPISÓDIO 2[/COLOR]</title>
-            <link>plugin://plugin.video.resolverurl?url=http://cdn.pthdtv.top:80/series/630922725/4540063.mp4</link>
-        </item>
-        <item>
-            <title>[COLOR white]EPISÓDIO 3[/COLOR]</title>
-            <link>plugin://plugin.video.resolverurl?url=http://cdn.pthdtv.top:80/series/630922725/4540063.mp4</link>
-        </item>
-    </folder>
-
-    <!-- Temporada 2 -->
-    <folder>
-        <title>[COLOR yellow][B]TEMPORADA 2ª[/B][/COLOR]</title>
-        <item>
-            <title>[COLOR white]EPISÓDIO 1[/COLOR]</title>
-            <link>plugin://plugin.video.resolverurl?url=http://cdn.pthdtv.top:80/series/630922725/4540063.mp4</link>
-        </item>
-        <item>
-            <title>[COLOR white]EPISÓDIO 2[/COLOR]</title>
-            <link>plugin://plugin.video.resolverurl?url=http://cdn.pthdtv.top:80/series/630922725/4540063.mp4</link>
-        </item>
-        <item>
-            <title>[COLOR white]EPISÓDIO 3[/COLOR]</title>
-            <link>plugin://plugin.video.resolverurl?url=http://cdn.pthdtv.top:80/series/630922725/4540063.mp4</link>
-        </item>
-    </folder>
-</item>
-
-
-
-
-
-
-
-
-  
-</items>
+    <info>Matt Murdock, um advogado cego com habilidades fantásticas, luta por justiça através de seu agitado escritório de advocacia, enquanto o ex-chefe do crime Wilson Fisk busca seus próprios empreendimentos políticos em Nova Iorque. Quando suas identidades passadas começam a emergir, seus caminhos se cruzam perigosamente.</info>
+    <genre>Drama, Crime</genre>
+    <items>
+      <item>
+        <title>Demolidor: Renascido - 1ª Temporada</title>
+        <thumbnail>https://image.tmdb.org/t/p/w500/eODcpeaj6jFoVG1kBVpNFyFh45I.jpg</thumbnail>
+        <fanart>https://image.tmdb.org/t/p/original/hrsRczdsAHBLTDzlIqt82bxY0Tt.jpg</fanart>
+        <link>plugin://plugin.video.resolverurl?url=ndnd$$lsname=[COLOR white]EPISÓDIO 1[/COLOR]</link>
+        <link>plugin://plugin.video.resolverurl?url=jerj$$lsname=[COLOR white]EPISÓDIO 2[/COLOR]</link>
+        <link>plugin://plugin.video.resolverurl?url=rnrn$$lsname=[COLOR white]EPISÓDIO 3[/COLOR]</link>
+        <link>plugin://plugin.video.resolverurl?url=ebrb$$lsname=[COLOR white]EPISÓDIO 4[/COLOR]</link>
+        <link>plugin://plugin.video.resolverurl?url=ne$$lsname=[COLOR white]EPISÓDIO 5[/COLOR]</link>
+        <link>plugin://plugin.video.resolverurl?url=hdhd$$lsname=[COLOR white]EPISÓDIO 6[/COLOR]</link>
+        <link>plugin://plugin.video.resolverurl?url=ejr$$lsname=[COLOR white]EPISÓDIO 7[/COLOR]</link>
+        <link>plugin://plugin.video.resolverurl?url=enebr$$lsname=[COLOR white]EPISÓDIO 8[/COLOR]</link>
+        <link>plugin://plugin.video.resolverurl?url=ebnr$$lsname=[COLOR white]EPISÓDIO 9[/COLOR]</link>
+      </item>
+    </items>
+  </channel>
+</channels>
