@@ -35,6 +35,26 @@
     </items>
 </channel>
 
+<channel>
+    <name>Ladrões de Drogas</name>
+    <thumbnail>https://image.tmdb.org/t/p/w500/lQuT7R5MTeNHKm7jeyihABMS9Pe.jpg</thumbnail>
+    <fanart>https://image.tmdb.org/t/p/original/qbUeqIQAn1cy01OuSctGmatVJCC.jpg</fanart>
+    <info>Dois amigos de longa data da Filadélfia se disfarçam de policiais para roubar traficantes. Um esquema perfeito até que abordam o lugar errado e se tornam alvos de uma organização do narcotráfico.</info>
+    <genre>Crime, Drama</genre>
+    <items>
+      <item>
+        <title>Ladrões de Drogas - 1ª Temporada</title>
+        <thumbnail>https://image.tmdb.org/t/p/w500/lQuT7R5MTeNHKm7jeyihABMS9Pe.jpg</thumbnail>
+        <fanart>https://image.tmdb.org/t/p/original/qbUeqIQAn1cy01OuSctGmatVJCC.jpg</fanart>
+        <link>plugin://plugin.video.elementum/play?uri=magnet:?xt=urn:btih:8fd2de536fe7901a62d44a68736d18057ac5061b&dn=HIDRATORRENTS.ORG.-DUBLADO-DUAL-AUDIO-.Dope.Thief.S01E01-02.1080p.WEB-DL.DUAL.5.1&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.ccc.de%3A80%2Fannounce$$lsname=[COLOR white]EPISÓDIO 1[/COLOR] - [COLOR yellow]Jolly Ranchers[/COLOR]</link>
+        <link>plugin://plugin.video.elementum/play?uri=magnet:?xt=urn:btih:8fd2de536fe7901a62d44a68736d18057ac5061b&dn=HIDRATORRENTS.ORG.-DUBLADO-DUAL-AUDIO-.Dope.Thief.S01E01-02.1080p.WEB-DL.DUAL.5.1&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.ccc.de%3A80%2Fannounce$$lsname=[COLOR white]EPISÓDIO 2[/COLOR] - [COLOR yellow]Bat Out of Hell[/COLOR]</link>
+        <link>plugin://plugin.video.elementum/play?uri=magnet:?xt=urn:btih:8fd2de536fe7901a62d44a68736d18057ac5061b&dn=HIDRATORRENTS.ORG.-DUBLADO-DUAL-AUDIO-.Dope.Thief.S01E01-02.1080p.WEB-DL.DUAL.5.1&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.ccc.de%3A80%2Fannounce$$lsname=[COLOR white]EPISÓDIO 3[/COLOR] - [COLOR yellow]Fugiu, morreu ou recaiu[/COLOR]</link>
+        <link>plugin://plugin.video.elementum/play?uri=magnet:?xt=urn:btih:8fd2de536fe7901a62d44a68736d18057ac5061b&dn=HIDRATORRENTS.ORG.-DUBLADO-DUAL-AUDIO-.Dope.Thief.S01E01-02.1080p.WEB-DL.DUAL.5.1&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.ccc.de%3A80%2Fannounce$$lsname=[COLOR white]EPISÓDIO 4[/COLOR] - [COLOR yellow]Philadelphia Lawyer[/COLOR]</link>
+      </item>
+    </items>
+</channel>
+
+
 
 
 </channels>
