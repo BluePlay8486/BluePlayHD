@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 
 <channels>
- 
- <channel>
-  <name>Fleabag</name>
-  <thumbnail>https://www.themoviedb.org/t/p/w600_and_h900_bestv2/27vEYsRKa3eAniwmoccOoluEXQ1.jpg</thumbnail>
-  <fanart>https://www.themoviedb.org/t/p/original/hXdQ4MWsEOX6qg6VydKrLb3YJ4g.jpg</fanart>
-  <date>21.07.2016</date>
-  <genre>Comédia, Drama</genre>
-  <info>Uma mulher autêntica que tenta retomar sua vida, enquanto rejeita a ajuda de qualquer um que tente se manter ao seu lado durante a sua crise.</info>
-  <studio>AMAZON</studio>
-  <items>
-   <item>
-    <title>Fleabag - 1ª Temporada</title>fleabag
-                <link>plugin://plugin.video.elementum/play?uri=magnet:?xt=urn:btih:85e92552c4b7e7a4945f124e038b504e59aa8a01</link>
-    <thumbnail>https://image.tmdb.org/t/p/w342/2fmsjdLoBEkfhcelg9ZUAHz2pfs.jpg</thumbnail>
-    <genre>Comédia, Drama</genre>
-   </item>
-   <item>
-    <title>Fleabag - 2ª Temporada</title>
-    <link>plugin://plugin.video.elementum/play?uri=magnet:?xt=urn:btih:0bfc8ca9d850c57ecc456870a34ed86bc1e65cc9</link>
-    <thumbnail>https://image.tmdb.org/t/p/w342/tivjTfxoptJTguO01gKipQzQWtz.jpg</thumbnail>
-    <genre>Comédia, Drama</genre>
-   </item>
-  </items>
- </channel>
 
 
 <channel>
