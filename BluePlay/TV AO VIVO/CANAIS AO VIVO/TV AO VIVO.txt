@@ -1,4 +1,6 @@
 #EXTM3U
+#EXTINF:-1 tvg-id="" tvg-name="24 HORAS" tvg-logo="http://xp2.wtf:80/images/41648ed37ea162c88f1f5716a6aab728.jpg" group-title="24H SÉRIES",24 HORAkjo
+http://cdn.pthdtv.top:80/630922725/280890306/3241203
 #EXTINF:-1 tvg-id="" tvg-name="24 HORAS" tvg-logo="http://xp2.wtf:80/images/41648ed37ea162c88f1f5716a6aab728.jpg" group-title="24H SÉRIES",24 HORAS
 http://cdn.pthdtv.top:80/630922725/280890306/3241203
 #EXTINF:-1 tvg-id="" tvg-name="A CASA DA RAVEN" tvg-logo="http://xp2.wtf:80/images/a66ece319873a47d8eace3055cfc3cd1.png" group-title="24H SÉRIES",A CASA DA RAVEN
