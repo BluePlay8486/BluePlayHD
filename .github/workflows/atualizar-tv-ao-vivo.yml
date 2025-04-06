@@ -2,7 +2,7 @@ name: Atualizar Lista TV AO VIVO
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Todos os dias às 00:00 UTC
+    - cron: '0 0 * * *'  # Todos os dias às 00:00
   workflow_dispatch:
 
 jobs:
@@ -49,10 +49,10 @@ jobs:
             }
           }' lista.m3u > "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt"
 
-      - name: Criar backup com data e hora
+      - name: Backup da lista filtrada
         run: |
           mkdir -p "BluePlay/TV AO VIVO/backup"
-          cp "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt" "BluePlay/TV AO VIVO/backup/TV_$(date '+%Y-%m-%d_%H-%M').txt"
+          cp "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt" "BluePlay/TV AO VIVO/backup/TV_$(date +'%Y-%m-%d_%H-%M').txt"
 
       - name: Configurar Git
         run: |
@@ -62,7 +62,6 @@ jobs:
       - name: Commit e Push
         run: |
           echo "Verificando alterações..."
-          git add "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt"
-          git add "BluePlay/TV AO VIVO/backup/"
+          git add "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt" "BluePlay/TV AO VIVO/backup"
           git commit -m "Atualização automática da lista TV AO VIVO" || echo "Sem alterações"
           git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/BluePlay8486/BluePlayHD.git HEAD:main
