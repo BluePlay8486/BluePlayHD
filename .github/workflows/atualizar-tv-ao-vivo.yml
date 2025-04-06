@@ -15,11 +15,12 @@ jobs:
 
       - name: Baixar lista M3U completa
         run: |
-          curl -o lista.m3u "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus"
+          curl -s -o lista.m3u "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus"
+          head -n 10 lista.m3u  # Verificar se baixou certo
 
       - name: Filtrar grupos desejados e atualizar TV AO VIVO.txt
         run: |
-          grep -E 'group-title="(24H SÉRIES|24H DESENHOS|FILMES E SÉRIES|⭐ REALITY BBB 2025|ABERTOS|DOCUMENTÁRIOS|BAND|NOTÍCIAS|VARIEDADES|RELIGIOSOS|INFANTIL|SKY PLAY|DISCOVERY|DISNEY\+ \| HBO MAX|24H SHOWS|GLOBOS REGIONAIS|GLOBOS CAPITAIS|REDE HBO|RECORD TV|SBT|REDE TELECINE)"' -A1 lista.m3u > "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt"
+          grep -Ei 'group-title=".*(24H|FILMES|REALITY|ABERTOS|DOCUMENT|BAND|NOT[IÍ]CIAS|VARIEDADES|RELIGIOSOS|INFANTIL|SKY|DISCOVERY|DISNEY|HBO|SHOWS|GLOBOS|RECORD|SBT|TELECINE).*"' -A1 lista.m3u > "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt"
 
       - name: Commitar alterações
         run: |
