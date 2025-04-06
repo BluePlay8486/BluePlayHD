@@ -1,32 +1,33 @@
-name: Atualizar TV AO VIVO.txt a cada 24h
+name: Atualizar TV AO VIVO.txt
 
 on:
   schedule:
-    - cron: '0 3 * * *'  # Executa todo dia às 03h UTC (00h horário de Brasília)
-  workflow_dispatch:     # Também pode rodar manualmente
+    - cron: '0 0 * * *'  # Executa 1x por dia (00h UTC)
+  workflow_dispatch:
 
 jobs:
-  atualizar:
+  atualizar-lista:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clonar o repositório
+      - name: Clonar repositório
         uses: actions/checkout@v3
 
-      - name: Baixar a lista M3U original
-        run: curl -L -o lista.m3u "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
+      - name: Baixar lista M3U
+        run: |
+          curl -L -o lista.m3u "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
 
-      - name: Filtrar os grupos desejados
+      - name: Filtrar grupos desejados
         run: |
           grep -E 'group-title="(24H SÉRIES|24H DESENHOS|FILMES E SÉRIES|⭐ REALITY BBB 2025|ABERTOS|DOCUMENTÁRIOS|BAND|NOTÍCIAS|VARIEDADES|RELIGIOSOS|INFANTIL|SKY PLAY|DISCOVERY|DISNEY\+ \| HBO MAX|24H SHOWS|GLOBOS REGIONAIS|GLOBOS CAPITAIS|REDE HBO|RECORD TV|SBT|REDE TELECINE)"' -A1 lista.m3u > "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt"
 
       - name: Configurar Git
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@users.noreply.github.com"
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@users.noreply.github.com"
 
-      - name: Fazer commit e push
+      - name: Commitar e enviar alterações
         run: |
           git add "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt"
-          git commit -m "Atualização automática da lista TV AO VIVO" || echo "Sem alterações"
-          git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }} HEAD:main || true
+          git commit -m "Atualização automática da lista TV AO VIVO" || exit 0
+          git push https://x-access-token:${{ secrets.GHT_TOKEN }}@github.com/BluePlay8486/BluePlayHD.git HEAD:main
