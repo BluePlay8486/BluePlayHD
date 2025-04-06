@@ -1,9 +1,9 @@
-name: Atualizar EPG.xml diariamente
+name: Atualizar EPG.xml a cada 12 horas
 
 on:
   schedule:
-    - cron: '0 3 * * *'  # Executa todo dia às 03:00 (UTC)
-  workflow_dispatch:     # Permite rodar manualmente
+    - cron: '0 */12 * * *'  # Atualiza a cada 12 horas (00h e 12h UTC)
+  workflow_dispatch:         # Permite rodar manualmente no GitHub
 
 jobs:
   atualizar-epg:
@@ -15,7 +15,7 @@ jobs:
 
       - name: Baixar EPG.xml
         run: |
-          curl -o epg.xml https://URL-DA-SUA-EPG.COM/epg.xml
+          curl -o epg.xml "http://cdn.pthdtv.top:80/xmltv.php?username=630922725&password=280890306"
 
       - name: Commitar alterações
         run: |
