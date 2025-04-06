@@ -59,10 +59,15 @@ jobs:
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
 
-      - name: Verificar alterações e enviar
+      - name: Verificar alterações
         run: |
           echo "Verificando alterações..."
           git add "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt"
           git add "BluePlay/TV AO VIVO/backup/"
           git commit -m "Atualização automática da lista TV AO VIVO" || echo "Sem alterações"
-          git push https://x-access-token:${{ secrets.GH_TOKEN_BLUE }}@github.com/BluePlay8486/BluePlayHD.git HEAD:main
+
+      - name: Enviar alterações
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          branch: main
