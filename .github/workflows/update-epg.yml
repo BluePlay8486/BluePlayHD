@@ -10,38 +10,48 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Clona o repositório
       - name: Clonar o repositório
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_TOKEN }}
 
+      # Baixa o novo EPG.xml
       - name: Baixar EPG.xml
         run: |
           mkdir -p EPG
           curl -L -o EPG/epg.xml "http://cdn.pthdtv.top:80/xmltv.php?username=630922725&password=280890306"
 
-      - name: Verificar se o arquivo foi baixado corretamente
+      # Verifica se o download foi bem-sucedido
+      - name: Verificar EPG.xml
         run: |
-          if [ -f "EPG/epg.xml" ]; then
-            echo "Arquivo baixado com sucesso:"
-            ls -lh EPG/epg.xml
-          else
-            echo "Erro: epg.xml não foi baixado!"
+          if [ ! -s "EPG/epg.xml" ]; then
+            echo "Erro: epg.xml está vazio ou não foi baixado!"
             exit 1
           fi
+          echo "Arquivo baixado com sucesso:"
+          ls -lh EPG/epg.xml
+          head -n 10 EPG/epg.xml
 
+      # Configura Git
       - name: Configurar Git
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
 
-      - name: Puxar alterações remotas com rebase
+      # Puxa alterações do repositório remoto
+      - name: Puxar atualizações remotas
         run: |
           git pull origin main --rebase
 
-      - name: Commitar alterações
+      # Força o commit mesmo que o conteúdo não mude (com touch)
+      - name: Forçar commit
         run: |
+          date >> EPG/epg.xml  # adiciona uma linha para garantir mudança
           git add EPG/epg.xml
-          git diff --cached --quiet || git commit -m "Atualização automática do EPG.xml"
+          git commit -m "Atualização forçada do EPG.xml" || echo "Nada para commit"
 
-      - name: Enviar alterações para o GitHub
+      # Push das alterações
+      - name: Enviar para o GitHub
         run: |
           git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
