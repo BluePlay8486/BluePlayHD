@@ -1,0 +1,79 @@
+name: Atualizar Lista TV AO VIVO
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Executa todos os dias à meia-noite
+  workflow_dispatch:
+
+jobs:
+  atualizar-lista:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Clonar repositório
+      - name: Clonar repositório
+        uses: actions/checkout@v3
+
+      # 2. Baixar lista .m3u original
+      - name: Baixar lista .m3u original
+        run: |
+          curl -L -o lista.m3u "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
+
+      # 3. Filtrar canais desejados e adicionar EPG no topo
+      - name: Filtrar canais desejados e adicionar EPG
+        run: |
+          echo '#EXTM3U url-tvg="https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/main/EPG/epg.xml"' > temp_lista.m3u
+          awk '
+          BEGIN {
+            IGNORECASE = 1
+            split("24H SÉRIES,24H DESENHOS,FILMES E SÉRIES,⭐ REALITY BBB 2025,ABERTOS,DOCUMENTÁRIOS,BAND,NOTÍCIAS,VARIEDADES,RELIGIOSOS,INFANTIL,SKY PLAY,DISCOVERY,DISNEY+ | HBO MAX,24H SHOWS,GLOBOS REGIONAIS,GLOBOS CAPITAIS,REDE HBO,RECORD TV,SBT,REDE TELECINE", grupos, ",")
+            for (i in grupos) alvo[normalize(grupos[i])] = 1
+          }
+          function normalize(str) {
+            gsub(/[[:punct:][:cntrl:][:space:]]/, "", str)
+            gsub(/[áàãâä]/, "a", str)
+            gsub(/[éèêë]/, "e", str)
+            gsub(/[íìîï]/, "i", str)
+            gsub(/[óòõôö]/, "o", str)
+            gsub(/[úùûü]/, "u", str)
+            gsub(/[ç]/, "c", str)
+            return tolower(str)
+          }
+          /#EXTINF/ {
+            line = $0
+            match($0, /group-title="([^"]+)"/, arr)
+            grupo = normalize(arr[1])
+            if (grupo in alvo) {
+              print line >> "temp_lista.m3u"
+              getline
+              print >> "temp_lista.m3u"
+            }
+          }' lista.m3u
+
+          mv temp_lista.m3u "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt"
+
+      # 4. Criar backup da lista
+      - name: Criar backup da lista
+        run: |
+          mkdir -p "BluePlay/TV AO VIVO/backup"
+          cp "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt" "BluePlay/TV AO VIVO/backup/TV_$(date +'%Y-%m-%d_%H-%M').txt"
+
+      # 5. Configurar Git
+      - name: Configurar Git
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+
+      # 6. Verificar alterações
+      - name: Verificar alterações
+        run: |
+          git add "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt"
+          git add "BluePlay/TV AO VIVO/backup/" || true
+          git commit -m "Atualização automática da lista TV AO VIVO com EPG" || echo "Sem alterações"
+
+      # 7. Enviar alterações
+      - name: Enviar alterações
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          branch: main
