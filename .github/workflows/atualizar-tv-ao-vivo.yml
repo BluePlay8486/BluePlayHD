@@ -1,8 +1,8 @@
-name: Atualizar TV AO VIVO.txt
+name: Atualizar Lista TV AO VIVO
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Executa 1x por dia (00h UTC)
+    - cron: '0 */6 * * *' # A cada 6 horas
   workflow_dispatch:
 
 jobs:
@@ -13,21 +13,67 @@ jobs:
       - name: Clonar repositório
         uses: actions/checkout@v3
 
-      - name: Baixar lista M3U
+      - name: Baixar lista .m3u original
         run: |
-          curl -L -o lista.m3u "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
+          echo "Baixando lista M3U..."
+          curl -fL -o lista.m3u "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts" || {
+            echo "Erro ao baixar a lista M3U. Encerrando workflow."
+            exit 1
+          }
 
-      - name: Filtrar grupos desejados
+      - name: Filtrar canais desejados (ignora emojis, acentos e caixa)
         run: |
-          grep -E 'group-title="(24H SÉRIES|24H DESENHOS|FILMES E SÉRIES|⭐ REALITY BBB 2025|ABERTOS|DOCUMENTÁRIOS|BAND|NOTÍCIAS|VARIEDADES|RELIGIOSOS|INFANTIL|SKY PLAY|DISCOVERY|DISNEY\+ \| HBO MAX|24H SHOWS|GLOBOS REGIONAIS|GLOBOS CAPITAIS|REDE HBO|RECORD TV|SBT|REDE TELECINE)"' -A1 lista.m3u > "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt"
+          echo "Filtrando canais desejados..."
+          awk '
+          BEGIN {
+            IGNORECASE = 1
+            split("24h series 24h desenhos filmes e series reality bbb abertos documentarios band noticias variedades religiosos infantil sky play discovery disney hbo max 24h shows globos regionais globos capitais rede hbo record tv sbt rede telecine", grupos, " ")
+            for (i in grupos) alvo[grupos[i]] = 1
+          }
+          function normalize(str) {
+            gsub(/[[:punct:][:cntrl:][:space:]]/, "", str)
+            gsub(/[áàãâä]/, "a", str)
+            gsub(/[éèêë]/, "e", str)
+            gsub(/[íìîï]/, "i", str)
+            gsub(/[óòõôö]/, "o", str)
+            gsub(/[úùûü]/, "u", str)
+            gsub(/[ç]/, "c", str)
+            return tolower(str)
+          }
+          /#EXTINF/ {
+            line = $0
+            match($0, /group-title="([^"]+)"/, arr)
+            grupo = normalize(arr[1])
+            for (g in alvo) {
+              if (grupo ~ g) {
+                print line
+                getline
+                print
+                break
+              }
+            }
+          }' lista.m3u > "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt"
+
+      - name: Backup da lista com data
+        run: |
+          echo "Criando backup da lista..."
+          DATE=$(date +"%Y-%m-%d_%H-%M")
+          mkdir -p "BluePlay/TV AO VIVO/backup"
+          cp "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt" "BluePlay/TV AO VIVO/backup/TV_${DATE}.txt"
 
       - name: Configurar Git
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@users.noreply.github.com"
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
 
-      - name: Commitar e enviar alterações
+      - name: Commit e Push
         run: |
+          echo "Verificando alterações..."
           git add "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt"
-          git commit -m "Atualização automática da lista TV AO VIVO" || exit 0
-          git push https://x-access-token:${{ secrets.GHT_TOKEN }}@github.com/BluePlay8486/BluePlayHD.git HEAD:main
+          git add "BluePlay/TV AO VIVO/backup/"
+          if git diff --cached --quiet; then
+            echo "Sem alterações para commit."
+          else
+            git commit -m "Atualização automática da lista TV AO VIVO"
+            git push https://x-access-token:${{ secrets.GHT_TOKEN }}@github.com/BluePlay8486/BluePlayHD.git HEAD:main
+          }
