@@ -19,15 +19,15 @@ jobs:
         run: |
           curl -L -o lista.m3u "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
 
-      # 3. Filtrar canais desejados (considerando variações de caixa e acentuação)
-      - name: Filtrar canais desejados (considerando variações de caixa e acentuação)
+      # 3. Filtrar canais desejados (apenas os grupos especificados)
+      - name: Filtrar canais desejados (somente grupos específicos)
         run: |
           awk '
           BEGIN {
             IGNORECASE = 1
             # Lista de grupos exatos a serem filtrados
             split("24H SÉRIES 24H DESENHOS FILMES E SÉRIES ⭐ REALITY BBB 2025 ABERTOS DOCUMENTÁRIOS BAND NOTÍCIAS VARIEDADES RELIGIOSOS INFANTIL SKY PLAY DISCOVERY DISNEY+ | HBO MAX 24H SHOWS GLOBOS REGIONAIS GLOBOS CAPITAIS REDE HBO RECORD TV SBT REDE TELECINE", grupos, " ")
-            for (i in grupos) alvo[normalize(grupos[i])] = 1  # Normalize os grupos para garantir que todas as variações sejam capturadas
+            for (i in grupos) alvo[normalize(grupos[i])] = 1  # Normaliza os grupos para garantir que todas as variações sejam capturadas
           }
           function normalize(str) {
             gsub(/[[:punct:][:cntrl:][:space:]]/, "", str)  # Remove caracteres especiais
