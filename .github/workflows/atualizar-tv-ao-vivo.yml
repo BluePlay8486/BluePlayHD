@@ -1,0 +1,30 @@
+name: Atualizar TV AO VIVO.txt diariamente
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # Executa todo dia às 02h UTC
+  workflow_dispatch:
+
+jobs:
+  atualizar-tv-ao-vivo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositório
+        uses: actions/checkout@v3
+
+      - name: Baixar lista M3U completa
+        run: |
+          curl -o lista.m3u "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus"
+
+      - name: Filtrar grupos desejados e atualizar TV AO VIVO.txt
+        run: |
+          grep -E 'group-title="(24H SÉRIES|24H DESENHOS|FILMES E SÉRIES|⭐ REALITY BBB 2025|ABERTOS|DOCUMENTÁRIOS|BAND|NOTÍCIAS|VARIEDADES|RELIGIOSOS|INFANTIL|SKY PLAY|DISCOVERY|DISNEY\+ \| HBO MAX|24H SHOWS|GLOBOS REGIONAIS|GLOBOS CAPITAIS|REDE HBO|RECORD TV|SBT|REDE TELECINE)"' -A1 lista.m3u > "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt"
+
+      - name: Commitar alterações
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt"
+          git commit -m "Atualização automática da lista TV AO VIVO" || true
+          git push || true
