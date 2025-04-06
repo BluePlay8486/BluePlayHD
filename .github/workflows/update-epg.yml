@@ -14,26 +14,26 @@ jobs:
       - name: Clonar o repositório
         uses: actions/checkout@v3
 
-      # 2. Baixar EPG.xml
+      # 2. Baixar EPG.xml para a pasta correta
       - name: Baixar EPG.xml
         run: |
-          echo "Baixando epg.xml..."
-          curl -L -o epg.xml "http://cdn.pthdtv.top:80/xmltv.php?username=630922725&password=280890306"
+          mkdir -p EPG
+          curl -L -o EPG/epg.xml "http://cdn.pthdtv.top:80/xmltv.php?username=630922725&password=280890306"
 
-      # 3. Verificar se o arquivo foi baixado
+      # 3. Verificar se o arquivo foi baixado corretamente
       - name: Verificar tamanho do EPG.xml
         run: |
-          if [ -f "epg.xml" ]; then
-            echo "Arquivo baixado com sucesso:"
-            ls -lh epg.xml
+          if [ -f "EPG/epg.xml" ]; then
+            echo "Arquivo EPG baixado:"
+            ls -lh EPG/epg.xml
           else
             echo "Erro: epg.xml não foi baixado."
             exit 1
           fi
 
-      # 4. Mostrar as 10 primeiras linhas (opcional para ver se tem conteúdo válido)
-      - name: Mostrar conteúdo inicial do EPG.xml
-        run: head -n 10 epg.xml || true
+      # 4. Mostrar início do arquivo (opcional)
+      - name: Mostrar início do EPG.xml
+        run: head -n 10 EPG/epg.xml || true
 
       # 5. Configurar Git
       - name: Configurar Git
@@ -41,14 +41,14 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
 
-      # 6. Commitar alterações se houver diferença
+      # 6. Commitar alterações somente se houver mudanças
       - name: Commitar alterações
         run: |
-          git add epg.xml
+          git add EPG/epg.xml
           git diff --cached --quiet || git commit -m "Atualização automática do EPG.xml"
 
-      # 7. Enviar alterações
-      - name: Push para o repositório
+      # 7. Push das alterações
+      - name: Enviar alterações para o GitHub
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.GH_TOKEN }}
