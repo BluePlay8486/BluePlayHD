@@ -1,1 +1,522 @@
-#EXTM3U
+#EXTINF:-1 tvg-id="ADSM" tvg-name="AGRO+ FHD" tvg-logo="" group-title="✨ABERTOS",AGRO+ FHD
+http://fontep1tech.space:80/630922725/280890306/6
+#EXTINF:-1 tvg-id="animalplanet.br" tvg-name="ANIMAL PLANET 4K" tvg-logo="https://seeklogo.com/images/A/animal-planet-new-logo-82F51876A3-seeklogo.com.png" group-title="⚡DOCUMENTÁRIOS",ANIMAL PLANET 4K
+http://fontep1tech.space:80/630922725/280890306/369609
+#EXTINF:-1 tvg-id="animalplanet.br" tvg-name="ANIMAL PLANET FHD" tvg-logo="https://seeklogo.com/images/A/animal-planet-new-logo-82F51876A3-seeklogo.com.png" group-title="⚡DOCUMENTÁRIOS",ANIMAL PLANET FHD
+http://fontep1tech.space:80/630922725/280890306/322
+#EXTINF:-1 tvg-id="animalplanet.br" tvg-name="ANIMAL PLANET HD" tvg-logo="https://seeklogo.com/images/A/animal-planet-new-logo-82F51876A3-seeklogo.com.png" group-title="⚡DOCUMENTÁRIOS",ANIMAL PLANET HD
+http://fontep1tech.space:80/630922725/280890306/323
+#EXTINF:-1 tvg-id="animalplanet.br" tvg-name="ANIMAL PLANET SD" tvg-logo="https://seeklogo.com/images/A/animal-planet-new-logo-82F51876A3-seeklogo.com.png" group-title="⚡DOCUMENTÁRIOS",ANIMAL PLANET SD
+http://fontep1tech.space:80/630922725/280890306/324
+#EXTINF:-1 tvg-id="bandbahia.br" tvg-name="BAND BAHIA FHD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND BAHIA FHD
+http://fontep1tech.space:80/630922725/280890306/1374946
+#EXTINF:-1 tvg-id="ZYA297" tvg-name="BAND BAHIA HD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND BAHIA HD
+http://fontep1tech.space:80/630922725/280890306/395
+#EXTINF:-1 tvg-id="" tvg-name="BAND BELEM DO PARA HD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND BELEM DO PARA HD
+http://fontep1tech.space:80/630922725/280890306/4137369
+#EXTINF:-1 tvg-id="bandbrasília.br" tvg-name="BAND BRASILIA HD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND BRASILIA HD
+http://fontep1tech.space:80/630922725/280890306/173196
+#EXTINF:-1 tvg-id="ZYB889" tvg-name="BAND CAMPINAS SD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND CAMPINAS SD
+http://fontep1tech.space:80/630922725/280890306/396
+#EXTINF:-1 tvg-id="" tvg-name="BAND CEARÁ HD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND CEARÁ HD
+http://fontep1tech.space:80/630922725/280890306/173197
+#EXTINF:-1 tvg-id="" tvg-name="BAND GO HD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND GO HD
+http://fontep1tech.space:80/630922725/280890306/173198
+#EXTINF:-1 tvg-id="ZYA720" tvg-name="BAND MINAS HD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND MINAS HD
+http://fontep1tech.space:80/630922725/280890306/398
+#EXTINF:-1 tvg-id="" tvg-name="BAND NATAL FHD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND NATAL FHD
+http://fontep1tech.space:80/630922725/280890306/1387568
+#EXTINF:-1 tvg-id="bandnews.br" tvg-name="BAND NEWS 4K" tvg-logo="https://i.imgur.com/kRZnlzI.png" group-title="✨NOTÍCIAS",BAND NEWS 4K
+http://fontep1tech.space:80/630922725/280890306/369613
+#EXTINF:-1 tvg-id="Band News FHD" tvg-name="BAND NEWS FHD" tvg-logo="https://i.imgur.com/kRZnlzI.png" group-title="✨NOTÍCIAS",BAND NEWS FHD
+http://fontep1tech.space:80/630922725/280890306/406
+#EXTINF:-1 tvg-id="Band News FHD" tvg-name="BAND NEWS HD" tvg-logo="https://i.imgur.com/kRZnlzI.png" group-title="✨NOTÍCIAS",BAND NEWS HD
+http://fontep1tech.space:80/630922725/280890306/407
+#EXTINF:-1 tvg-id="bandnews.br" tvg-name="BAND NEWS SD" tvg-logo="https://i.imgur.com/kRZnlzI.png" group-title="✨NOTÍCIAS",BAND NEWS SD
+http://fontep1tech.space:80/630922725/280890306/1376387
+#EXTINF:-1 tvg-id="Band SP 4k" tvg-name="BAND RECIFE FHD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND RECIFE FHD
+http://fontep1tech.space:80/630922725/280890306/173200
+#EXTINF:-1 tvg-id="bandrj.br" tvg-name="BAND RJ FHD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND RJ FHD
+http://fontep1tech.space:80/630922725/280890306/399
+#EXTINF:-1 tvg-id="bandrj.br" tvg-name="Band RJ HD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",Band RJ HD
+http://fontep1tech.space:80/630922725/280890306/400
+#EXTINF:-1 tvg-id="Band SP FHD" tvg-name="BAND RJ HD³" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND RJ HD³
+http://fontep1tech.space:80/630922725/280890306/80
+#EXTINF:-1 tvg-id="bandrj.br" tvg-name="BAND RJ SD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND RJ SD
+http://fontep1tech.space:80/630922725/280890306/401
+#EXTINF:-1 tvg-id="" tvg-name="BAND RN FHD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND RN FHD
+http://fontep1tech.space:80/630922725/280890306/1387565
+#EXTINF:-1 tvg-id="" tvg-name="BAND RS FHD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND RS FHD
+http://fontep1tech.space:80/630922725/280890306/1374951
+#EXTINF:-1 tvg-id="BR - Band Rio Grande do Sul HD" tvg-name="BAND RS HD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND RS HD
+http://fontep1tech.space:80/630922725/280890306/173201
+#EXTINF:-1 tvg-id="BR - Band Rio Grande do Sul HD" tvg-name="BAND RS SD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND RS SD
+http://fontep1tech.space:80/630922725/280890306/1374952
+#EXTINF:-1 tvg-id="a.e.br" tvg-name="BAND SP 4K" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND SP 4K
+http://fontep1tech.space:80/630922725/280890306/1552323
+#EXTINF:-1 tvg-id="Band SP FHD" tvg-name="BAND SP FHD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND SP FHD
+http://fontep1tech.space:80/630922725/280890306/402
+#EXTINF:-1 tvg-id="a&e.br" tvg-name="BAND SP HD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND SP HD
+http://fontep1tech.space:80/630922725/280890306/403
+#EXTINF:-1 tvg-id="Band SP FHD" tvg-name="BAND SP SD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND SP SD
+http://fontep1tech.space:80/630922725/280890306/404
+#EXTINF:-1 tvg-id="" tvg-name="BAND TAROBÁ FHD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND TAROBÁ FHD
+http://fontep1tech.space:80/630922725/280890306/1387566
+#EXTINF:-1 tvg-id="Ae.br" tvg-name="BIS FHD" tvg-logo="https://i.imgur.com/MUnVmGW.png" group-title="⚡VARIEDADES",BIS FHD
+http://fontep1tech.space:80/630922725/280890306/600771
+#EXTINF:-1 tvg-id="Ae.br" tvg-name="BIS HD" tvg-logo="https://i.imgur.com/MUnVmGW.png" group-title="⚡VARIEDADES",BIS HD
+http://fontep1tech.space:80/630922725/280890306/438
+#EXTINF:-1 tvg-id="BIS" tvg-name="BIS SD" tvg-logo="https://i.imgur.com/MUnVmGW.png" group-title="⚡VARIEDADES",BIS SD
+http://fontep1tech.space:80/630922725/280890306/439
+#EXTINF:-1 tvg-id="Canal Brasil SD" tvg-name="CANAL BRASIL FHD" tvg-logo="https://acstatic.co/logos/canais/canalbrasil.png" group-title="✨ABERTOS",CANAL BRASIL FHD
+http://fontep1tech.space:80/630922725/280890306/469
+#EXTINF:-1 tvg-id="" tvg-name="CANAL BRASIL HD" tvg-logo="https://acstatic.co/logos/canais/canalbrasil.png" group-title="✨ABERTOS",CANAL BRASIL HD
+http://fontep1tech.space:80/630922725/280890306/4774475
+#EXTINF:-1 tvg-id="" tvg-name="CANAL BRASIL SD" tvg-logo="https://acstatic.co/logos/canais/canalbrasil.png" group-title="✨ABERTOS",CANAL BRASIL SD
+http://fontep1tech.space:80/630922725/280890306/4774476
+#EXTINF:-1 tvg-id="a.e.br" tvg-name="CANAL DO BOI FHD" tvg-logo="http://static.clubsrv.me/logos/canais/canaldoboi.png" group-title="✨ABERTOS",CANAL DO BOI FHD
+http://fontep1tech.space:80/630922725/280890306/369617
+#EXTINF:-1 tvg-id="RURALA" tvg-name="Canal Rural HD" tvg-logo="http://acsa.ws:80/images/fd9212142eedf1910dcba86a14dfdd81.png" group-title="✨ABERTOS",Canal Rural HD
+http://fontep1tech.space:80/630922725/280890306/470
+#EXTINF:-1 tvg-id="RURALA" tvg-name="Canal Rural SD" tvg-logo="http://acsa.ws:80/images/fd9212142eedf1910dcba86a14dfdd81.png" group-title="✨ABERTOS",Canal Rural SD
+http://fontep1tech.space:80/630922725/280890306/471
+#EXTINF:-1 tvg-id="Cancao Nova SD" tvg-name="CANÇÃO NOVA FHD" tvg-logo="https://i.imgur.com/MoXFkMu.png" group-title="✝️RELIGIOSOS",CANÇÃO NOVA FHD
+http://fontep1tech.space:80/630922725/280890306/71
+#EXTINF:-1 tvg-id="a&e.br" tvg-name="CANÇÃO NOVA HD" tvg-logo="https://i.imgur.com/MoXFkMu.png" group-title="✝️RELIGIOSOS",CANÇÃO NOVA HD
+http://fontep1tech.space:80/630922725/280890306/484
+#EXTINF:-1 tvg-id="a&e.br" tvg-name="CANÇÃO NOVA SD" tvg-logo="https://i.imgur.com/MoXFkMu.png" group-title="✝️RELIGIOSOS",CANÇÃO NOVA SD
+http://fontep1tech.space:80/630922725/280890306/485
+#EXTINF:-1 tvg-id="Cartoon Network HD" tvg-name="CARTOON NETWORK  FHD" tvg-logo="https://www.freepnglogos.com/uploads/cartoon-network-png-logo/buy-cheap-cartoon-network-clothing-toys-png-logo-5.png" group-title="⚡INFANTIL",CARTOON NETWORK  FHD
+http://fontep1tech.space:80/630922725/280890306/364
+#EXTINF:-1 tvg-id="cartoonnetwork.br" tvg-name="CARTOON NETWORK 4K" tvg-logo="https://www.freepnglogos.com/uploads/cartoon-network-png-logo/buy-cheap-cartoon-network-clothing-toys-png-logo-5.png" group-title="⚡INFANTIL",CARTOON NETWORK 4K
+http://fontep1tech.space:80/630922725/280890306/369620
+#EXTINF:-1 tvg-id="Cartoon Network HD" tvg-name="CARTOON NETWORK HD" tvg-logo="https://www.freepnglogos.com/uploads/cartoon-network-png-logo/buy-cheap-cartoon-network-clothing-toys-png-logo-5.png" group-title="⚡INFANTIL",CARTOON NETWORK HD
+http://fontep1tech.space:80/630922725/280890306/365
+#EXTINF:-1 tvg-id="Cartoon Network SD" tvg-name="CARTOON NETWORK SD" tvg-logo="https://www.freepnglogos.com/uploads/cartoon-network-png-logo/buy-cheap-cartoon-network-clothing-toys-png-logo-5.png" group-title="⚡INFANTIL",CARTOON NETWORK SD
+http://fontep1tech.space:80/630922725/280890306/366
+#EXTINF:-1 tvg-id="cartoonito.br" tvg-name="CARTOONITO 4K" tvg-logo="https://i.imgur.com/6eZoxoi.png" group-title="⚡INFANTIL",CARTOONITO 4K
+http://fontep1tech.space:80/630922725/280890306/369621
+#EXTINF:-1 tvg-id="Cartoonito" tvg-name="CARTOONITO FHD" tvg-logo="https://i.imgur.com/6eZoxoi.png" group-title="⚡INFANTIL",CARTOONITO FHD
+http://fontep1tech.space:80/630922725/280890306/173204
+#EXTINF:-1 tvg-id="Cartoonito" tvg-name="CARTOONITO HD" tvg-logo="https://i.imgur.com/6eZoxoi.png" group-title="⚡INFANTIL",CARTOONITO HD
+http://fontep1tech.space:80/630922725/280890306/367
+#EXTINF:-1 tvg-id="Cartoonito" tvg-name="CARTOONITO SD" tvg-logo="https://i.imgur.com/6eZoxoi.png" group-title="⚡INFANTIL",CARTOONITO SD
+http://fontep1tech.space:80/630922725/280890306/368
+#EXTINF:-1 tvg-id="a&e.br" tvg-name="CNN BRASIL 4K" tvg-logo="http://xp2.wtf:80/images/88e6a8b201d20692bc7385fbc93cea2f.png" group-title="✨NOTÍCIAS",CNN BRASIL 4K
+http://fontep1tech.space:80/630922725/280890306/369624
+#EXTINF:-1 tvg-id="CNN Brasil FHD" tvg-name="CNN BRASIL FHD" tvg-logo="http://xp2.wtf:80/images/88e6a8b201d20692bc7385fbc93cea2f.png" group-title="✨NOTÍCIAS",CNN BRASIL FHD
+http://fontep1tech.space:80/630922725/280890306/408
+#EXTINF:-1 tvg-id="CNN Brasil FHD" tvg-name="CNN BRASIL HD" tvg-logo="http://xp2.wtf:80/images/88e6a8b201d20692bc7385fbc93cea2f.png" group-title="✨NOTÍCIAS",CNN BRASIL HD
+http://fontep1tech.space:80/630922725/280890306/410
+#EXTINF:-1 tvg-id="CNN Brasil FHD" tvg-name="CNN BRASIL SD" tvg-logo="http://xp2.wtf:80/images/88e6a8b201d20692bc7385fbc93cea2f.png" group-title="✨NOTÍCIAS",CNN BRASIL SD
+http://fontep1tech.space:80/630922725/280890306/409
+#EXTINF:-1 tvg-id="comedycentral.br" tvg-name="COMEDY CENTRAL 4K" tvg-logo="https://i.imgur.com/N2xftYj.png" group-title="⚡VARIEDADES",COMEDY CENTRAL 4K
+http://fontep1tech.space:80/630922725/280890306/369626
+#EXTINF:-1 tvg-id="comedycentral.br" tvg-name="COMEDY CENTRAL FHD" tvg-logo="https://i.imgur.com/N2xftYj.png" group-title="⚡VARIEDADES",COMEDY CENTRAL FHD
+http://fontep1tech.space:80/630922725/280890306/440
+#EXTINF:-1 tvg-id="comedycentral.br" tvg-name="COMEDY CENTRAL HD" tvg-logo="https://i.imgur.com/N2xftYj.png" group-title="⚡VARIEDADES",COMEDY CENTRAL HD
+http://fontep1tech.space:80/630922725/280890306/441
+#EXTINF:-1 tvg-id="comedycentral.br" tvg-name="COMEDY CENTRAL SD" tvg-logo="https://i.imgur.com/N2xftYj.png" group-title="⚡VARIEDADES",COMEDY CENTRAL SD
+http://fontep1tech.space:80/630922725/280890306/442
+#EXTINF:-1 tvg-id="Curta HD [Alter]" tvg-name="CURTA! FHD" tvg-logo="https://i.imgur.com/Sd5bTsl.png" group-title="⚡DOCUMENTÁRIOS",CURTA! FHD
+http://fontep1tech.space:80/630922725/280890306/171817
+#EXTINF:-1 tvg-id="a&e.br" tvg-name="CURTA! HD" tvg-logo="https://i.imgur.com/Sd5bTsl.png" group-title="⚡DOCUMENTÁRIOS",CURTA! HD
+http://fontep1tech.space:80/630922725/280890306/325
+#EXTINF:-1 tvg-id="a&e.br" tvg-name="CURTA! SD" tvg-logo="https://i.imgur.com/Sd5bTsl.png" group-title="⚡DOCUMENTÁRIOS",CURTA! SD
+http://fontep1tech.space:80/630922725/280890306/326
+#EXTINF:-1 tvg-id="discoverychannel.br" tvg-name="DISCOVERY CHANNEL 4K" tvg-logo="https://i.imgur.com/EwmLkv0.png" group-title="⚡DISCOVERY",DISCOVERY CHANNEL 4K
+http://fontep1tech.space:80/630922725/280890306/1155
+#EXTINF:-1 tvg-id="Discovery Channel SD [Alter]" tvg-name="DISCOVERY CHANNEL FHD" tvg-logo="https://i.imgur.com/EwmLkv0.png" group-title="⚡DISCOVERY",DISCOVERY CHANNEL FHD
+http://fontep1tech.space:80/630922725/280890306/328
+#EXTINF:-1 tvg-id="discoverychannel.br" tvg-name="DISCOVERY CHANNEL HD" tvg-logo="https://i.imgur.com/EwmLkv0.png" group-title="⚡DISCOVERY",DISCOVERY CHANNEL HD
+http://fontep1tech.space:80/630922725/280890306/329
+#EXTINF:-1 tvg-id="discoverychannel.br" tvg-name="DISCOVERY CHANNEL SD" tvg-logo="https://i.imgur.com/EwmLkv0.png" group-title="⚡DISCOVERY",DISCOVERY CHANNEL SD
+http://fontep1tech.space:80/630922725/280890306/330
+#EXTINF:-1 tvg-id="a&e.br" tvg-name="DISCOVERY H&H 4K" tvg-logo="https://i.imgur.com/eDXRVB1.png" group-title="⚡DISCOVERY",DISCOVERY H&H 4K
+http://fontep1tech.space:80/630922725/280890306/1157
+#EXTINF:-1 tvg-id="Discovery Home Health HD" tvg-name="DISCOVERY H&H FHD" tvg-logo="https://i.imgur.com/eDXRVB1.png" group-title="⚡DISCOVERY",DISCOVERY H&H FHD
+http://fontep1tech.space:80/630922725/280890306/331
+#EXTINF:-1 tvg-id="Discovery Home Health HD" tvg-name="DISCOVERY H&H HD" tvg-logo="https://i.imgur.com/eDXRVB1.png" group-title="⚡DISCOVERY",DISCOVERY H&H HD
+http://fontep1tech.space:80/630922725/280890306/332
+#EXTINF:-1 tvg-id="Discovery Home Health HD" tvg-name="DISCOVERY H&H SD" tvg-logo="https://i.imgur.com/eDXRVB1.png" group-title="⚡DISCOVERY",DISCOVERY H&H SD
+http://fontep1tech.space:80/630922725/280890306/333
+#EXTINF:-1 tvg-id="Discovery Kids HD" tvg-name="DISCOVERY KIDS 4K" tvg-logo="https://i.imgur.com/KVTtanr.png" group-title="⚡INFANTIL",DISCOVERY KIDS 4K
+http://fontep1tech.space:80/630922725/280890306/1158
+#EXTINF:-1 tvg-id="Discovery Kids HD" tvg-name="DISCOVERY KIDS FHD" tvg-logo="https://i.imgur.com/KVTtanr.png" group-title="⚡INFANTIL",DISCOVERY KIDS FHD
+http://fontep1tech.space:80/630922725/280890306/369
+#EXTINF:-1 tvg-id="DKNCHL" tvg-name="DISCOVERY KIDS HD" tvg-logo="https://i.imgur.com/KVTtanr.png" group-title="⚡INFANTIL",DISCOVERY KIDS HD
+http://fontep1tech.space:80/630922725/280890306/370
+#EXTINF:-1 tvg-id="DKNCHL" tvg-name="DISCOVERY KIDS SD" tvg-logo="https://i.imgur.com/KVTtanr.png" group-title="⚡INFANTIL",DISCOVERY KIDS SD
+http://fontep1tech.space:80/630922725/280890306/371
+#EXTINF:-1 tvg-id="discoveryscience.br" tvg-name="DISCOVERY SCIENCE 4K" tvg-logo="https://i.imgur.com/aPa90kk.png" group-title="⚡DISCOVERY",DISCOVERY SCIENCE 4K
+http://fontep1tech.space:80/630922725/280890306/369632
+#EXTINF:-1 tvg-id="BR - Discovery Science" tvg-name="DISCOVERY SCIENCE FHD" tvg-logo="https://i.imgur.com/aPa90kk.png" group-title="⚡DISCOVERY",DISCOVERY SCIENCE FHD
+http://fontep1tech.space:80/630922725/280890306/334
+#EXTINF:-1 tvg-id="BR - Discovery Science" tvg-name="DISCOVERY SCIENCE HD" tvg-logo="https://i.imgur.com/aPa90kk.png" group-title="⚡DISCOVERY",DISCOVERY SCIENCE HD
+http://fontep1tech.space:80/630922725/280890306/335
+#EXTINF:-1 tvg-id="discoveryscience.br" tvg-name="DISCOVERY SCIENCE SD" tvg-logo="https://i.imgur.com/aPa90kk.png" group-title="⚡DISCOVERY",DISCOVERY SCIENCE SD
+http://fontep1tech.space:80/630922725/280890306/336
+#EXTINF:-1 tvg-id="Discovery Theater HD" tvg-name="DISCOVERY THEATER 4K" tvg-logo="https://i.imgur.com/QgjAMNN.png" group-title="⚡DISCOVERY",DISCOVERY THEATER 4K
+http://fontep1tech.space:80/630922725/280890306/369633
+#EXTINF:-1 tvg-id="discoverytheater.br" tvg-name="DISCOVERY THEATER FHD" tvg-logo="https://i.imgur.com/QgjAMNN.png" group-title="⚡DISCOVERY",DISCOVERY THEATER FHD
+http://fontep1tech.space:80/630922725/280890306/339
+#EXTINF:-1 tvg-id="discoverytheater.br" tvg-name="DISCOVERY THEATER HD" tvg-logo="https://i.imgur.com/QgjAMNN.png" group-title="⚡DISCOVERY",DISCOVERY THEATER HD
+http://fontep1tech.space:80/630922725/280890306/337
+#EXTINF:-1 tvg-id="discoverytheater.br" tvg-name="DISCOVERY THEATER SD" tvg-logo="https://i.imgur.com/QgjAMNN.png" group-title="⚡DISCOVERY",DISCOVERY THEATER SD
+http://fontep1tech.space:80/630922725/280890306/338
+#EXTINF:-1 tvg-id="tlc.br" tvg-name="DISCOVERY TLC 4K" tvg-logo="https://i.imgur.com/plSSXjE.png" group-title="⚡DISCOVERY",DISCOVERY TLC 4K
+http://fontep1tech.space:80/630922725/280890306/369718
+#EXTINF:-1 tvg-id="TLC HD" tvg-name="DISCOVERY TLC FHD" tvg-logo="https://i.imgur.com/plSSXjE.png" group-title="⚡DISCOVERY",DISCOVERY TLC FHD
+http://fontep1tech.space:80/630922725/280890306/275
+#EXTINF:-1 tvg-id="TLC HD" tvg-name="DISCOVERY TLC HD" tvg-logo="https://i.imgur.com/plSSXjE.png" group-title="⚡DISCOVERY",DISCOVERY TLC HD
+http://fontep1tech.space:80/630922725/280890306/277
+#EXTINF:-1 tvg-id="TLC HD" tvg-name="DISCOVERY TLC SD" tvg-logo="https://i.imgur.com/plSSXjE.png" group-title="⚡DISCOVERY",DISCOVERY TLC SD
+http://fontep1tech.space:80/630922725/280890306/278
+#EXTINF:-1 tvg-id="Discovery Turbo HD" tvg-name="DISCOVERY TURBO 4K" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Discovery_Turbo_logo.svg/1280px-Discovery_Turbo_logo.svg.png" group-title="⚡DISCOVERY",DISCOVERY TURBO 4K
+http://fontep1tech.space:80/630922725/280890306/369634
+#EXTINF:-1 tvg-id="Discovery Turbo HD" tvg-name="DISCOVERY TURBO FHD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Discovery_Turbo_logo.svg/1280px-Discovery_Turbo_logo.svg.png" group-title="⚡DISCOVERY",DISCOVERY TURBO FHD
+http://fontep1tech.space:80/630922725/280890306/327
+#EXTINF:-1 tvg-id="Discovery Turbo FHD" tvg-name="DISCOVERY TURBO HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Discovery_Turbo_logo.svg/1280px-Discovery_Turbo_logo.svg.png" group-title="⚡DISCOVERY",DISCOVERY TURBO HD
+http://fontep1tech.space:80/630922725/280890306/340
+#EXTINF:-1 tvg-id="discoveryturbo.br" tvg-name="DISCOVERY TURBO SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Discovery_Turbo_logo.svg/1280px-Discovery_Turbo_logo.svg.png" group-title="⚡DISCOVERY",DISCOVERY TURBO SD
+http://fontep1tech.space:80/630922725/280890306/341
+#EXTINF:-1 tvg-id="discoveryworld.br" tvg-name="DISCOVERY WORLD 4K" tvg-logo="https://i.imgur.com/wd9zIca.png" group-title="⚡DISCOVERY",DISCOVERY WORLD 4K
+http://fontep1tech.space:80/630922725/280890306/369635
+#EXTINF:-1 tvg-id="discoveryworld.br" tvg-name="DISCOVERY WORLD FHD" tvg-logo="https://i.imgur.com/wd9zIca.png" group-title="⚡DISCOVERY",DISCOVERY WORLD FHD
+http://fontep1tech.space:80/630922725/280890306/342
+#EXTINF:-1 tvg-id="discoveryworld.br" tvg-name="DISCOVERY WORLD HD" tvg-logo="https://i.imgur.com/wd9zIca.png" group-title="⚡DISCOVERY",DISCOVERY WORLD HD
+http://fontep1tech.space:80/630922725/280890306/344
+#EXTINF:-1 tvg-id="discoveryworld.br" tvg-name="DISCOVERY WORLD SD" tvg-logo="https://i.imgur.com/wd9zIca.png" group-title="⚡DISCOVERY",DISCOVERY WORLD SD
+http://fontep1tech.space:80/630922725/280890306/345
+#EXTINF:-1 tvg-id="E! Entertainment Television FHD" tvg-name="E! 4K" tvg-logo="https://i.imgur.com/YH1s0x1.jpeg" group-title="⚡DOCUMENTÁRIOS",E! 4K
+http://fontep1tech.space:80/630922725/280890306/369637
+#EXTINF:-1 tvg-id="E! Entertainment Television FHD" tvg-name="E! FHD" tvg-logo="https://i.imgur.com/YH1s0x1.jpeg" group-title="⚡DOCUMENTÁRIOS",E! FHD
+http://fontep1tech.space:80/630922725/280890306/171829
+#EXTINF:-1 tvg-id="E! Entertainment Television FHD" tvg-name="E! HD" tvg-logo="https://i.imgur.com/YH1s0x1.jpeg" group-title="⚡DOCUMENTÁRIOS",E! HD
+http://fontep1tech.space:80/630922725/280890306/346
+#EXTINF:-1 tvg-id="E! Entertainment Television FHD" tvg-name="E! SD" tvg-logo="https://i.imgur.com/YH1s0x1.jpeg" group-title="⚡DOCUMENTÁRIOS",E! SD
+http://fontep1tech.space:80/630922725/280890306/347
+#EXTINF:-1 tvg-id="fashiontv.br" tvg-name="FASHION TV FHD" tvg-logo="https://pbs.twimg.com/profile_images/377155464/FashionTV_logo.png" group-title="⚡VARIEDADES",FASHION TV FHD
+http://fontep1tech.space:80/630922725/280890306/443
+#EXTINF:-1 tvg-id="Food Network FHD" tvg-name="FOOD NETWORK 4K" tvg-logo="https://i.imgur.com/Se8BnYJ.png" group-title="⚡VARIEDADES",FOOD NETWORK 4K
+http://fontep1tech.space:80/630922725/280890306/369646
+#EXTINF:-1 tvg-id="BR - Food Network" tvg-name="FOOD NETWORK FHD" tvg-logo="https://i.imgur.com/Se8BnYJ.png" group-title="⚡VARIEDADES",FOOD NETWORK FHD
+http://fontep1tech.space:80/630922725/280890306/171842
+#EXTINF:-1 tvg-id="BR - Food Network" tvg-name="FOOD NETWORK HD" tvg-logo="https://i.imgur.com/Se8BnYJ.png" group-title="⚡VARIEDADES",FOOD NETWORK HD
+http://fontep1tech.space:80/630922725/280890306/448
+#EXTINF:-1 tvg-id="BR - Food Network" tvg-name="FOOD NETWORK SD" tvg-logo="https://i.imgur.com/Se8BnYJ.png" group-title="⚡VARIEDADES",FOOD NETWORK SD
+http://fontep1tech.space:80/630922725/280890306/449
+#EXTINF:-1 tvg-id="futura.br" tvg-name="FUTURA 4K" tvg-logo="https://i.imgur.com/NBu5IuI.png" group-title="✨ABERTOS",FUTURA 4K
+http://fontep1tech.space:80/630922725/280890306/369649
+#EXTINF:-1 tvg-id="FUTRA" tvg-name="FUTURA FHD" tvg-logo="https://i.imgur.com/NBu5IuI.png" group-title="✨ABERTOS",FUTURA FHD
+http://fontep1tech.space:80/630922725/280890306/171844
+#EXTINF:-1 tvg-id="FUTRA" tvg-name="FUTURA HD" tvg-logo="https://i.imgur.com/NBu5IuI.png" group-title="✨ABERTOS",FUTURA HD
+http://fontep1tech.space:80/630922725/280890306/472
+#EXTINF:-1 tvg-id="FUTRA" tvg-name="FUTURA SD" tvg-logo="https://i.imgur.com/NBu5IuI.png" group-title="✨ABERTOS",FUTURA SD
+http://fontep1tech.space:80/630922725/280890306/473
+#EXTINF:-1 tvg-id="globonews.br" tvg-name="GLOBO NEWS 4K" tvg-logo="https://i.imgur.com/b1ikKD9.png" group-title="✨NOTÍCIAS",GLOBO NEWS 4K
+http://fontep1tech.space:80/630922725/280890306/1166
+#EXTINF:-1 tvg-id="Globo News HD" tvg-name="GLOBO NEWS FHD" tvg-logo="https://i.imgur.com/b1ikKD9.png" group-title="✨NOTÍCIAS",GLOBO NEWS FHD
+http://fontep1tech.space:80/630922725/280890306/413
+#EXTINF:-1 tvg-id="globonews.br" tvg-name="GLOBO NEWS HD" tvg-logo="https://i.imgur.com/b1ikKD9.png" group-title="✨NOTÍCIAS",GLOBO NEWS HD
+http://fontep1tech.space:80/630922725/280890306/1376560
+#EXTINF:-1 tvg-id="Globo News HD" tvg-name="GLOBO NEWS SD" tvg-logo="https://i.imgur.com/b1ikKD9.png" group-title="✨NOTÍCIAS",GLOBO NEWS SD
+http://fontep1tech.space:80/630922725/280890306/171846
+#EXTINF:-1 tvg-id="gloob.br" tvg-name="GLOOB 4K" tvg-logo="https://i.imgur.com/1HpWXSU.png" group-title="⚡INFANTIL",GLOOB 4K
+http://fontep1tech.space:80/630922725/280890306/4137004
+#EXTINF:-1 tvg-id="Gloob HD" tvg-name="GLOOB FHD" tvg-logo="https://i.imgur.com/1HpWXSU.png" group-title="⚡INFANTIL",GLOOB FHD
+http://fontep1tech.space:80/630922725/280890306/374
+#EXTINF:-1 tvg-id="Gloob HD" tvg-name="GLOOB HD" tvg-logo="https://i.imgur.com/1HpWXSU.png" group-title="⚡INFANTIL",GLOOB HD
+http://fontep1tech.space:80/630922725/280890306/375
+#EXTINF:-1 tvg-id="Gloob HD" tvg-name="GLOOB SD" tvg-logo="https://i.imgur.com/1HpWXSU.png" group-title="⚡INFANTIL",GLOOB SD
+http://fontep1tech.space:80/630922725/280890306/376
+#EXTINF:-1 tvg-id="gloobinho.br" tvg-name="GLOOBINHO 4K" tvg-logo="https://i.imgur.com/T49MSXk.png" group-title="⚡INFANTIL",GLOOBINHO 4K
+http://fontep1tech.space:80/630922725/280890306/4137003
+#EXTINF:-1 tvg-id="gloobinho.br" tvg-name="GLOOBINHO FHD" tvg-logo="https://i.imgur.com/T49MSXk.png" group-title="⚡INFANTIL",GLOOBINHO FHD
+http://fontep1tech.space:80/630922725/280890306/377
+#EXTINF:-1 tvg-id="gloobinho.br" tvg-name="GLOOBINHO HD" tvg-logo="https://i.imgur.com/T49MSXk.png" group-title="⚡INFANTIL",GLOOBINHO HD
+http://fontep1tech.space:80/630922725/280890306/378
+#EXTINF:-1 tvg-id="gloobinho.br" tvg-name="GLOOBINHO SD" tvg-logo="https://i.imgur.com/T49MSXk.png" group-title="⚡INFANTIL",GLOOBINHO SD
+http://fontep1tech.space:80/630922725/280890306/379
+#EXTINF:-1 tvg-id="gnt.br" tvg-name="GNT 4K" tvg-logo="https://i.imgur.com/WL5KKUO.png" group-title="⚡VARIEDADES",GNT 4K
+http://fontep1tech.space:80/630922725/280890306/369656
+#EXTINF:-1 tvg-id="gnt.br" tvg-name="GNT FHD" tvg-logo="https://i.imgur.com/WL5KKUO.png" group-title="⚡VARIEDADES",GNT FHD
+http://fontep1tech.space:80/630922725/280890306/450
+#EXTINF:-1 tvg-id="gnt.br" tvg-name="GNT HD" tvg-logo="https://i.imgur.com/WL5KKUO.png" group-title="⚡VARIEDADES",GNT HD
+http://fontep1tech.space:80/630922725/280890306/451
+#EXTINF:-1 tvg-id="gnt.br" tvg-name="GNT SD" tvg-logo="https://i.imgur.com/WL5KKUO.png" group-title="⚡VARIEDADES",GNT SD
+http://fontep1tech.space:80/630922725/280890306/452
+#EXTINF:-1 tvg-id="h2.br" tvg-name="H2 4K" tvg-logo="https://i.imgur.com/hMH0oWa.png" group-title="⚡DOCUMENTÁRIOS",H2 4K
+http://fontep1tech.space:80/630922725/280890306/369657
+#EXTINF:-1 tvg-id="H2 HD" tvg-name="H2 FHD" tvg-logo="https://i.imgur.com/hMH0oWa.png" group-title="⚡DOCUMENTÁRIOS",H2 FHD
+http://fontep1tech.space:80/630922725/280890306/348
+#EXTINF:-1 tvg-id="H2 HD" tvg-name="H2 HD" tvg-logo="https://i.imgur.com/hMH0oWa.png" group-title="⚡DOCUMENTÁRIOS",H2 HD
+http://fontep1tech.space:80/630922725/280890306/349
+#EXTINF:-1 tvg-id="H2 HD" tvg-name="H2 SD" tvg-logo="https://i.imgur.com/hMH0oWa.png" group-title="⚡DOCUMENTÁRIOS",H2 SD
+http://fontep1tech.space:80/630922725/280890306/350
+#EXTINF:-1 tvg-id="hgtv.br" tvg-name="HGTV 4K" tvg-logo="https://i.imgur.com/4rZi0wH.png" group-title="⚡DOCUMENTÁRIOS",HGTV 4K
+http://fontep1tech.space:80/630922725/280890306/369666
+#EXTINF:-1 tvg-id="hgtv.br" tvg-name="HGTV FHD" tvg-logo="https://i.imgur.com/4rZi0wH.png" group-title="⚡DOCUMENTÁRIOS",HGTV FHD
+http://fontep1tech.space:80/630922725/280890306/351
+#EXTINF:-1 tvg-id="hgtv.br" tvg-name="HGTV HD" tvg-logo="https://i.imgur.com/4rZi0wH.png" group-title="⚡DOCUMENTÁRIOS",HGTV HD
+http://fontep1tech.space:80/630922725/280890306/352
+#EXTINF:-1 tvg-id="hgtv.br" tvg-name="HGTV SD" tvg-logo="https://i.imgur.com/4rZi0wH.png" group-title="⚡DOCUMENTÁRIOS",HGTV SD
+http://fontep1tech.space:80/630922725/280890306/353
+#EXTINF:-1 tvg-id="axn.br" tvg-name="HISTORY CHANNEL 4K" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/History_Logo.svg/1200px-History_Logo.svg.png" group-title="⚡DOCUMENTÁRIOS",HISTORY CHANNEL 4K
+http://fontep1tech.space:80/630922725/280890306/4137756
+#EXTINF:-1 tvg-id="History HD" tvg-name="HISTORY CHANNEL FHD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/History_Logo.svg/1200px-History_Logo.svg.png" group-title="⚡DOCUMENTÁRIOS",HISTORY CHANNEL FHD
+http://fontep1tech.space:80/630922725/280890306/355
+#EXTINF:-1 tvg-id="History HD" tvg-name="HISTORY CHANNEL HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/History_Logo.svg/1200px-History_Logo.svg.png" group-title="⚡DOCUMENTÁRIOS",HISTORY CHANNEL HD
+http://fontep1tech.space:80/630922725/280890306/356
+#EXTINF:-1 tvg-id="axn.br" tvg-name="HISTORY CHANNEL SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/History_Logo.svg/1200px-History_Logo.svg.png" group-title="⚡DOCUMENTÁRIOS",HISTORY CHANNEL SD
+http://fontep1tech.space:80/630922725/280890306/354
+#EXTINF:-1 tvg-id="Investigacao Discovery HD" tvg-name="ID - DISCOVERY 4K" tvg-logo="https://i.imgur.com/SghA9py.png" group-title="⚡DISCOVERY",ID - DISCOVERY 4K
+http://fontep1tech.space:80/630922725/280890306/601015
+#EXTINF:-1 tvg-id="a&e.br" tvg-name="ID - DISCOVERY FHD" tvg-logo="https://i.imgur.com/SghA9py.png" group-title="⚡DISCOVERY",ID - DISCOVERY FHD
+http://fontep1tech.space:80/630922725/280890306/357
+#EXTINF:-1 tvg-id="Ae.br" tvg-name="ID - DISCOVERY HD" tvg-logo="https://i.imgur.com/SghA9py.png" group-title="⚡DISCOVERY",ID - DISCOVERY HD
+http://fontep1tech.space:80/630922725/280890306/171822
+#EXTINF:-1 tvg-id="a&e.br" tvg-name="ID - DISCOVERY SD" tvg-logo="https://i.imgur.com/SghA9py.png" group-title="⚡DISCOVERY",ID - DISCOVERY SD
+http://fontep1tech.space:80/630922725/280890306/358
+#EXTINF:-1 tvg-id="jovempannews.br" tvg-name="JOVEM PAN NEWS 4K" tvg-logo="https://i.imgur.com/RXRe8iO.png" group-title="✨NOTÍCIAS",JOVEM PAN NEWS 4K
+http://fontep1tech.space:80/630922725/280890306/369670
+#EXTINF:-1 tvg-id="Jovem Pan News" tvg-name="JOVEM PAN NEWS FHD" tvg-logo="https://i.imgur.com/RXRe8iO.png" group-title="✨NOTÍCIAS",JOVEM PAN NEWS FHD
+http://fontep1tech.space:80/630922725/280890306/171862
+#EXTINF:-1 tvg-id="ADSM" tvg-name="JOVEM PAN NEWS HD" tvg-logo="https://i.imgur.com/RXRe8iO.png" group-title="✨NOTÍCIAS",JOVEM PAN NEWS HD
+http://fontep1tech.space:80/630922725/280890306/417
+#EXTINF:-1 tvg-id="Jovem Pan News" tvg-name="JOVEM PAN NEWS SD" tvg-logo="https://i.imgur.com/RXRe8iO.png" group-title="✨NOTÍCIAS",JOVEM PAN NEWS SD
+http://fontep1tech.space:80/630922725/280890306/419
+#EXTINF:-1 tvg-id="" tvg-name="MODO VIAGEM FHD" tvg-logo="http://xp2.wtf:80/images/5a1d7008029465de680df206383cb2e8.png" group-title="⚡VARIEDADES",MODO VIAGEM FHD
+http://fontep1tech.space:80/630922725/280890306/4146031
+#EXTINF:-1 tvg-id="" tvg-name="MODO VIAGEM HD" tvg-logo="http://xp2.wtf:80/images/37c3884119fcc03cdbbf931b2f1343b5.png" group-title="⚡VARIEDADES",MODO VIAGEM HD
+http://fontep1tech.space:80/630922725/280890306/4146032
+#EXTINF:-1 tvg-id="GLOBOHD" tvg-name="MODO VIAGEM SD" tvg-logo="http://xp2.wtf:80/images/37c3884119fcc03cdbbf931b2f1343b5.png" group-title="⚡VARIEDADES",MODO VIAGEM SD
+http://fontep1tech.space:80/630922725/280890306/4146033
+#EXTINF:-1 tvg-id="mtv.br" tvg-name="MTV  SD" tvg-logo="https://seeklogo.com/images/M/mtv-music-television-logo-B016199701-seeklogo.com.png" group-title="⚡VARIEDADES",MTV  SD
+http://fontep1tech.space:80/630922725/280890306/171865
+#EXTINF:-1 tvg-id="" tvg-name="MTV 4K" tvg-logo="https://seeklogo.com/images/M/mtv-music-television-logo-B016199701-seeklogo.com.png" group-title="⚡VARIEDADES",MTV 4K
+http://fontep1tech.space:80/630922725/280890306/369676
+#EXTINF:-1 tvg-id="mtv.br" tvg-name="MTV FHD" tvg-logo="https://seeklogo.com/images/M/mtv-music-television-logo-B016199701-seeklogo.com.png" group-title="⚡VARIEDADES",MTV FHD
+http://fontep1tech.space:80/630922725/280890306/453
+#EXTINF:-1 tvg-id="mtv.br" tvg-name="MTV HD" tvg-logo="https://seeklogo.com/images/M/mtv-music-television-logo-B016199701-seeklogo.com.png" group-title="⚡VARIEDADES",MTV HD
+http://fontep1tech.space:80/630922725/280890306/171866
+#EXTINF:-1 tvg-id="" tvg-name="MTV LIVE 4K" tvg-logo="https://acstatic.co/logos/canais/mtv.png" group-title="✨ABERTOS",MTV LIVE 4K
+http://fontep1tech.space:80/630922725/280890306/369677
+#EXTINF:-1 tvg-id="" tvg-name="MULTISHOW 4K" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/55/Multishow_logo-laranja.png" group-title="⚡VARIEDADES",MULTISHOW 4K
+http://fontep1tech.space:80/630922725/280890306/369679
+#EXTINF:-1 tvg-id="multishow.br" tvg-name="MULTISHOW FHD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/55/Multishow_logo-laranja.png" group-title="⚡VARIEDADES",MULTISHOW FHD
+http://fontep1tech.space:80/630922725/280890306/457
+#EXTINF:-1 tvg-id="multishow.br" tvg-name="MULTISHOW HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/55/Multishow_logo-laranja.png" group-title="⚡VARIEDADES",MULTISHOW HD
+http://fontep1tech.space:80/630922725/280890306/454
+#EXTINF:-1 tvg-id="multishow.br" tvg-name="MULTISHOW SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/55/Multishow_logo-laranja.png" group-title="⚡VARIEDADES",MULTISHOW SD
+http://fontep1tech.space:80/630922725/280890306/456
+#EXTINF:-1 tvg-id="musicbox.br" tvg-name="MUSIC BOX" tvg-logo="https://i.imgur.com/5FMu7cM.png" group-title="⚡VARIEDADES",MUSIC BOX
+http://fontep1tech.space:80/630922725/280890306/458
+#EXTINF:-1 tvg-id="nhk.br" tvg-name="NHK FHD" tvg-logo="http://xp2.wtf:80/images/ab013c7ba393efc0d440f5cdf2b671ef.png" group-title="✨NOTÍCIAS",NHK FHD
+http://fontep1tech.space:80/630922725/280890306/4137924
+#EXTINF:-1 tvg-id="nhk.br" tvg-name="NHK HD" tvg-logo="http://xp2.wtf:80/images/9d4e91fe34e14622c47c471315b3b3c2.png" group-title="✨NOTÍCIAS",NHK HD
+http://fontep1tech.space:80/630922725/280890306/4137925
+#EXTINF:-1 tvg-id="nhk.br" tvg-name="NHK SD" tvg-logo="http://xp2.wtf:80/images/ab013c7ba393efc0d440f5cdf2b671ef.png" group-title="✨NOTÍCIAS",NHK SD
+http://fontep1tech.space:80/630922725/280890306/4137926
+#EXTINF:-1 tvg-id="Nick Jr HD" tvg-name="NICK JR  FHD" tvg-logo="https://logoeps.com/wp-content/uploads/2011/05/nick-jr.-logo-vector.png" group-title="⚡INFANTIL",NICK JR  FHD
+http://fontep1tech.space:80/630922725/280890306/380
+#EXTINF:-1 tvg-id="Nick Jr HD" tvg-name="NICK JR HD" tvg-logo="https://logoeps.com/wp-content/uploads/2011/05/nick-jr.-logo-vector.png" group-title="⚡INFANTIL",NICK JR HD
+http://fontep1tech.space:80/630922725/280890306/381
+#EXTINF:-1 tvg-id="Nick Jr HD" tvg-name="NICK JR SD" tvg-logo="https://logoeps.com/wp-content/uploads/2011/05/nick-jr.-logo-vector.png" group-title="⚡INFANTIL",NICK JR SD
+http://fontep1tech.space:80/630922725/280890306/382
+#EXTINF:-1 tvg-id="Nick Jr HD" tvg-name="NICK JR. 4K" tvg-logo="https://logoeps.com/wp-content/uploads/2011/05/nick-jr.-logo-vector.png" group-title="⚡INFANTIL",NICK JR. 4K
+http://fontep1tech.space:80/630922725/280890306/369682
+#EXTINF:-1 tvg-id="Nickelodeon FHD" tvg-name="NICKELODEON 4K" tvg-logo="https://seeklogo.com/images/N/nickelodeon-logo-198A4BDE97-seeklogo.com.png" group-title="⚡INFANTIL",NICKELODEON 4K
+http://fontep1tech.space:80/630922725/280890306/369683
+#EXTINF:-1 tvg-id="Nickelodeon HD" tvg-name="NICKELODEON FHD" tvg-logo="https://seeklogo.com/images/N/nickelodeon-logo-198A4BDE97-seeklogo.com.png" group-title="⚡INFANTIL",NICKELODEON FHD
+http://fontep1tech.space:80/630922725/280890306/383
+#EXTINF:-1 tvg-id="Nickelodeon HD" tvg-name="NICKELODEON HD" tvg-logo="https://seeklogo.com/images/N/nickelodeon-logo-198A4BDE97-seeklogo.com.png" group-title="⚡INFANTIL",NICKELODEON HD
+http://fontep1tech.space:80/630922725/280890306/384
+#EXTINF:-1 tvg-id="Nickelodeon SD" tvg-name="NICKELODEON SD" tvg-logo="https://seeklogo.com/images/N/nickelodeon-logo-198A4BDE97-seeklogo.com.png" group-title="⚡INFANTIL",NICKELODEON SD
+http://fontep1tech.space:80/630922725/280890306/385
+#EXTINF:-1 tvg-id="TV Pai Eterno" tvg-name="PAI ETERNO FHD" tvg-logo="https://i.ibb.co/JBWn8S6/Pai-Eterno.png" group-title="✝️RELIGIOSOS",PAI ETERNO FHD
+http://fontep1tech.space:80/630922725/280890306/171897
+#EXTINF:-1 tvg-id="ADSM" tvg-name="PAI ETERNO HD" tvg-logo="https://i.ibb.co/JBWn8S6/Pai-Eterno.png" group-title="✝️RELIGIOSOS",PAI ETERNO HD
+http://fontep1tech.space:80/630922725/280890306/495
+#EXTINF:-1 tvg-id="ADSM" tvg-name="PAI ETERNO SD" tvg-logo="https://i.ibb.co/JBWn8S6/Pai-Eterno.png" group-title="✝️RELIGIOSOS",PAI ETERNO SD
+http://fontep1tech.space:80/630922725/280890306/496
+#EXTINF:-1 tvg-id="playtv.br" tvg-name="PLAY TV HD" tvg-logo="http://69.197.159.50:80/images/5054a09a28e4cc09a3b0314de3c86a4b.png" group-title="⚡VARIEDADES",PLAY TV HD
+http://fontep1tech.space:80/630922725/280890306/4136849
+#EXTINF:-1 tvg-id="shoptime.br" tvg-name="POLISHOP TV FHD" tvg-logo="http://69.197.159.50:80/images/bc454b5a928dfd327504ff7f8dddb41a.png" group-title="⚡VARIEDADES",POLISHOP TV FHD
+http://fontep1tech.space:80/630922725/280890306/4136850
+#EXTINF:-1 tvg-id="PLSHOP" tvg-name="POLISHOP TV HD" tvg-logo="http://69.197.159.50:80/images/bc454b5a928dfd327504ff7f8dddb41a.png" group-title="⚡VARIEDADES",POLISHOP TV HD
+http://fontep1tech.space:80/630922725/280890306/4136852
+#EXTINF:-1 tvg-id="PLSHOP" tvg-name="POLISHOP TV SD" tvg-logo="https://i.imgur.com/KtN8fVP.png" group-title="⚡VARIEDADES",POLISHOP TV SD
+http://fontep1tech.space:80/630922725/280890306/171873
+#EXTINF:-1 tvg-id="primebox.br" tvg-name="Prime Box Brasil FHD" tvg-logo="https://i.imgur.com/3CLRDBx.png" group-title="⚡VARIEDADES",Prime Box Brasil FHD
+http://fontep1tech.space:80/630922725/280890306/461
+#EXTINF:-1 tvg-id="primebox.br" tvg-name="Prime Box Brasil HD" tvg-logo="https://i.imgur.com/3CLRDBx.png" group-title="⚡VARIEDADES",Prime Box Brasil HD
+http://fontep1tech.space:80/630922725/280890306/462
+#EXTINF:-1 tvg-id="primebox.br" tvg-name="Prime Box Brasil SD" tvg-logo="https://i.imgur.com/3CLRDBx.png" group-title="⚡VARIEDADES",Prime Box Brasil SD
+http://fontep1tech.space:80/630922725/280890306/463
+#EXTINF:-1 tvg-id="recordnews.br" tvg-name="RECORD NEWS 4K" tvg-logo="https://i.imgur.com/zQvYzV3.png" group-title="✨NOTÍCIAS",RECORD NEWS 4K
+http://fontep1tech.space:80/630922725/280890306/1178
+#EXTINF:-1 tvg-id="Record News HD" tvg-name="RECORD NEWS FHD" tvg-logo="https://i.imgur.com/zQvYzV3.png" group-title="✨NOTÍCIAS",RECORD NEWS FHD
+http://fontep1tech.space:80/630922725/280890306/420
+#EXTINF:-1 tvg-id="Record News HD" tvg-name="RECORD NEWS HD" tvg-logo="https://i.imgur.com/zQvYzV3.png" group-title="✨NOTÍCIAS",RECORD NEWS HD
+http://fontep1tech.space:80/630922725/280890306/421
+#EXTINF:-1 tvg-id="recordnews.br" tvg-name="RECORD NEWS SD" tvg-logo="https://i.imgur.com/zQvYzV3.png" group-title="✨NOTÍCIAS",RECORD NEWS SD
+http://fontep1tech.space:80/630922725/280890306/1376566
+#EXTINF:-1 tvg-id="REDEBR" tvg-name="REDE BRASIL" tvg-logo="https://i.imgur.com/tVMEQmb.png" group-title="✨ABERTOS",REDE BRASIL
+http://fontep1tech.space:80/630922725/280890306/474
+#EXTINF:-1 tvg-id="Tv Seculo 21 SD" tvg-name="REDE FAMILIA HD" tvg-logo="http://xp2.wtf:80/images/841198d93fc21b658319912d4e8d4494.png" group-title="✝️RELIGIOSOS",REDE FAMILIA HD
+http://fontep1tech.space:80/630922725/280890306/171898
+#EXTINF:-1 tvg-id="RFAM" tvg-name="REDE FAMILIA SD" tvg-logo="http://xp2.wtf:80/images/841198d93fc21b658319912d4e8d4494.png" group-title="✝️RELIGIOSOS",REDE FAMILIA SD
+http://fontep1tech.space:80/630922725/280890306/475
+#EXTINF:-1 tvg-id="" tvg-name="REDE GOSPEL HD" tvg-logo="http://acsa.ws:80/images/bb8c38ad035e925a1f2c8fb19c785370.jpg" group-title="✝️RELIGIOSOS",REDE GOSPEL HD
+http://fontep1tech.space:80/630922725/280890306/369700
+#EXTINF:-1 tvg-id="" tvg-name="REDE TV 4K" tvg-logo="https://images.pluto.tv/channels/6048fc47a44e540007745d2b/colorLogoPNG.png" group-title="✨ABERTOS",REDE TV 4K
+http://fontep1tech.space:80/630922725/280890306/369702
+#EXTINF:-1 tvg-id="Redetv.br" tvg-name="REDE TV FHD" tvg-logo="https://images.pluto.tv/channels/6048fc47a44e540007745d2b/colorLogoPNG.png" group-title="✨ABERTOS",REDE TV FHD
+http://fontep1tech.space:80/630922725/280890306/476
+#EXTINF:-1 tvg-id="REDETV" tvg-name="REDE TV HD" tvg-logo="https://images.pluto.tv/channels/6048fc47a44e540007745d2b/colorLogoPNG.png" group-title="✨ABERTOS",REDE TV HD
+http://fontep1tech.space:80/630922725/280890306/171878
+#EXTINF:-1 tvg-id="Redetv.br" tvg-name="REDE TV SD" tvg-logo="https://images.pluto.tv/channels/6048fc47a44e540007745d2b/colorLogoPNG.png" group-title="✨ABERTOS",REDE TV SD
+http://fontep1tech.space:80/630922725/280890306/477
+#EXTINF:-1 tvg-id="redevida.br" tvg-name="REDE VIDA FHD" tvg-logo="https://i.imgur.com/kgvIarb.png" group-title="✝️RELIGIOSOS",REDE VIDA FHD
+http://fontep1tech.space:80/630922725/280890306/486
+#EXTINF:-1 tvg-id="redevida.br" tvg-name="REDE VIDA HD" tvg-logo="https://i.imgur.com/kgvIarb.png" group-title="✝️RELIGIOSOS",REDE VIDA HD
+http://fontep1tech.space:80/630922725/280890306/487
+#EXTINF:-1 tvg-id="redevida.br" tvg-name="REDE VIDA SD" tvg-logo="https://i.imgur.com/kgvIarb.png" group-title="✝️RELIGIOSOS",REDE VIDA SD
+http://fontep1tech.space:80/630922725/280890306/72
+#EXTINF:-1 tvg-id="RITTVD" tvg-name="RIT TV HD" tvg-logo="https://i.imgur.com/s2CMD5U.png" group-title="✝️RELIGIOSOS",RIT TV HD
+http://fontep1tech.space:80/630922725/280890306/488
+#EXTINF:-1 tvg-id="sabor&arte.br" tvg-name="SABOR & ARTE HD" tvg-logo="http://69.197.159.50:80/images/0ecd5c51a2791e8c51c5bc3cded711d7.png" group-title="⚡VARIEDADES",SABOR & ARTE HD
+http://fontep1tech.space:80/630922725/280890306/4136853
+#EXTINF:-1 tvg-id="sabor&arte.br" tvg-name="SABOR & ARTE SD" tvg-logo="http://69.197.159.50:80/images/0ecd5c51a2791e8c51c5bc3cded711d7.png" group-title="⚡VARIEDADES",SABOR & ARTE SD
+http://fontep1tech.space:80/630922725/280890306/4136854
+#EXTINF:-1 tvg-id="ARATUHD" tvg-name="SBT ARATU HD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT ARATU HD
+http://fontep1tech.space:80/630922725/280890306/173157
+#EXTINF:-1 tvg-id="" tvg-name="SBT BAHIA FHD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT BAHIA FHD
+http://fontep1tech.space:80/630922725/280890306/173158
+#EXTINF:-1 tvg-id="SBT" tvg-name="SBT BAHIA HD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT BAHIA HD
+http://fontep1tech.space:80/630922725/280890306/778
+#EXTINF:-1 tvg-id="SBT HD" tvg-name="SBT BRASILIA" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT BRASILIA
+http://fontep1tech.space:80/630922725/280890306/779
+#EXTINF:-1 tvg-id="" tvg-name="SBT DF BRASILIA HD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT DF BRASILIA HD
+http://fontep1tech.space:80/630922725/280890306/173159
+#EXTINF:-1 tvg-id="" tvg-name="SBT GO SERRA DOURADA HD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT GO SERRA DOURADA HD
+http://fontep1tech.space:80/630922725/280890306/173160
+#EXTINF:-1 tvg-id="" tvg-name="SBT JANGADEIRO CEARA FHD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT JANGADEIRO CEARA FHD
+http://fontep1tech.space:80/630922725/280890306/173161
+#EXTINF:-1 tvg-id="" tvg-name="SBT JORNAL PE HD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT JORNAL PE HD
+http://fontep1tech.space:80/630922725/280890306/173176
+#EXTINF:-1 tvg-id="5starmax.us" tvg-name="SBT PARANA HD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT PARANA HD
+http://fontep1tech.space:80/630922725/280890306/173162
+#EXTINF:-1 tvg-id="SBT FHD [Alter]" tvg-name="SBT PE HD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT PE HD
+http://fontep1tech.space:80/630922725/280890306/781
+#EXTINF:-1 tvg-id="" tvg-name="SBT PI FHD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT PI FHD
+http://fontep1tech.space:80/630922725/280890306/173163
+#EXTINF:-1 tvg-id="" tvg-name="SBT PI HD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT PI HD
+http://fontep1tech.space:80/630922725/280890306/173164
+#EXTINF:-1 tvg-id="a&e.br" tvg-name="SBT RJ FHD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT RJ FHD
+http://fontep1tech.space:80/630922725/280890306/173166
+#EXTINF:-1 tvg-id="a&e.br" tvg-name="SBT RJ HD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT RJ HD
+http://fontep1tech.space:80/630922725/280890306/783
+#EXTINF:-1 tvg-id="a&e.br" tvg-name="SBT RJ SD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT RJ SD
+http://fontep1tech.space:80/630922725/280890306/173169
+#EXTINF:-1 tvg-id="" tvg-name="SBT RN FHD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT RN FHD
+http://fontep1tech.space:80/630922725/280890306/173170
+#EXTINF:-1 tvg-id="ZYB618" tvg-name="SBT RS FHD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT RS FHD
+http://fontep1tech.space:80/630922725/280890306/784
+#EXTINF:-1 tvg-id="sbtrs.br" tvg-name="SBT RS HD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT RS HD
+http://fontep1tech.space:80/630922725/280890306/173171
+#EXTINF:-1 tvg-id="sbtsp.br" tvg-name="SBT SP 4K" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT SP 4K
+http://fontep1tech.space:80/630922725/280890306/369728
+#EXTINF:-1 tvg-id="SBT HD" tvg-name="SBT SP FHD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT SP FHD
+http://fontep1tech.space:80/630922725/280890306/171879
+#EXTINF:-1 tvg-id="SBT 4K" tvg-name="SBT SP HD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT SP HD
+http://fontep1tech.space:80/630922725/280890306/173174
+#EXTINF:-1 tvg-id="SBT HD" tvg-name="SBT SP SD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT SP SD
+http://fontep1tech.space:80/630922725/280890306/785
+#EXTINF:-1 tvg-id="redemassa.br" tvg-name="SBT TRIBUNA REDE MASSA FHD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT TRIBUNA REDE MASSA FHD
+http://fontep1tech.space:80/630922725/280890306/1387205
+#EXTINF:-1 tvg-id="redemassa.br" tvg-name="SBT TRIBUNA REDE MASSA HD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT TRIBUNA REDE MASSA HD
+http://fontep1tech.space:80/630922725/280890306/173165
+#EXTINF:-1 tvg-id="" tvg-name="SBT TV ALTEROSA FHD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT TV ALTEROSA FHD
+http://fontep1tech.space:80/630922725/280890306/1387204
+#EXTINF:-1 tvg-id="" tvg-name="SBT TV ALTEROSA HD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT TV ALTEROSA HD
+http://fontep1tech.space:80/630922725/280890306/947206
+#EXTINF:-1 tvg-id="sbt.br" tvg-name="SBT TV DIFUSORA MARANHÃO HD" tvg-logo="https://i.imgur.com/lIDmapW.png" group-title="✨SBT",SBT TV DIFUSORA MARANHÃO HD
+http://fontep1tech.space:80/630922725/280890306/173172
+#EXTINF:-1 tvg-id="" tvg-name="SBT+ SAUDADE" tvg-logo="http://69.197.159.50:80/images/df7e8e4823daf0129a7fbd8ae79507ed.jpg" group-title="✨SBT",SBT+ SAUDADE
+http://fontep1tech.space:80/630922725/280890306/4770599
+#EXTINF:-1 tvg-id="" tvg-name="SBT+ TVZYN" tvg-logo="http://69.197.159.50:80/images/df7e8e4823daf0129a7fbd8ae79507ed.jpg" group-title="✨SBT",SBT+ TVZYN
+http://fontep1tech.space:80/630922725/280890306/4770606
+#EXTINF:-1 tvg-id="tooncast.br" tvg-name="TOONCAST FHD" tvg-logo="https://i.imgur.com/s6tkdIZ.png" group-title="⚡INFANTIL",TOONCAST FHD
+http://fontep1tech.space:80/630922725/280890306/171892
+#EXTINF:-1 tvg-id="tooncast.br" tvg-name="TOONCAST HD" tvg-logo="https://i.imgur.com/s6tkdIZ.png" group-title="⚡INFANTIL",TOONCAST HD
+http://fontep1tech.space:80/630922725/280890306/386
+#EXTINF:-1 tvg-id="tooncast.br" tvg-name="TOONCAST SD" tvg-logo="https://i.imgur.com/s6tkdIZ.png" group-title="⚡INFANTIL",TOONCAST SD
+http://fontep1tech.space:80/630922725/280890306/387
+#EXTINF:-1 tvg-id="a.e.br" tvg-name="TRAVEL BOX BRASIL FHD" tvg-logo="https://acstatic.co/logos/canais/travelboxbrazil.png" group-title="⚡VARIEDADES",TRAVEL BOX BRASIL FHD
+http://fontep1tech.space:80/630922725/280890306/4
+#EXTINF:-1 tvg-id="travelboxbrazil.br" tvg-name="TRAVEL BOX BRASIL HD" tvg-logo="https://acstatic.co/logos/canais/travelboxbrazil.png" group-title="⚡VARIEDADES",TRAVEL BOX BRASIL HD
+http://fontep1tech.space:80/630922725/280890306/465
+#EXTINF:-1 tvg-id="travelboxbrazil.br" tvg-name="TRAVEL BOX BRASIL SD" tvg-logo="https://acstatic.co/logos/canais/travelboxbrazil.png" group-title="⚡VARIEDADES",TRAVEL BOX BRASIL SD
+http://fontep1tech.space:80/630922725/280890306/464
+#EXTINF:-1 tvg-id="" tvg-name="TV APARECIDA FHD" tvg-logo="https://i.imgur.com/BxUg4hp.png" group-title="✝️RELIGIOSOS",TV APARECIDA FHD
+http://fontep1tech.space:80/630922725/280890306/369723
+#EXTINF:-1 tvg-id="tvaparecida.br" tvg-name="TV APARECIDA HD" tvg-logo="https://i.imgur.com/BxUg4hp.png" group-title="✝️RELIGIOSOS",TV APARECIDA HD
+http://fontep1tech.space:80/630922725/280890306/171894
+#EXTINF:-1 tvg-id="APAR" tvg-name="TV APARECIDA SD" tvg-logo="https://i.imgur.com/BxUg4hp.png" group-title="✝️RELIGIOSOS",TV APARECIDA SD
+http://fontep1tech.space:80/630922725/280890306/489
+#EXTINF:-1 tvg-id="Tvcamara.br" tvg-name="TV CAMARA" tvg-logo="https://logodownload.org/wp-content/uploads/2019/01/tv-camara-logo.png" group-title="✨ABERTOS",TV CAMARA
+http://fontep1tech.space:80/630922725/280890306/479
+#EXTINF:-1 tvg-id="" tvg-name="TV CULTURA 4K" tvg-logo="https://i.imgur.com/HGmh8Tu.png" group-title="✨ABERTOS",TV CULTURA 4K
+http://fontep1tech.space:80/630922725/280890306/369627
+#EXTINF:-1 tvg-id="ZYB851" tvg-name="TV CULTURA FHD" tvg-logo="https://i.imgur.com/HGmh8Tu.png" group-title="✨ABERTOS",TV CULTURA FHD
+http://fontep1tech.space:80/630922725/280890306/480
+#EXTINF:-1 tvg-id="ZYB851" tvg-name="TV CULTURA HD" tvg-logo="https://i.imgur.com/HGmh8Tu.png" group-title="✨ABERTOS",TV CULTURA HD
+http://fontep1tech.space:80/630922725/280890306/481
+#EXTINF:-1 tvg-id="ZYB851" tvg-name="TV CULTURA SD" tvg-logo="https://i.imgur.com/HGmh8Tu.png" group-title="✨ABERTOS",TV CULTURA SD
+http://fontep1tech.space:80/630922725/280890306/482
+#EXTINF:-1 tvg-id="TVEVCBA" tvg-name="TV EVANGELIZAR FHD" tvg-logo="https://evangelizar.s3.amazonaws.com/wp-content/uploads/2016/12/icone-rec-tv_evangelizar1.png" group-title="✝️RELIGIOSOS",TV EVANGELIZAR FHD
+http://fontep1tech.space:80/630922725/280890306/491
+#EXTINF:-1 tvg-id="TVEVCBA" tvg-name="TV EVANGELIZAR HD" tvg-logo="https://evangelizar.s3.amazonaws.com/wp-content/uploads/2016/12/icone-rec-tv_evangelizar1.png" group-title="✝️RELIGIOSOS",TV EVANGELIZAR HD
+http://fontep1tech.space:80/630922725/280890306/171895
+#EXTINF:-1 tvg-id="TVEVCBA" tvg-name="TV EVANGELIZAR SD" tvg-logo="https://evangelizar.s3.amazonaws.com/wp-content/uploads/2016/12/icone-rec-tv_evangelizar1.png" group-title="✝️RELIGIOSOS",TV EVANGELIZAR SD
+http://fontep1tech.space:80/630922725/280890306/490
+#EXTINF:-1 tvg-id="" tvg-name="TV GAZETA 4K" tvg-logo="https://i.imgur.com/2th79Ey.png" group-title="✨ABERTOS",TV GAZETA 4K
+http://fontep1tech.space:80/630922725/280890306/369727
+#EXTINF:-1 tvg-id="ZYA221" tvg-name="TV GAZETA FHD" tvg-logo="https://i.imgur.com/2th79Ey.png" group-title="✨ABERTOS",TV GAZETA FHD
+http://fontep1tech.space:80/630922725/280890306/483
+#EXTINF:-1 tvg-id="" tvg-name="TV GAZETA HD" tvg-logo="https://i.imgur.com/2th79Ey.png" group-title="✨ABERTOS",TV GAZETA HD
+http://fontep1tech.space:80/630922725/280890306/171896
+#EXTINF:-1 tvg-id="" tvg-name="TV NOVO TEMPO 4K" tvg-logo="http://files.adventistas.org/noticias/pt/2014/12/Novo-Tempo-comeca-novo-programa-sobre-criacionismo.png" group-title="✝️RELIGIOSOS",TV NOVO TEMPO 4K
+http://fontep1tech.space:80/630922725/280890306/369729
+#EXTINF:-1 tvg-id="tvnovotempo.br" tvg-name="TV NOVO TEMPO FHD" tvg-logo="http://files.adventistas.org/noticias/pt/2014/12/Novo-Tempo-comeca-novo-programa-sobre-criacionismo.png" group-title="✝️RELIGIOSOS",TV NOVO TEMPO FHD
+http://fontep1tech.space:80/630922725/280890306/492
+#EXTINF:-1 tvg-id="tvnovotempo.br" tvg-name="TV NOVO TEMPO HD" tvg-logo="http://files.adventistas.org/noticias/pt/2014/12/Novo-Tempo-comeca-novo-programa-sobre-criacionismo.png" group-title="✝️RELIGIOSOS",TV NOVO TEMPO HD
+http://fontep1tech.space:80/630922725/280890306/493
+#EXTINF:-1 tvg-id="tvnovotempo.br" tvg-name="TV NOVO TEMPO SD" tvg-logo="http://files.adventistas.org/noticias/pt/2014/12/Novo-Tempo-comeca-novo-programa-sobre-criacionismo.png" group-title="✝️RELIGIOSOS",TV NOVO TEMPO SD
+http://fontep1tech.space:80/630922725/280890306/494
+#EXTINF:-1 tvg-id="" tvg-name="TV RA TIM BUM 4K" tvg-logo="http://acsgr.net:80/images/33e61c2b80c89a89beb2f542949754aa.png" group-title="⚡INFANTIL",TV RA TIM BUM 4K
+http://fontep1tech.space:80/630922725/280890306/369730
+#EXTINF:-1 tvg-id="tvratimbum.br" tvg-name="TV RA TIM BUM FHD" tvg-logo="http://acsgr.net:80/images/33e61c2b80c89a89beb2f542949754aa.png" group-title="⚡INFANTIL",TV RA TIM BUM FHD
+http://fontep1tech.space:80/630922725/280890306/388
+#EXTINF:-1 tvg-id="a&e.br" tvg-name="TV RA TIM BUM HD" tvg-logo="http://acsgr.net:80/images/33e61c2b80c89a89beb2f542949754aa.png" group-title="⚡INFANTIL",TV RA TIM BUM HD
+http://fontep1tech.space:80/630922725/280890306/389
+#EXTINF:-1 tvg-id="a&e.br" tvg-name="TV RA TIM BUM SD" tvg-logo="http://acsgr.net:80/images/33e61c2b80c89a89beb2f542949754aa.png" group-title="⚡INFANTIL",TV RA TIM BUM SD
+http://fontep1tech.space:80/630922725/280890306/390
+#EXTINF:-1 tvg-id="" tvg-name="VIVA 4K" tvg-logo="https://i.imgur.com/cuWxv5n.jpeg" group-title="⚡VARIEDADES",VIVA 4K
+http://fontep1tech.space:80/630922725/280890306/1182
+#EXTINF:-1 tvg-id="viva.br" tvg-name="VIVA FHD" tvg-logo="https://i.imgur.com/cuWxv5n.jpeg" group-title="⚡VARIEDADES",VIVA FHD
+http://fontep1tech.space:80/630922725/280890306/466
+#EXTINF:-1 tvg-id="viva.br" tvg-name="VIVA HD" tvg-logo="https://i.imgur.com/cuWxv5n.jpeg" group-title="⚡VARIEDADES",VIVA HD
+http://fontep1tech.space:80/630922725/280890306/467
+#EXTINF:-1 tvg-id="viva.br" tvg-name="VIVA SD" tvg-logo="https://i.imgur.com/cuWxv5n.jpeg" group-title="⚡VARIEDADES",VIVA SD
+http://fontep1tech.space:80/630922725/280890306/468
+#EXTINF:-1 tvg-id="Zoomoo SD" tvg-name="ZOOMOO 4K" tvg-logo="https://i.imgur.com/PxTRD5v.png" group-title="⚡INFANTIL",ZOOMOO 4K
+http://fontep1tech.space:80/630922725/280890306/369736
+#EXTINF:-1 tvg-id="Zoomoo SD" tvg-name="ZOOMOO FHD" tvg-logo="https://i.imgur.com/PxTRD5v.png" group-title="⚡INFANTIL",ZOOMOO FHD
+http://fontep1tech.space:80/630922725/280890306/391
+#EXTINF:-1 tvg-id="Zoomoo SD" tvg-name="ZOOMOO HD" tvg-logo="https://i.imgur.com/PxTRD5v.png" group-title="⚡INFANTIL",ZOOMOO HD
+http://fontep1tech.space:80/630922725/280890306/392
+#EXTINF:-1 tvg-id="Zoomoo SD" tvg-name="ZOOMOO SD" tvg-logo="https://i.imgur.com/PxTRD5v.png" group-title="⚡INFANTIL",ZOOMOO SD
+http://fontep1tech.space:80/630922725/280890306/393
