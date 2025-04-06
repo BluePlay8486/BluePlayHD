@@ -62,10 +62,10 @@ jobs:
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
 
-      # 6. Verificar alterações
-      - name: Verificar alterações
+      # 6. Verificar alterações e garantir sobrescrita
+      - name: Verificar alterações e garantir sobrescrita
         run: |
-          git add "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt"
+          git add -f "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt"  # Forçar a adição do arquivo sobrescrito
           git commit -m "Atualização automática da lista TV AO VIVO" || echo "Sem alterações"
 
       # 7. Enviar alterações
