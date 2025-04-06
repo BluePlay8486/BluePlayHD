@@ -19,8 +19,8 @@ jobs:
         run: |
           curl -L -o lista.m3u "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
 
-      # 3. Filtrar canais desejados (apenas os grupos especificados)
-      - name: Filtrar canais desejados (somente grupos específicos)
+      # 3. Filtrar canais desejados (considerando variações de caixa e acentuação)
+      - name: Filtrar canais desejados (considerando variações de caixa e acentuação)
         run: |
           awk '
           BEGIN {
@@ -62,10 +62,10 @@ jobs:
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
 
-      # 6. Verificar alterações e garantir sobrescrita
-      - name: Verificar alterações e garantir sobrescrita
+      # 6. Verificar alterações
+      - name: Verificar alterações
         run: |
-          git add -f "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt"  # Forçar a adição do arquivo sobrescrito
+          git add "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt"
           git commit -m "Atualização automática da lista TV AO VIVO" || echo "Sem alterações"
 
       # 7. Enviar alterações
