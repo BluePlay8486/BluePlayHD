@@ -76,4 +76,4 @@ jobs:
           else
             git commit -m "Atualização automática da lista TV AO VIVO"
             git push https://x-access-token:${{ secrets.GHT_TOKEN }}@github.com/BluePlay8486/BluePlayHD.git HEAD:main
-          }
+          fi
