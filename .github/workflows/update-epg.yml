@@ -2,30 +2,31 @@ name: Atualizar EPG.xml a cada 12 horas
 
 on:
   schedule:
-    - cron: '0 */12 * * *'  # Executa a cada 12 horas (00h e 12h UTC)
-  workflow_dispatch:         # Permite rodar manualmente
+    - cron: '0 */12 * * *'  # Executa às 00h e 12h UTC
+  workflow_dispatch:
 
 jobs:
   atualizar-epg:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Clonar o repositório com permissão de push
       - name: Clonar o repositório
         uses: actions/checkout@v3
         with:
           token: ${{ secrets.GH_TOKEN }}
 
-      # 2. Baixar o novo EPG
-      - name: Baixar EPG.xml atualizado
+      - name: Baixar novo EPG.xml
         run: |
           curl -L -o epg.xml "http://cdn.pthdtv.top:80/xmltv.php?username=630922725&password=280890306"
+          ls -lh epg.xml  # Só pra verificar se baixou corretamente
 
-      # 3. Commitar e enviar alterações
-      - name: Commitar e fazer push
+      - name: Configurar Git
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git add epg.xml
-          git commit -m "Atualização automática do EPG.xml" || echo "Sem alterações"
-          git push origin main
+
+      - name: Forçar commit do epg.xml
+        run: |
+          git add -f epg.xml
+          git commit -m "Atualização automática do EPG.xml (forçada)" || echo "Nada para commit"
+          git push origin main || echo "Push falhou"
