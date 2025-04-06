@@ -19,38 +19,38 @@ jobs:
         run: |
           curl -L -o lista.m3u "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
 
-      # 3. Filtrar canais desejados (considerando variações de caixa e acentuação)
-      - name: Filtrar canais desejados (considerando variações de caixa e acentuação)
+      # 3. Filtrar canais desejados (com nomes compostos e acentuação normalizada)
+      - name: Filtrar canais desejados
         run: |
           awk '
           BEGIN {
             IGNORECASE = 1
-            # Lista de grupos exatos a serem filtrados
-            split("24H SÉRIES 24H DESENHOS FILMES E SÉRIES ⭐ REALITY BBB 2025 ABERTOS DOCUMENTÁRIOS BAND NOTÍCIAS VARIEDADES RELIGIOSOS INFANTIL SKY PLAY DISCOVERY DISNEY+ | HBO MAX 24H SHOWS GLOBOS REGIONAIS GLOBOS CAPITAIS REDE HBO RECORD TV SBT REDE TELECINE", grupos, " ")
-            for (i in grupos) alvo[normalize(grupos[i])] = 1  # Normalize os grupos para garantir que todas as variações sejam capturadas
+            # Lista completa dos grupos desejados separados por vírgula
+            split("24H SÉRIES,24H DESENHOS,FILMES E SÉRIES,⭐ REALITY BBB 2025,ABERTOS,DOCUMENTÁRIOS,BAND,NOTÍCIAS,VARIEDADES,RELIGIOSOS,INFANTIL,SKY PLAY,DISCOVERY,DISNEY+ | HBO MAX,24H SHOWS,GLOBOS REGIONAIS,GLOBOS CAPITAIS,REDE HBO,RECORD TV,SBT,REDE TELECINE", grupos, ",")
+            for (i in grupos) alvo[normalize(grupos[i])] = 1
           }
           function normalize(str) {
-            gsub(/[[:punct:][:cntrl:][:space:]]/, "", str)  # Remove caracteres especiais
+            gsub(/[[:punct:][:cntrl:][:space:]]/, "", str)
             gsub(/[áàãâä]/, "a", str)
             gsub(/[éèêë]/, "e", str)
             gsub(/[íìîï]/, "i", str)
             gsub(/[óòõôö]/, "o", str)
             gsub(/[úùûü]/, "u", str)
             gsub(/[ç]/, "c", str)
-            return tolower(str)  # Normaliza para minúsculas
+            return tolower(str)
           }
           /#EXTINF/ {
             line = $0
             match($0, /group-title="([^"]+)"/, arr)
-            grupo = normalize(arr[1])  # Normaliza o nome do grupo do canal
-            if (grupo in alvo) {  # Verifica se o grupo normalizado está na lista alvo
+            grupo = normalize(arr[1])
+            if (grupo in alvo) {
               print line
               getline
               print
             }
           }' lista.m3u > "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt"
 
-      # 4. Criar backup da lista (opcional, caso queira manter versões)
+      # 4. Criar backup da lista
       - name: Criar backup da lista
         run: |
           mkdir -p "BluePlay/TV AO VIVO/backup"
@@ -72,5 +72,5 @@ jobs:
       - name: Enviar alterações
         uses: ad-m/github-push-action@v0.6.0
         with:
-          github_token: ${{ secrets.GH_TOKEN }}  # Usando o GH_TOKEN como secret
+          github_token: ${{ secrets.GH_TOKEN }}
           branch: main
