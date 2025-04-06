@@ -1,76 +1,73 @@
-name: Atualizar Lista TV AO VIVO
+name: Atualizar TV AO VIVO
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Executa todos os dias à meia-noite
-  workflow_dispatch:
+    - cron: '0 3 * * *'  # Executa todo dia às 03:00 da manhã (horário UTC)
+  workflow_dispatch:      # Permite executar manualmente pelo GitHub
 
 jobs:
-  atualizar-lista:
+  atualizar:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Clonar repositório
-      - name: Clonar repositório
+      - name: Clonar o repositório
         uses: actions/checkout@v3
 
-      # 2. Baixar lista .m3u original
-      - name: Baixar lista .m3u original
-        run: |
-          curl -L -o lista.m3u "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
+      - name: Baixar lista original
+        run: curl -o lista_original.m3u "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
 
-      # 3. Filtrar canais desejados (considerando variações de caixa e acentuação)
-      - name: Filtrar canais desejados (considerando variações de caixa e acentuação)
+      - name: Filtrar grupos desejados
         run: |
-          awk '
-          BEGIN {
-            IGNORECASE = 1
-            # Lista de grupos exatos a serem filtrados
-            split("24H SÉRIES 24H DESENHOS FILMES E SÉRIES ⭐ REALITY BBB 2025 ABERTOS DOCUMENTÁRIOS BAND NOTÍCIAS VARIEDADES RELIGIOSOS INFANTIL SKY PLAY DISCOVERY DISNEY+ | HBO MAX 24H SHOWS GLOBOS REGIONAIS GLOBOS CAPITAIS REDE HBO RECORD TV SBT REDE TELECINE", grupos, " ")
-            for (i in grupos) alvo[normalize(grupos[i])] = 1  # Normaliza os grupos para garantir que todas as variações sejam capturadas
-          }
-          function normalize(str) {
-            gsub(/[[:punct:][:cntrl:][:space:]]/, "", str)  # Remove caracteres especiais
-            gsub(/[áàãâä]/, "a", str)
-            gsub(/[éèêë]/, "e", str)
-            gsub(/[íìîï]/, "i", str)
-            gsub(/[óòõôö]/, "o", str)
-            gsub(/[úùûü]/, "u", str)
-            gsub(/[ç]/, "c", str)
-            return tolower(str)  # Normaliza para minúsculas
-          }
-          /#EXTINF/ {
-            line = $0
-            match($0, /group-title="([^"]+)"/, arr)
-            grupo = normalize(arr[1])  # Normaliza o nome do grupo do canal
-            if (grupo in alvo) {  # Verifica se o grupo normalizado está na lista alvo
-              print line
-              getline
-              print
-            }
-          }' lista.m3u > "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt"
+          grupos=(
+            "24H SÉRIES"
+            "24H DESENHOS"
+            "FILMES E SÉRIES"
+            "⭐ REALITY BBB 2025"
+            "ABERTOS"
+            "DOCUMENTÁRIOS"
+            "BAND"
+            "NOTÍCIAS"
+            "VARIEDADES"
+            "RELIGIOSOS"
+            "INFANTIL"
+            "SKY PLAY"
+            "DISCOVERY"
+            "DISNEY+ | HBO MAX"
+            "24H SHOWS"
+            "GLOBOS REGIONAIS"
+            "GLOBOS CAPITAIS"
+            "REDE HBO"
+            "RECORD TV"
+            "SBT"
+            "REDE TELECINE"
+          )
 
-      # 4. Criar backup da lista (opcional, caso queira manter versões)
-      - name: Criar backup da lista
-        run: |
-          mkdir -p "BluePlay/TV AO VIVO/backup"
-          cp "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt" "BluePlay/TV AO VIVO/backup/TV_$(date +'%Y-%m-%d_%H-%M').txt"
+          echo "#EXTM3U" > canais_filtrados.m3u
 
-      # 5. Configurar Git
-      - name: Configurar Git
-        run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
+          salvar="false"
+          while IFS= read -r linha; do
+            if [[ "$linha" == *"#EXTINF"* ]]; then
+              grupo=$(echo "$linha" | grep -oP 'group-title=".*?"' | cut -d'"' -f2)
+              if [[ " ${grupos[*]} " == *" $grupo "* ]]; then
+                salvar="true"
+              else
+                salvar="false"
+              fi
+            fi
 
-      # 6. Verificar alterações
-      - name: Verificar alterações
+            if [[ "$salvar" == "true" ]]; then
+              echo "$linha" >> canais_filtrados.m3u
+            fi
+          done < lista_original.m3u
+
+      - name: Substituir TV AO VIVO.txt
         run: |
+          cp canais_filtrados.m3u "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt"
+
+      - name: Commit e push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt"
-          git commit -m "Atualização automática da lista TV AO VIVO" || echo "Sem alterações"
-
-      # 7. Enviar alterações
-      - name: Enviar alterações
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.GH_TOKEN }}  # Usando o GH_TOKEN como secret
-          branch: main
+          git commit -m "Atualização automática dos canais ao vivo"
+          git push
