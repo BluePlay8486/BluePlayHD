@@ -2,7 +2,7 @@ name: Atualizar Lista TV AO VIVO
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Todos os dias às 00:00
+    - cron: '0 0 * * *' # Executa todos os dias à meia-noite
   workflow_dispatch:
 
 jobs:
@@ -61,7 +61,6 @@ jobs:
 
       - name: Verificar alterações
         run: |
-          echo "Verificando alterações..."
           git add "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.txt"
           git add "BluePlay/TV AO VIVO/backup/"
           git commit -m "Atualização automática da lista TV AO VIVO" || echo "Sem alterações"
@@ -69,5 +68,5 @@ jobs:
       - name: Enviar alterações
         uses: ad-m/github-push-action@v0.6.0
         with:
-          github_token: ${{ secrets.GH_TOKEN }}
+          github_token: ${{ secrets.GH_FINE_TOKEN_BLUE }}
           branch: main
