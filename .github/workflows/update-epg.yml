@@ -2,53 +2,46 @@ name: Atualizar EPG.xml a cada 12 horas
 
 on:
   schedule:
-    - cron: '0 */12 * * *'  # Executa a cada 12 horas (00h e 12h UTC)
-  workflow_dispatch:         # Permite execução manual
+    - cron: '0 */12 * * *'
+  workflow_dispatch:
 
 jobs:
   atualizar-epg:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Clonar o repositório
       - name: Clonar o repositório
         uses: actions/checkout@v3
 
-      # 2. Baixar EPG.xml para a pasta correta
       - name: Baixar EPG.xml
         run: |
           mkdir -p EPG
           curl -L -o EPG/epg.xml "http://cdn.pthdtv.top:80/xmltv.php?username=630922725&password=280890306"
 
-      # 3. Verificar se o arquivo foi baixado corretamente
-      - name: Verificar tamanho do EPG.xml
+      - name: Verificar se o arquivo foi baixado corretamente
         run: |
           if [ -f "EPG/epg.xml" ]; then
-            echo "Arquivo EPG baixado:"
+            echo "Arquivo baixado com sucesso:"
             ls -lh EPG/epg.xml
           else
-            echo "Erro: epg.xml não foi baixado."
+            echo "Erro: epg.xml não foi baixado!"
             exit 1
           fi
 
-      # 4. Mostrar início do arquivo (opcional)
-      - name: Mostrar início do EPG.xml
-        run: head -n 10 EPG/epg.xml || true
-
-      # 5. Configurar Git
       - name: Configurar Git
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
 
-      # 6. Commitar alterações somente se houver mudanças
+      - name: Puxar alterações remotas com rebase
+        run: |
+          git pull origin main --rebase
+
       - name: Commitar alterações
         run: |
           git add EPG/epg.xml
           git diff --cached --quiet || git commit -m "Atualização automática do EPG.xml"
 
-      # 7. Push das alterações
       - name: Enviar alterações para o GitHub
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.GH_TOKEN }}
+        run: |
+          git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
