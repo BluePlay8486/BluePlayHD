@@ -2,11 +2,11 @@ name: Atualizar Lista FILMES LINK DIRETO
 
 on:
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '0 2 * * *'  # Executa todos os dias às 02:00
   workflow_dispatch:
 
 jobs:
-  atualizar-lista:
+  atualizar-filmes:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,67 +17,46 @@ jobs:
         run: |
           curl -L -o lista.m3u "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
 
-      - name: Filtrar grupos exatos e remover EPG
+      - name: Filtrar grupos de filmes e organizar por ordem desejada
         run: |
-          grupos=(
-            "LANÇAMENTOS 2025"
-            "LANÇAMENTOS 2024"
-            "LANÇAMENTOS 2023"
-            "LANÇAMENTOS 2022"
-            "FILMES | LEGENDADOS"
-            "FILMES DRAMA"
-            "FILMES ROMANCE"
-            "FILMES TERROR"
-            "FILMES AÇÃO"
-            "FILMES FICÇÃO"
-            "FILMES AVENTURA"
-            "FILMES FANTASIA"
-            "FILMES | 4K"
-            "FILMES SUSPENSE"
-            "FILMES NACIONAL"
-            "FILMES GUERRA"
-            "FILMES PRIME VIDEO"
-            "FILMES ANIMAÇÃO"
-            "FILMES COMÉDIA"
-            "FILMES DOCUMENTÁRIOS"
-            "FILMES FAROESTE"
-            "FILMES NETFLIX"
-            "FILMES INFANTIL"
-            "FILMES ANIME"
-            "FILMES DISNEY+"
-            "FILMES APPLE TV+"
-            "FILMES GLOBOPLAY"
-            "FILMES PARAMOUNT+"
-            "FILMES HBO MAX"
-            "FILMES STAR+"
-            "FILMES CRIME"
-            "FILMES | COPA DO MUNDO 2022"
-            "FILMES RELIGIOSOS"
-            "FILMES BRASIL PARALELO"
-            "FILMES | DESPERTAR UMA NOVA CONSCIÊNCIA"
-            "FILMES | SONS PARA DORMIR"
-            "FILMES DC COMICS"
-            "FILMES MARVEL"
-            "FILMES | 007 COLEÇÃO"
-          )
+          grupos=("LANÇAMENTOS 2025" "LANÇAMENTOS 2024" "LANÇAMENTOS 2023" "LANÇAMENTOS 2022" \
+                  "FILMES | LEGENDADOS" "FILMES DRAMA" "FILMES ROMANCE" "FILMES TERROR" "FILMES AÇÃO" \
+                  "FILMES FICÇÃO" "FILMES AVENTURA" "FILMES FANTASIA" "FILMES | 4K" "FILMES SUSPENSE" \
+                  "FILMES NACIONAL" "FILMES GUERRA" "FILMES PRIME VIDEO" "FILMES ANIMAÇÃO" "FILMES COMÉDIA" \
+                  "FILMES DOCUMENTÁRIOS" "FILMES FAROESTE" "FILMES NETFLIX" "FILMES INFANTIL" "FILMES ANIME" \
+                  "FILMES DISNEY+" "FILMES APPLE TV+" "FILMES GLOBOPLAY" "FILMES PARAMOUNT+" "FILMES HBO MAX" \
+                  "FILMES STAR+" "FILMES CRIME" "FILMES | COPA DO MUNDO 2022" "FILMES RELIGIOSOS" \
+                  "FILMES BRASIL PARALELO" "FILMES | DESPERTAR UMA NOVA CONSCIÊNCIA" "FILMES | SONS PARA DORMIR" \
+                  "FILMES DC COMICS" "FILMES MARVEL" "FILMES | 007 COLEÇÃO")
 
-          echo "#EXTM3U" > filmes.txt
+          > "BluePlay/FILMES/LINK DIRETO/FILMES.txt"
 
           for grupo in "${grupos[@]}"; do
-            awk -v g="$grupo" '
-              $0 ~ "group-title=\"" g "\"" {
-                getline url
-                print $0 RS url
+            awk -v alvo="$grupo" '
+              BEGIN {
+                IGNORECASE = 1
+                found = 0
               }
-            ' lista.m3u >> filmes.txt
+              function normalize(str) {
+                gsub(/[[:punct:][:cntrl:][:space:]]/, "", str)
+                gsub(/[áàãâä]/, "a", str)
+                gsub(/[éèêë]/, "e", str)
+                gsub(/[íìîï]/, "i", str)
+                gsub(/[óòõôö]/, "o", str)
+                gsub(/[úùûü]/, "u", str)
+                gsub(/[ç]/, "c", str)
+                return tolower(str)
+              }
+              /#EXTINF/ {
+                match($0, /group-title="([^"]+)"/, arr)
+                if (normalize(arr[1]) == normalize(alvo)) {
+                  print $0
+                  getline
+                  print
+                }
+              }
+            ' lista.m3u >> "BluePlay/FILMES/LINK DIRETO/FILMES.txt"
           done
-
-          mv filmes.txt "BluePlay/FILMES/LINK DIRETO/FILMES.txt"
-
-      - name: Criar backup
-        run: |
-          mkdir -p "BluePlay/FILMES/LINK DIRETO/backup"
-          cp "BluePlay/FILMES/LINK DIRETO/FILMES.txt" "BluePlay/FILMES/LINK DIRETO/backup/FILMES_$(date +'%Y-%m-%d_%H-%M').txt"
 
       - name: Configurar Git
         run: |
