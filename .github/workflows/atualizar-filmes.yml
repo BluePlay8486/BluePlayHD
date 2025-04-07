@@ -2,7 +2,7 @@ name: Atualizar Lista FILMES LINK DIRETO
 
 on:
   schedule:
-    - cron: '0 1 * * *' # Executa todos os dias à 01:00
+    - cron: '0 1 * * *'  # Executa todos os dias à 01:00
   workflow_dispatch:
 
 jobs:
@@ -10,17 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Clonar repositório
       - name: Clonar repositório
         uses: actions/checkout@v3
 
-      # 2. Baixar lista .m3u original
       - name: Baixar lista .m3u original
         run: |
           curl -L -o lista.m3u "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
 
-      # 3. Filtrar e ordenar os grupos desejados (sem EPG)
-      - name: Filtrar e ordenar grupos
+      - name: Filtrar e ordenar grupos EXATOS (sem EPG)
         run: |
           grupos=(
             "LANÇAMENTOS 2025"
@@ -68,35 +65,31 @@ jobs:
 
           for grupo in "${grupos[@]}"; do
             awk -v grupo="$grupo" '
-              BEGIN { IGNORECASE=1 }
-              $0 ~ "group-title=\""grupo"\"" {
-                getline prox
-                print $0 RS prox
+              BEGIN { IGNORECASE = 0 }
+              $0 ~ "group-title=\"" grupo "\"" {
+                getline url
+                print $0 RS url
               }
             ' lista.m3u >> filmes.txt
           done
 
           mv filmes.txt "BluePlay/FILMES/LINK DIRETO/FILMES.txt"
 
-      # 4. Criar backup
       - name: Criar backup
         run: |
           mkdir -p "BluePlay/FILMES/LINK DIRETO/backup"
           cp "BluePlay/FILMES/LINK DIRETO/FILMES.txt" "BluePlay/FILMES/LINK DIRETO/backup/FILMES_$(date +'%Y-%m-%d_%H-%M').txt"
 
-      # 5. Configurar Git
       - name: Configurar Git
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
 
-      # 6. Verificar alterações
       - name: Verificar alterações
         run: |
           git add "BluePlay/FILMES/LINK DIRETO/FILMES.txt"
           git commit -m "Atualização automática da lista FILMES LINK DIRETO" || echo "Sem alterações"
 
-      # 7. Enviar alterações
       - name: Enviar alterações
         uses: ad-m/github-push-action@v0.6.0
         with:
