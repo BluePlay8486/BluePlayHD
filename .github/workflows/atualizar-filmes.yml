@@ -2,7 +2,7 @@ name: Atualizar Lista FILMES LINK DIRETO
 
 on:
   schedule:
-    - cron: '0 1 * * *'  # Executa todos os dias à 01:00
+    - cron: '0 1 * * *'
   workflow_dispatch:
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
         run: |
           curl -L -o lista.m3u "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
 
-      - name: Filtrar e ordenar grupos EXATOS (sem EPG)
+      - name: Filtrar grupos exatos e remover EPG
         run: |
           grupos=(
             "LANÇAMENTOS 2025"
@@ -64,9 +64,8 @@ jobs:
           echo "#EXTM3U" > filmes.txt
 
           for grupo in "${grupos[@]}"; do
-            awk -v grupo="$grupo" '
-              BEGIN { IGNORECASE = 0 }
-              $0 ~ "group-title=\"" grupo "\"" {
+            awk -v g="$grupo" '
+              $0 ~ "group-title=\"" g "\"" {
                 getline url
                 print $0 RS url
               }
