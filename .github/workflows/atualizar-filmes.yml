@@ -1,0 +1,69 @@
+name: Atualizar Lista FILMES
+
+on:
+  schedule:
+    - cron: '0 1 * * *'  # Executa todos os dias à 01h
+  workflow_dispatch:
+
+jobs:
+  atualizar-filmes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositório
+        uses: actions/checkout@v3
+
+      - name: Baixar lista .m3u original
+        run: |
+          curl -L -o lista.m3u "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
+
+      - name: Filtrar grupos de filmes
+        run: |
+          echo '#EXTM3U' > "BluePlay/FILMES/FILMES.txt"
+          awk '
+          BEGIN {
+            IGNORECASE = 1
+            split("LANÇAMENTOS 2025,LANÇAMENTOS 2024,LANÇAMENTOS 2023,LANÇAMENTOS 2022,FILMES | LEGENDADOS,FILMES DRAMA,FILMES ROMANCE,FILMES TERROR,FILMES AÇÃO,FILMES FICÇÃO,FILMES AVENTURA,FILMES FANTASIA,FILMES | 4K,FILMES SUSPENSE,FILMES NACIONAL,FILMES GUERRA,FILMES PRIME VIDEO,FILMES ANIMAÇÃO,FILMES COMÉDIA,FILMES DOCUMENTÁRIOS,FILMES FAROESTE,FILMES NETFLIX,FILMES INFANTIL,FILMES ANIME,FILMES DISNEY+,FILMES APPLE TV+,FILMES GLOBOPLAY,FILMES PARAMOUNT+,FILMES HBO MAX,FILMES STAR+,FILMES CRIME,FILMES | COPA DO MUNDO 2022,FILMES RELIGIOSOS,FILMES BRASIL PARALELO,FILMES | DESPERTAR UMA NOVA CONSCIÊNCIA,FILMES | SONS PARA DORMIR,FILMES DC COMICS,FILMES MARVEL,FILMES | 007 COLEÇÃO", grupos, ",")
+            for (i in grupos) alvo[normalize(grupos[i])] = 1
+          }
+          function normalize(str) {
+            gsub(/[[:punct:][:cntrl:][:space:]]/, "", str)
+            gsub(/[áàãâä]/, "a", str)
+            gsub(/[éèêë]/, "e", str)
+            gsub(/[íìîï]/, "i", str)
+            gsub(/[óòõôö]/, "o", str)
+            gsub(/[úùûü]/, "u", str)
+            gsub(/[ç]/, "c", str)
+            return tolower(str)
+          }
+          /#EXTINF/ {
+            line = $0
+            match($0, /group-title="([^"]+)"/, arr)
+            grupo = normalize(arr[1])
+            if (grupo in alvo) {
+              print line >> "BluePlay/FILMES/FILMES.txt"
+              getline
+              print >> "BluePlay/FILMES/FILMES.txt"
+            }
+          }' lista.m3u
+
+      - name: Criar backup da lista
+        run: |
+          mkdir -p "BluePlay/FILMES/backup"
+          cp "BluePlay/FILMES/FILMES.txt" "BluePlay/FILMES/backup/FILMES_$(date +'%Y-%m-%d_%H-%M').txt"
+
+      - name: Configurar Git
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+
+      - name: Verificar alterações
+        run: |
+          git add "BluePlay/FILMES/FILMES.txt"
+          git commit -m "Atualização automática da lista FILMES" || echo "Sem alterações"
+
+      - name: Enviar alterações
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          branch: main
