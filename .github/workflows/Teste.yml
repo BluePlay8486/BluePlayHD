@@ -13,6 +13,11 @@ jobs:
       - name: Clonar repositório
         uses: actions/checkout@v3
 
+      - name: Instalar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
       - name: Baixar lista .m3u original
         run: |
           curl -L -o lista.m3u "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
@@ -27,7 +32,7 @@ jobs:
       - name: Converter M3U para XML no estilo BluePlay com EPG
         run: |
           mkdir -p "BluePlay/TV AO VIVO/CANAIS AO VIVO"
-          python3 <<EOF
+          python3 - <<EOF
 import re
 from collections import defaultdict
 
@@ -71,7 +76,7 @@ while i < len(lines):
 <fanart>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/fanart.jpg</fanart>
 <info>[COLOR yellow]Canal ao vivo com programação atualizada.[/COLOR]</info>
 <epg_url>https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/main/epg.xml</epg_url>
-<epg_regex>&lt;programme.*?channel="{epg_channel}".*?start="(.*?)".*?stop="(.*?)".*?&gt;.*?&lt;title.*?&gt;(.*?)&lt;/title&gt;</epg_regex>
+<epg_regex>&lt;programme.*?channel=\\"{epg_channel}\\".*?start=\\"(.*?)\\".*?stop=\\"(.*?)\\".*?&gt;.*?&lt;title.*?&gt;(.*?)&lt;/title&gt;</epg_regex>
 </item>"""
             canais_por_grupo[grupo].append(item)
         i += 2
@@ -105,5 +110,6 @@ EOF
       - name: Commit e Push
         run: |
           git add "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.xml"
+          git add "BluePlay/TV AO VIVO/backup/" || true
           git commit -m "Lista TV AO VIVO atualizada automaticamente com XML BluePlay e EPG" || echo "Sem alterações"
-          git push
+          git push || echo "Nada para enviar"
