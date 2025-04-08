@@ -1,4 +1,3 @@
-#EXTM3U url-tvg="https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/main/EPG/epg.xml"
 #EXTINF:-1 tvg-id="" tvg-name="24 HORAS" tvg-logo="http://xp2.wtf:80/images/41648ed37ea162c88f1f5716a6aab728.jpg" group-title="⚡24H SÉRIES",24 HORAS
 http://fontep1tech.space:80/630922725/280890306/3241203
 #EXTINF:-1 tvg-id="" tvg-name="3 PALAVRINHAS" tvg-logo="https://i.imgur.com/o7FKRtx.png" group-title="⚡24H DESENHOS",3 PALAVRINHAS
