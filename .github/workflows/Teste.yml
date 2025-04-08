@@ -1,0 +1,109 @@
+name: Atualizar Lista TV AO VIVO
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Executa todos os dias à meia-noite
+  workflow_dispatch:
+
+jobs:
+  atualizar-lista:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositório
+        uses: actions/checkout@v3
+
+      - name: Baixar lista .m3u original
+        run: |
+          curl -L -o lista.m3u "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
+
+      - name: Validar se a lista M3U foi baixada
+        run: |
+          if [ ! -s lista.m3u ]; then
+            echo "Lista M3U não foi baixada corretamente ou está vazia."
+            exit 1
+          fi
+
+      - name: Converter M3U para XML no estilo BluePlay com EPG
+        run: |
+          mkdir -p "BluePlay/TV AO VIVO/CANAIS AO VIVO"
+          python3 <<EOF
+import re
+from collections import defaultdict
+
+with open("lista.m3u", "r", encoding="utf-8") as f:
+    lines = f.readlines()
+
+grupos_desejados = [
+    "24H SÉRIES", "24H DESENHOS", "FILMES E SÉRIES", "⭐ REALITY BBB 2025", "ABERTOS",
+    "DOCUMENTÁRIOS", "BAND", "NOTÍCIAS", "VARIEDADES", "RELIGIOSOS", "INFANTIL",
+    "SKY PLAY", "DISCOVERY", "DISNEY+ | HBO MAX", "24H SHOWS", "GLOBOS REGIONAIS",
+    "GLOBOS CAPITAIS", "REDE HBO", "RECORD TV", "SBT", "REDE TELECINE"
+]
+
+def normalize(txt):
+    return re.sub(r'[^a-z0-9]', '', re.sub(r'[áàãâä]', 'a', re.sub(r'[éèêë]', 'e', 
+           re.sub(r'[íìîï]', 'i', re.sub(r'[óòõôö]', 'o', 
+           re.sub(r'[úùûü]', 'u', re.sub(r'[ç]', 'c', txt.lower())))))))
+
+grupos_norm = {normalize(g): g for g in grupos_desejados}
+canais_por_grupo = defaultdict(list)
+
+i = 0
+while i < len(lines):
+    if lines[i].startswith("#EXTINF"):
+        match = re.search(r'group-title="([^"]+)"', lines[i])
+        grupo_raw = match.group(1) if match else "OUTROS"
+        grupo = grupos_norm.get(normalize(grupo_raw))
+        if grupo:
+            nome = re.search(r',(.+)', lines[i]).group(1)
+            logo = re.search(r'tvg-logo="([^"]+)"', lines[i])
+            logo_url = logo.group(1) if logo else ''
+            link = lines[i+1].strip()
+
+            epg_id = re.search(r'tvg-id="([^"]+)"', lines[i])
+            epg_channel = epg_id.group(1) if epg_id else nome.lower().replace(" ", "_")
+
+            item = f"""<item>
+<title>{nome}</title>
+<link>{link}</link>
+<thumbnail>{logo_url}</thumbnail>
+<fanart>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/fanart.jpg</fanart>
+<info>[COLOR yellow]Canal ao vivo com programação atualizada.[/COLOR]</info>
+<epg_url>https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/main/epg.xml</epg_url>
+<epg_regex>&lt;programme.*?channel="{epg_channel}".*?start="(.*?)".*?stop="(.*?)".*?&gt;.*?&lt;title.*?&gt;(.*?)&lt;/title&gt;</epg_regex>
+</item>"""
+            canais_por_grupo[grupo].append(item)
+        i += 2
+    else:
+        i += 1
+
+with open("BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.xml", "w", encoding="utf-8") as out:
+    out.write('<?xml version="1.0" encoding="UTF-8"?>\n<channels>\n')
+    for grupo, canais in canais_por_grupo.items():
+        canais.sort()
+        out.write(f"""<channel>
+<name>[B][COLOR white]{grupo}[/COLOR][/B]</name>
+<thumbnail>https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/main/icon.png</thumbnail>
+<fanart>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/fanart.jpg</fanart>
+<items>\n""")
+        out.write("\n".join(canais))
+        out.write("\n</items>\n</channel>\n")
+    out.write("</channels>")
+EOF
+
+      - name: Criar backup
+        run: |
+          mkdir -p "BluePlay/TV AO VIVO/backup"
+          cp "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.xml" "BluePlay/TV AO VIVO/backup/TV_$(date +'%Y-%m-%d_%H-%M').xml"
+
+      - name: Configurar Git
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+
+      - name: Commit e Push
+        run: |
+          git add "BluePlay/TV AO VIVO/CANAIS AO VIVO/TV AO VIVO.xml"
+          git commit -m "Lista TV AO VIVO atualizada automaticamente com XML BluePlay e EPG" || echo "Sem alterações"
+          git push
