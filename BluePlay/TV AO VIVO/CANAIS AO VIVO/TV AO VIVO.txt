@@ -154,11 +154,11 @@ http://fontep1tech.space:80/630922725/280890306/1374951
 http://fontep1tech.space:80/630922725/280890306/173201
 #EXTINF:-1 tvg-id="BR - Band Rio Grande do Sul HD" tvg-name="BAND RS SD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND RS SD
 http://fontep1tech.space:80/630922725/280890306/1374952
-#EXTINF:-1 tvg-id="a.e.br" tvg-name="BAND SP 4K" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND SP 4K
+#EXTINF:-1 tvg-id="Band SP HD" tvg-name="BAND SP 4K" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND SP 4K
 http://fontep1tech.space:80/630922725/280890306/1552323
 #EXTINF:-1 tvg-id="Band SP FHD" tvg-name="BAND SP FHD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND SP FHD
 http://fontep1tech.space:80/630922725/280890306/402
-#EXTINF:-1 tvg-id="a&e.br" tvg-name="BAND SP HD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND SP HD
+#EXTINF:-1 tvg-id="Band SP HD" tvg-name="BAND SP HD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND SP HD
 http://fontep1tech.space:80/630922725/280890306/403
 #EXTINF:-1 tvg-id="Band SP FHD" tvg-name="BAND SP SD" tvg-logo="https://i.imgur.com/3G2g2PD.png" group-title="✨BAND",BAND SP SD
 http://fontep1tech.space:80/630922725/280890306/404
