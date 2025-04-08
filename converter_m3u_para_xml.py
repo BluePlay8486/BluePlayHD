@@ -51,7 +51,7 @@ while i < len(lines):
 <thumbnail>{logo_url}</thumbnail>
 <fanart>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/fanart.jpg</fanart>
 <info>[COLOR yellow]Canal ao vivo com programação atualizada.[/COLOR]</info>
-<epg_url>https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/main/epg.xml</epg_url>
+<epg_url>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/EPG/epg.xml</epg_url>
 <epg_regex>&lt;programme.*?channel="{epg_channel}".*?start="(.*?)".*?stop="(.*?)".*?&gt;.*?&lt;title.*?&gt;(.*?)&lt;/title&gt;</epg_regex>
 </item>"""
             canais_por_grupo[grupo].append(item)
