@@ -56,15 +56,14 @@ canais_por_grupo = defaultdict(list)
 
 def extrair_grade(epg_channel):
     grade = []
-for prog in epg_tree.findall(f'.//programme[@channel="{epg_channel}"]'):
-        try:
-            inicio = datetime.strptime(prog.attrib.get("start", "")[:12], "%Y%m%d%H%M")
-            fim = datetime.strptime(prog.attrib.get("stop", "")[:12], "%Y%m%d%H%M")
-            titulo = prog.findtext("title", default="").strip()
-            horario = f"[COLOR orange]{inicio.strftime('%H:%M')} - {fim.strftime('%H:%M')}[/COLOR]"
-            grade.append(f"{horario} {titulo}")
-        except:
-            continue
+    for prog in epg_tree.findall(f'.//programme[@channel="{epg_channel}"]'):
+        titulo = prog.findtext('title') or 'Sem título'
+        inicio = prog.get('start')
+        fim = prog.get('stop')
+        if inicio and fim:
+            inicio_fmt = datetime.strptime(inicio[:14], "%Y%m%d%H%M%S").strftime("%d/%m %H:%M")
+            fim_fmt = datetime.strptime(fim[:14], "%Y%m%d%H%M%S").strftime("%H:%M")
+            grade.append(f"[B]{inicio_fmt} às {fim_fmt}:[/B] {titulo}")
     return "\n".join(grade)
 
 # Faz download da lista M3U
