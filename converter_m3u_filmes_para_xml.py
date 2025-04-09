@@ -7,7 +7,6 @@ from datetime import datetime
 
 EPG_URL = "https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/refs/heads/main/EPG/epg.xml"
 M3U_URL = "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
-EPG_REGEX = r"(?<=\])[^:\n]+(?=\s\-|\<|\\n|\\)"  # Adicionado aqui
 
 # Normaliza nomes para facilitar o agrupamento
 def normalize(txt):
