@@ -58,14 +58,21 @@ canais_por_grupo = defaultdict(list)
 # Extrai a grade completa do canal via EPG
 def extrair_grade(epg_channel):
     grade = []
-    for prog in epg_tree.findall(f".//programme[@channel='{epg_channel}']"):
+    hoje = datetime.now().date()
+
+    for prog in epg_tree.findall(".//programme[@channel='%s']" % epg_channel):
         try:
             inicio = datetime.strptime(prog.attrib.get("start", "")[:12], "%Y%m%d%H%M")
             fim = datetime.strptime(prog.attrib.get("stop", "")[:12], "%Y%m%d%H%M")
+            if inicio.date() != hoje:
+                continue  # Ignora programas que não são de hoje
+
             titulo = prog.findtext("title", default="").strip()
-            grade.append(f"[COLOR orange]{inicio.strftime('%H:%M')} - {fim.strftime('%H:%M')}[/COLOR] {titulo}")
+            horario = f"[COLOR orange]{inicio.strftime('%H:%M')} - {fim.strftime('%H:%M')}[/COLOR]"
+            grade.append(f"{horario} {titulo}")
         except:
             continue
+
     return "\n".join(grade)
 
 # Processa a M3U
