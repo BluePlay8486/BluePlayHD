@@ -1,0 +1,35 @@
+name: Atualizar XML de Filmes
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: [CHECKOUT] Clonando o repositório
+        uses: actions/checkout@v3
+
+      - name: [PYTHON] Configurando ambiente Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: [DEPENDÊNCIAS] Instalando pacotes necessários
+        run: pip install requests
+
+      - name: [EXECUTAR] Gerando XML de filmes
+        run: python3 converter_m3u_para_xml.py
+
+      - name: [VERIFICAR] Checando se o XML foi criado
+        run: |
+          if [ ! -f "BluePlay/FILMES/LINK DIRETO/FILMES.xml" ]; then
+            echo "[ERRO] XML não encontrado. Finalizando workflow."
+            exit 1
+          fi
+
+      - name: [ARQUIVO] Enviando artefato do XML
+        uses: actions/upload-artifact@v2
+        with:
+          name: filmes_xml
+          path: BluePlay/FILMES/LINK DIRETO/FILMES.xml
