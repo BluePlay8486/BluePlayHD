@@ -1,41 +1,53 @@
-name: Gerar XML de Filmes
+name: Gerar XML a partir da M3U
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # Permite rodar manualmente via GitHub Actions
+  push:
+    paths:
+      - 'converter_m3u_para_xml.py'
+      - '.github/workflows/gerar_xml.yml'
+      - 'requirements.txt'
 
 jobs:
-  gerar-filmes-xml:
+  gerar-xml:
+    name: Gerar Arquivo XML
     runs-on: ubuntu-latest
 
     steps:
-    - name: '[SUCESSO] Clonando o repositório'
-      uses: actions/checkout@v3
+      - name: Fazer checkout do repositório
+        uses: actions/checkout@v3
 
-    - name: '[SUCESSO] Configurando Python'
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
+      - name: Configurar Python 3.x
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
 
-    - name: '[SUCESSO] Instalando dependências'
-      run: |
-        python -m pip install --upgrade pip
-        pip install requests beautifulsoup4
+      - name: Verificar e instalar dependências
+        run: |
+          echo "Verificando requirements.txt..."
+          if [ -f requirements.txt ]; then
+            echo "Instalando dependências..."
+            pip install -r requirements.txt
+          else
+            echo "Arquivo requirements.txt não encontrado, pulando instalação."
+          fi
 
-    - name: '[SUCESSO] Executando o script para gerar o XML'
-      run: |
-        python3 gerar_filmes.py
+      - name: Executar script Python para gerar XML
+        run: |
+          echo "Executando script de conversão..."
+          python3 converter_m3u_para_xml.py
 
-    - name: '[VALIDAÇÃO] Verificando se o XML foi gerado'
-      run: |
-        if [ -f "BluePlay/FILMES/LINK DIRETO/FILMES.xml" ]; then
-          echo "[SUCESSO] O arquivo XML foi gerado com sucesso."
-        else
-          echo "[ERRO] O arquivo XML NÃO foi gerado."
-          exit 1
-        fi
+      - name: Verificar se o arquivo XML foi gerado
+        run: |
+          if [ ! -f "./BluePlay/FILMES/LINK DIRETO/FILMES.txt" ]; then
+            echo "ERRO: Arquivo FILMES.txt não encontrado!"
+            exit 1
+          else
+            echo "Arquivo FILMES.txt gerado com sucesso!"
+          fi
 
-    - name: '[SUCESSO] Fazendo upload do XML gerado'
-      uses: actions/upload-artifact@v2.3.1
-      with:
-        name: filmes_xml
-        path: BluePlay/FILMES/LINK DIRETO/FILMES.xml
+      - name: Fazer upload do XML gerado como artefato
+        uses: actions/upload-artifact@v2
+        with:
+          name: Filmes_XML
+          path: './BluePlay/FILMES/LINK DIRETO/FILMES.txt'
