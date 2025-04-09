@@ -1,75 +1,36 @@
-name: Atualizar Lista FILMES LINK DIRETO
+name: Gerar XML de Filmes
 
 on:
-  schedule:
-    - cron: '0 2 * * *'  # Executa todos os dias às 02:00
   workflow_dispatch:
+  push:
+    paths:
+      - 'lista.m3u'
+      - 'converter_m3u_filmes_para_xml.py'
+  schedule:
+    - cron: '0 */6 * * *'  # Executa a cada 6 horas
 
 jobs:
-  atualizar-filmes:
+  gerar-xml:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clonar repositório
+      - name: Clonar o repositório
         uses: actions/checkout@v3
 
-      - name: Baixar lista .m3u original
+      - name: Instalar dependências
         run: |
-          curl -L -o lista.m3u "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
+          python -m pip install --upgrade pip
+          pip install requests
 
-      - name: Filtrar grupos de filmes e organizar por ordem desejada
+      - name: Executar script de conversão M3U para XML
+        run: python converter_m3u_para_xml.py
+
+      - name: Confirmar alterações
         run: |
-          grupos=("LANÇAMENTOS 2025" "LANÇAMENTOS 2024" "LANÇAMENTOS 2023" "LANÇAMENTOS 2022" \
-                  "FILMES | LEGENDADOS" "FILMES DRAMA" "FILMES ROMANCE" "FILMES TERROR" "FILMES AÇÃO" \
-                  "FILMES FICÇÃO" "FILMES AVENTURA" "FILMES FANTASIA" "FILMES | 4K" "FILMES SUSPENSE" \
-                  "FILMES NACIONAL" "FILMES GUERRA" "FILMES PRIME VIDEO" "FILMES ANIMAÇÃO" "FILMES COMÉDIA" \
-                  "FILMES DOCUMENTÁRIOS" "FILMES FAROESTE" "FILMES NETFLIX" "FILMES INFANTIL" "FILMES ANIME" \
-                  "FILMES DISNEY+" "FILMES APPLE TV+" "FILMES GLOBOPLAY" "FILMES PARAMOUNT+" "FILMES HBO MAX" \
-                  "FILMES STAR+" "FILMES CRIME" "FILMES | COPA DO MUNDO 2022" "FILMES RELIGIOSOS" \
-                  "FILMES BRASIL PARALELO" "FILMES | DESPERTAR UMA NOVA CONSCIÊNCIA" "FILMES | SONS PARA DORMIR" \
-                  "FILMES DC COMICS" "FILMES MARVEL" "FILMES | 007 COLEÇÃO")
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add BluePlay/FILMES/LINK\ DIRETO/FILMES.txt
+          git commit -m "Atualização automática do XML de filmes via GitHub Actions" || echo "Nenhuma alteração para commitar"
 
-          > "BluePlay/FILMES/LINK DIRETO/FILMES.txt"
-
-          for grupo in "${grupos[@]}"; do
-            awk -v alvo="$grupo" '
-              BEGIN {
-                IGNORECASE = 1
-                found = 0
-              }
-              function normalize(str) {
-                gsub(/[[:punct:][:cntrl:][:space:]]/, "", str)
-                gsub(/[áàãâä]/, "a", str)
-                gsub(/[éèêë]/, "e", str)
-                gsub(/[íìîï]/, "i", str)
-                gsub(/[óòõôö]/, "o", str)
-                gsub(/[úùûü]/, "u", str)
-                gsub(/[ç]/, "c", str)
-                return tolower(str)
-              }
-              /#EXTINF/ {
-                match($0, /group-title="([^"]+)"/, arr)
-                if (normalize(arr[1]) == normalize(alvo)) {
-                  print $0
-                  getline
-                  print
-                }
-              }
-            ' lista.m3u >> "BluePlay/FILMES/LINK DIRETO/FILMES.txt"
-          done
-
-      - name: Configurar Git
-        run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
-
-      - name: Verificar alterações
-        run: |
-          git add "BluePlay/FILMES/LINK DIRETO/FILMES.txt"
-          git commit -m "Atualização automática da lista FILMES LINK DIRETO" || echo "Sem alterações"
-
-      - name: Enviar alterações
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          branch: main
+      - name: Enviar para o repositório
+        run: git push
