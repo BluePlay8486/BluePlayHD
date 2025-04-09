@@ -42,8 +42,15 @@ while i < len(lines):
             logo_url = logo.group(1) if logo else ''
             link = lines[i+1].strip()
 
-            epg_id = re.search(r'tvg-id="([^"]+)"', lines[i])
-            epg_channel = epg_id.group(1) if epg_id else nome.lower().replace(" ", "_")
+epg_id = re.search(r'tvg-id="([^"]+)"', lines[i])
+epg_channel = epg_id.group(1) if epg_id else ''
+
+# Mostrar no log os canais com e sem EPG
+if epg_channel:
+    print(f"[EPG OK] Canal: {nome} | EPG ID: {epg_channel}")
+else:
+    print(f"[SEM EPG] Canal: {nome} | (usando nome como fallback)")
+    epg_channel = nome.lower().replace(" ", "_")
 
             item = f"""<item>
 <title>{nome}</title>
