@@ -5,14 +5,14 @@ on:
 
 jobs:
   gerar_xml:
-    name: Gerar e exportar XML de Filmes
+    name: Gerar e Exportar XML de Filmes
     runs-on: ubuntu-latest
 
     steps:
       - name: Clonar o repositório
         uses: actions/checkout@v3
 
-      - name: Instalar Python
+      - name: Configurar Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
@@ -26,12 +26,12 @@ jobs:
       - name: Verificar se o XML foi gerado
         run: |
           if [ ! -f "BluePlay/FILMES/LINK DIRETO/FILMES.xml" ]; then
-            echo "Arquivo XML não foi gerado."
+            echo "Erro: O arquivo XML não foi gerado."
             exit 1
           fi
 
-      - name: Fazer upload do XML como artefato
-        uses: actions/upload-artifact@v3
+      - name: Fazer upload do arquivo XML gerado
+        uses: actions/upload-artifact@v2
         with:
           name: filmes-xml
           path: BluePlay/FILMES/LINK DIRETO/FILMES.xml
