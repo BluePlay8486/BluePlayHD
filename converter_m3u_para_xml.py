@@ -9,10 +9,13 @@ from datetime import datetime
 with open("lista.m3u", "r", encoding="utf-8") as f:
     lines = f.readlines()
 
-# Baixa e carrega o EPG
+# Baixa o EPG e extrai apenas <programme>
 epg_url = "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/EPG/epg.xml"
-epg_xml = requests.get(epg_url).content
-epg_tree = ET.fromstring(epg_xml)
+epg_raw = requests.get(epg_url).text
+
+# Extrai somente as tags <programme>
+programmes_xml = "<tv>" + "\n".join(re.findall(r"<programme .*?</programme>", epg_raw, flags=re.DOTALL)) + "</tv>"
+epg_tree = ET.fromstring(programmes_xml)
 
 # Lista de grupos desejados
 grupos_desejados = [
