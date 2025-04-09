@@ -1,27 +1,20 @@
 import re
 import os
+import requests
 import xml.etree.ElementTree as ET
 from collections import defaultdict
+from datetime import datetime
 
 # Lê o arquivo M3U
 with open("lista.m3u", "r", encoding="utf-8") as f:
     lines = f.readlines()
 
-# Lê o EPG XML
-epg_url = "EPG/epg.xml"
-epg_data = {}
-if os.path.exists(epg_url):
-    tree = ET.parse(epg_url)
-    root = tree.getroot()
-    for prog in root.findall("programme"):
-        channel = prog.attrib.get("channel")
-        start = prog.attrib.get("start", "")[:12]
-        title = prog.findtext("title", default="Sem título")
-        if channel not in epg_data:
-            epg_data[channel] = []
-        epg_data[channel].append(f"{start[:2]}:{start[2:4]} - {title}")
+# Baixa e carrega o EPG
+epg_url = "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/EPG/epg.xml"
+epg_xml = requests.get(epg_url).content
+epg_tree = ET.fromstring(epg_xml)
 
-# Grupos desejados
+# Lista de grupos desejados
 grupos_desejados = [
     "24H SÉRIES", "24H DESENHOS", "FILMES E SÉRIES", "⭐ REALITY BBB 2025", "ABERTOS",
     "DOCUMENTÁRIOS", "BAND", "NOTÍCIAS", "VARIEDADES", "RELIGIOSOS", "INFANTIL",
@@ -29,7 +22,6 @@ grupos_desejados = [
     "GLOBOS CAPITAIS", "REDE HBO", "RECORD TV", "SBT", "REDE TELECINE"
 ]
 
-# Função para normalizar os nomes
 def normalize(txt):
     txt = txt.lower()
     txt = re.sub(r'[áàãâä]', 'a', txt)
@@ -40,11 +32,20 @@ def normalize(txt):
     txt = re.sub(r'[ç]', 'c', txt)
     return re.sub(r'[^a-z0-9]', '', txt)
 
-# Mapeamento dos grupos normalizados
 grupos_norm = {normalize(g): g for g in grupos_desejados}
 canais_por_grupo = defaultdict(list)
 
-# Processamento da lista M3U
+def programa_atual(epg_channel):
+    agora = datetime.utcnow().strftime("%Y%m%d%H%M%S")
+    for prog in epg_tree.findall("programme"):
+        canal = prog.attrib.get("channel", "").lower()
+        inicio = prog.attrib.get("start", "")[:14]
+        fim = prog.attrib.get("stop", "")[:14]
+        if canal == epg_channel.lower() and inicio <= agora <= fim:
+            titulo = prog.findtext("title", default="Sem título")
+            return f"[COLOR yellow]Agora:[/COLOR] {titulo} ({inicio[8:10]}:{inicio[10:12]} - {fim[8:10]}:{fim[10:12]})"
+    return "[COLOR yellow]Canal ao vivo com programação atualizada.[/COLOR]"
+
 i = 0
 while i < len(lines):
     if lines[i].startswith("#EXTINF"):
@@ -55,26 +56,20 @@ while i < len(lines):
             nome = re.search(r',(.+)', lines[i]).group(1)
             logo = re.search(r'tvg-logo="([^"]+)"', lines[i])
             logo_url = logo.group(1) if logo else ''
-            link = lines[i+1].strip()
+            link = lines[i + 1].strip()
+
             epg_id = re.search(r'tvg-id="([^"]+)"', lines[i])
             epg_channel = epg_id.group(1) if epg_id else nome.lower().replace(" ", "_")
 
-            # Monta a info com programação do EPG
-            if epg_channel in epg_data:
-                prog_info = "\n".join(epg_data[epg_channel][:10])  # Limita a 10 entradas
-                info = f"[COLOR yellow]Programação:[/COLOR]\n{prog_info}"
-                print(f"[EPG OK] Canal: {nome}")
-            else:
-                info = "[COLOR yellow]Programação não encontrada.[/COLOR]"
-                print(f"[SEM EPG] Canal: {nome}")
+            info_text = programa_atual(epg_channel)
 
             item = f"""<item>
 <title>{nome}</title>
 <link>{link}</link>
 <thumbnail>{logo_url}</thumbnail>
 <fanart>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/fanart.jpg</fanart>
-<info>{info}</info>
-<epg_url>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/EPG/epg.xml</epg_url>
+<info>{info_text}</info>
+<epg_url>{epg_url}</epg_url>
 <epg_regex>&lt;programme.*?channel="{epg_channel}".*?start="(.*?)".*?stop="(.*?)".*?&gt;.*?&lt;title.*?&gt;(.*?)&lt;/title&gt;</epg_regex>
 </item>"""
             canais_por_grupo[grupo].append(item)
@@ -82,14 +77,10 @@ while i < len(lines):
     else:
         i += 1
 
-# Garante que o diretório existe
 output_dir = "BluePlay/TV AO VIVO/CANAIS AO VIVO"
 os.makedirs(output_dir, exist_ok=True)
-
-# Caminho final do arquivo XML
 output_path = os.path.join(output_dir, "TV AO VIVO.xml")
 
-# Escrita do XML
 with open(output_path, "w", encoding="utf-8") as out:
     out.write('<?xml version="1.0" encoding="UTF-8"?>\n<channels>\n')
     for grupo, canais in canais_por_grupo.items():
