@@ -5,28 +5,28 @@ import xml.etree.ElementTree as ET
 from collections import defaultdict
 from datetime import datetime
 
-# URL do EPG
-EPG_URL = "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/EPG/epg.xml"
+# URL do EPG corrigido
+EPG_URL = "https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/refs/heads/main/EPG/epg.xml"
 
-# Baixa e corrige o conteúdo do EPG
+# Baixa e corrige o XML do EPG
 response = requests.get(EPG_URL)
-epg_raw = response.content.decode("utf-8", errors="ignore")
-
-inicio = epg_raw.find("<tv")
-fim = epg_raw.rfind("</tv>") + len("</tv>")
-epg_corrigido = epg_raw[inicio:fim]
+epg_xml = response.content
 
 try:
-    epg_tree = ET.fromstring(epg_corrigido)
-except ET.ParseError as e:
-    print(f"Erro ao processar o EPG: {e}")
+    epg_str = epg_xml.decode("utf-8", errors="ignore")
+    inicio = epg_str.find("<tv")
+    fim = epg_str.rfind("</tv>") + len("</tv>")
+    epg_str_corrigido = epg_str[inicio:fim]
+    epg_tree = ET.fromstring(epg_str_corrigido)
+except Exception as e:
+    print(f"Erro ao processar EPG: {e}")
     exit(1)
 
-# Lê a lista M3U
+# Lê o arquivo M3U
 with open("lista.m3u", "r", encoding="utf-8") as f:
     lines = f.readlines()
 
-# Grupos que serão incluídos
+# Grupos desejados
 grupos_desejados = [
     "24H SÉRIES", "24H DESENHOS", "FILMES E SÉRIES", "⭐ REALITY BBB 2025", "ABERTOS",
     "DOCUMENTÁRIOS", "BAND", "NOTÍCIAS", "VARIEDADES", "RELIGIOSOS", "INFANTIL",
@@ -34,6 +34,7 @@ grupos_desejados = [
     "GLOBOS CAPITAIS", "REDE HBO", "RECORD TV", "SBT", "REDE TELECINE"
 ]
 
+# Normalização para comparação de nomes
 def normalize(txt):
     txt = txt.lower()
     txt = re.sub(r'[áàãâä]', 'a', txt)
@@ -47,6 +48,7 @@ def normalize(txt):
 grupos_norm = {normalize(g): g for g in grupos_desejados}
 canais_por_grupo = defaultdict(list)
 
+# Extrai a grade de programação completa do canal via EPG
 def extrair_grade(epg_channel):
     grade = []
     for prog in epg_tree.findall(".//programme[@channel='%s']" % epg_channel):
@@ -59,6 +61,7 @@ def extrair_grade(epg_channel):
             continue
     return "\n".join(grade)
 
+# Processa a M3U linha por linha
 i = 0
 while i < len(lines):
     if lines[i].startswith("#EXTINF"):
@@ -93,11 +96,12 @@ while i < len(lines):
     else:
         i += 1
 
-# Gera o XML final
+# Cria a pasta de saída
 output_dir = "BluePlay/TV AO VIVO/CANAIS AO VIVO"
 os.makedirs(output_dir, exist_ok=True)
 output_path = os.path.join(output_dir, "TV AO VIVO.xml")
 
+# Gera o XML final
 with open(output_path, "w", encoding="utf-8") as out:
     out.write('<?xml version="1.0" encoding="UTF-8"?>\n<channels>\n')
     for grupo, canais in canais_por_grupo.items():
