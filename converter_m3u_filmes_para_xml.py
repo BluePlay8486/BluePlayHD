@@ -9,7 +9,7 @@ from datetime import datetime
 EPG_URL = "https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/refs/heads/main/EPG/epg.xml"
 
 # URL da lista M3U
-M3U_URL = "https://pastebin.com/raw/EXEMPLO"  # <- substitua aqui com sua URL real
+M3U_URL = "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"  # <- substitua aqui com sua URL real
 
 # Função para baixar e corrigir o EPG
 def obter_epg_corrigido():
