@@ -6,7 +6,7 @@ from collections import defaultdict
 with open("lista.m3u", "r", encoding="utf-8") as f:
     lines = f.readlines()
 
-# Grupos desejados
+# Lista de grupos que você quer no XML
 grupos_desejados = [
     "24H SÉRIES", "24H DESENHOS", "FILMES E SÉRIES", "⭐ REALITY BBB 2025", "ABERTOS",
     "DOCUMENTÁRIOS", "BAND", "NOTÍCIAS", "VARIEDADES", "RELIGIOSOS", "INFANTIL",
@@ -14,7 +14,7 @@ grupos_desejados = [
     "GLOBOS CAPITAIS", "REDE HBO", "RECORD TV", "SBT", "REDE TELECINE"
 ]
 
-# Função para normalizar os nomes
+# Função para remover acentos e caracteres especiais
 def normalize(txt):
     txt = txt.lower()
     txt = re.sub(r'[áàãâä]', 'a', txt)
@@ -25,11 +25,11 @@ def normalize(txt):
     txt = re.sub(r'[ç]', 'c', txt)
     return re.sub(r'[^a-z0-9]', '', txt)
 
-# Mapeamento dos grupos normalizados
+# Cria dicionário de grupos normalizados
 grupos_norm = {normalize(g): g for g in grupos_desejados}
 canais_por_grupo = defaultdict(list)
 
-# Processamento da lista M3U
+# Processa a M3U linha por linha
 i = 0
 while i < len(lines):
     if lines[i].startswith("#EXTINF"):
@@ -42,15 +42,14 @@ while i < len(lines):
             logo_url = logo.group(1) if logo else ''
             link = lines[i+1].strip()
 
-epg_id = re.search(r'tvg-id="([^"]+)"', lines[i])
-epg_channel = epg_id.group(1) if epg_id else ''
+            epg_id = re.search(r'tvg-id="([^"]+)"', lines[i])
+            epg_channel = epg_id.group(1) if epg_id else ''
 
-# Mostrar no log os canais com e sem EPG
-if epg_channel:
-    print(f"[EPG OK] Canal: {nome} | EPG ID: {epg_channel}")
-else:
-    print(f"[SEM EPG] Canal: {nome} | (usando nome como fallback)")
-    epg_channel = nome.lower().replace(" ", "_")
+            if epg_channel:
+                print(f"[EPG OK] Canal: {nome} | EPG ID: {epg_channel}")
+            else:
+                print(f"[SEM EPG] Canal: {nome} | (usando nome como fallback)")
+                epg_channel = nome.lower().replace(" ", "_")
 
             item = f"""<item>
 <title>{nome}</title>
@@ -61,19 +60,18 @@ else:
 <epg_url>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/EPG/epg.xml</epg_url>
 <epg_regex>&lt;programme.*?channel="{epg_channel}".*?start="(.*?)".*?stop="(.*?)".*?&gt;.*?&lt;title.*?&gt;(.*?)&lt;/title&gt;</epg_regex>
 </item>"""
+
             canais_por_grupo[grupo].append(item)
         i += 2
     else:
         i += 1
 
-# Garante que o diretório existe
+# Cria diretório de destino se não existir
 output_dir = "BluePlay/TV AO VIVO/CANAIS AO VIVO"
 os.makedirs(output_dir, exist_ok=True)
-
-# Caminho final do arquivo XML
 output_path = os.path.join(output_dir, "TV AO VIVO.xml")
 
-# Escrita do XML
+# Escreve o XML de saída
 with open(output_path, "w", encoding="utf-8") as out:
     out.write('<?xml version="1.0" encoding="UTF-8"?>\n<channels>\n')
     for grupo, canais in canais_por_grupo.items():
