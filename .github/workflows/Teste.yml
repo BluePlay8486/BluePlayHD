@@ -1,4 +1,4 @@
-name: Gerar XML de Filmes
+name: Gerar XML de Filmes1
 
 on:
   workflow_dispatch:
