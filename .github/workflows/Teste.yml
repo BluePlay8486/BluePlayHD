@@ -21,7 +21,7 @@ jobs:
         run: pip install requests
 
       - name: Executar o script Python
-        run: python converter_m3u_filmes.py
+        run: python converter_m3u_filmes1.py
 
       - name: Verificar se o XML foi gerado
         run: |
