@@ -8,15 +8,25 @@ from datetime import datetime
 # URL do EPG
 EPG_URL = "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/EPG/epg.xml"
 
-# Baixa e carrega o EPG
+# Baixa e corrige o conteúdo do EPG
 response = requests.get(EPG_URL)
-epg_xml = response.content
-epg_tree = ET.fromstring(epg_xml)
+epg_raw = response.content.decode("utf-8", errors="ignore")
 
-# Lê o arquivo M3U
+inicio = epg_raw.find("<tv")
+fim = epg_raw.rfind("</tv>") + len("</tv>")
+epg_corrigido = epg_raw[inicio:fim]
+
+try:
+    epg_tree = ET.fromstring(epg_corrigido)
+except ET.ParseError as e:
+    print(f"Erro ao processar o EPG: {e}")
+    exit(1)
+
+# Lê a lista M3U
 with open("lista.m3u", "r", encoding="utf-8") as f:
     lines = f.readlines()
 
+# Grupos que serão incluídos
 grupos_desejados = [
     "24H SÉRIES", "24H DESENHOS", "FILMES E SÉRIES", "⭐ REALITY BBB 2025", "ABERTOS",
     "DOCUMENTÁRIOS", "BAND", "NOTÍCIAS", "VARIEDADES", "RELIGIOSOS", "INFANTIL",
@@ -40,10 +50,13 @@ canais_por_grupo = defaultdict(list)
 def extrair_grade(epg_channel):
     grade = []
     for prog in epg_tree.findall(".//programme[@channel='%s']" % epg_channel):
-        inicio = datetime.strptime(prog.attrib.get("start", "")[:12], "%Y%m%d%H%M")
-        fim = datetime.strptime(prog.attrib.get("stop", "")[:12], "%Y%m%d%H%M")
-        titulo = prog.findtext("title", default="").strip()
-        grade.append(f"[COLOR orange]{inicio.strftime('%H:%M')} - {fim.strftime('%H:%M')}[/COLOR] {titulo}")
+        try:
+            inicio = datetime.strptime(prog.attrib.get("start", "")[:12], "%Y%m%d%H%M")
+            fim = datetime.strptime(prog.attrib.get("stop", "")[:12], "%Y%m%d%H%M")
+            titulo = prog.findtext("title", default="").strip()
+            grade.append(f"[COLOR orange]{inicio.strftime('%H:%M')} - {fim.strftime('%H:%M')}[/COLOR] {titulo}")
+        except:
+            continue
     return "\n".join(grade)
 
 i = 0
@@ -80,6 +93,7 @@ while i < len(lines):
     else:
         i += 1
 
+# Gera o XML final
 output_dir = "BluePlay/TV AO VIVO/CANAIS AO VIVO"
 os.makedirs(output_dir, exist_ok=True)
 output_path = os.path.join(output_dir, "TV AO VIVO.xml")
