@@ -30,7 +30,7 @@ jobs:
             exit 1
           fi
 
-      - name: Upload do XML como artefato
+      - name: Fazer upload do XML como artefato
         uses: actions/upload-artifact@v3
         with:
           name: filmes-xml
