@@ -56,7 +56,7 @@ canais_por_grupo = defaultdict(list)
 
 def extrair_grade(epg_channel):
     grade = []
-    for prog in epg_tree.findall(f".//programme[@channel='{epg_channel}']"):
+for prog in epg_tree.findall(f'.//programme[@channel="{epg_channel}"]'):
         try:
             inicio = datetime.strptime(prog.attrib.get("start", "")[:12], "%Y%m%d%H%M")
             fim = datetime.strptime(prog.attrib.get("stop", "")[:12], "%Y%m%d%H%M")
