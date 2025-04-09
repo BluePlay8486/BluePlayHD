@@ -5,29 +5,22 @@ import xml.etree.ElementTree as ET
 from collections import defaultdict
 from datetime import datetime
 
-# URL do EPG
+# URLs de fontes
 EPG_URL = "https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/refs/heads/main/EPG/epg.xml"
+M3U_URL = "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
 
-# URL da lista M3U
-M3U_URL = "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"  # <- substitua aqui com sua URL real
+# Função para normalizar nomes
+def normalize(txt):
+    txt = txt.lower()
+    txt = re.sub(r'[áàãâä]', 'a', txt)
+    txt = re.sub(r'[éèêë]', 'e', txt)
+    txt = re.sub(r'[íìîï]', 'i', txt)
+    txt = re.sub(r'[óòõôö]', 'o', txt)
+    txt = re.sub(r'[úùûü]', 'u', txt)
+    txt = re.sub(r'ç', 'c', txt)
+    return re.sub(r'[^a-z0-9]', '', txt)
 
-# Função para baixar e corrigir o EPG
-def obter_epg_corrigido():
-    try:
-        response = requests.get(EPG_URL, timeout=10)
-        epg_str = response.content.decode("utf-8", errors="ignore")
-        inicio = epg_str.find("<tv")
-        fim = epg_str.rfind("</tv>") + len("</tv>")
-        epg_str_corrigido = epg_str[inicio:fim]
-        return ET.fromstring(epg_str_corrigido)
-    except Exception as e:
-        print(f"[ERRO] Não foi possível carregar o EPG: {e}")
-        return None
-
-epg_tree = obter_epg_corrigido()
-if epg_tree is None:
-    exit(1)
-
+# Lista dos grupos aceitos
 grupos_desejados = [
     "LANÇAMENTOS 2025", "LANÇAMENTOS 2024", "LANÇAMENTOS 2023", "LANÇAMENTOS 2022",
     "FILMES | LEGENDADOS", "FILMES DRAMA", "FILMES ROMANCE", "FILMES TERROR",
@@ -41,19 +34,27 @@ grupos_desejados = [
     "FILMES DC COMICS", "FILMES MARVEL", "FILMES | 007 COLEÇÃO"
 ]
 
-def normalize(txt):
-    txt = txt.lower()
-    txt = re.sub(r'[áàãâä]', 'a', txt)
-    txt = re.sub(r'[éèêë]', 'e', txt)
-    txt = re.sub(r'[íìîï]', 'i', txt)
-    txt = re.sub(r'[óòõôö]', 'o', txt)
-    txt = re.sub(r'[úùûü]', 'u', txt)
-    txt = re.sub(r'ç', 'c', txt)
-    return re.sub(r'[^a-z0-9]', '', txt)
-
+# Mapeamento normalizado para nome original
 grupos_norm = {normalize(g): g for g in grupos_desejados}
 canais_por_grupo = defaultdict(list)
 
+# Função para obter e corrigir o EPG
+def obter_epg():
+    try:
+        response = requests.get(EPG_URL, timeout=10)
+        epg_str = response.content.decode("utf-8", errors="ignore")
+        inicio = epg_str.find("<tv")
+        fim = epg_str.rfind("</tv>") + len("</tv>")
+        return ET.fromstring(epg_str[inicio:fim])
+    except Exception as e:
+        print(f"[ERRO] Não foi possível carregar o EPG: {e}")
+        return None
+
+epg_tree = obter_epg()
+if epg_tree is None:
+    exit(1)
+
+# Função para extrair a grade EPG
 def extrair_grade(epg_channel):
     grade = []
     for prog in epg_tree.findall(f'.//programme[@channel="{epg_channel}"]'):
@@ -61,12 +62,15 @@ def extrair_grade(epg_channel):
         inicio = prog.get('start')
         fim = prog.get('stop')
         if inicio and fim:
-            inicio_fmt = datetime.strptime(inicio[:14], "%Y%m%d%H%M%S").strftime("%d/%m %H:%M")
-            fim_fmt = datetime.strptime(fim[:14], "%Y%m%d%H%M%S").strftime("%H:%M")
-            grade.append(f"[B]{inicio_fmt} às {fim_fmt}:[/B] {titulo}")
+            try:
+                inicio_fmt = datetime.strptime(inicio[:14], "%Y%m%d%H%M%S").strftime("%d/%m %H:%M")
+                fim_fmt = datetime.strptime(fim[:14], "%Y%m%d%H%M%S").strftime("%H:%M")
+                grade.append(f"[B]{inicio_fmt} às {fim_fmt}:[/B] {titulo}")
+            except:
+                continue
     return "\n".join(grade)
 
-# Faz download da lista M3U
+# Baixar e processar a M3U
 try:
     response = requests.get(M3U_URL, timeout=10)
     lines = response.text.splitlines()
@@ -80,13 +84,15 @@ while i < len(lines):
         group_match = re.search(r'group-title="([^"]+)"', lines[i])
         grupo_raw = group_match.group(1) if group_match else "OUTROS"
         grupo = grupos_norm.get(normalize(grupo_raw))
+
         if grupo:
-            nome = re.search(r',(.+)', lines[i]).group(1).strip()
+            nome = re.search(r',(.+)', lines[i])
+            nome = nome.group(1).strip() if nome else "Sem nome"
             logo = re.search(r'tvg-logo="([^"]+)"', lines[i])
             logo_url = logo.group(1) if logo else ""
-            link = lines[i + 1].strip()
+            link = lines[i + 1].strip() if i + 1 < len(lines) else ""
             epg_id = re.search(r'tvg-id="([^"]+)"', lines[i])
-            epg_channel = epg_id.group(1) if epg_id else nome.lower().replace(" ", "_")
+            epg_channel = epg_id.group(1) if epg_id else normalize(nome)
 
             grade_epg = extrair_grade(epg_channel)
             if not grade_epg:
@@ -102,12 +108,12 @@ while i < len(lines):
 <fanart>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/fanart.jpg</fanart>
 <info>{info}</info>
 </item>"""
-
             canais_por_grupo[grupo].append(item)
         i += 2
     else:
         i += 1
 
+# Escrevendo o arquivo final
 output_path = "BluePlay/FILMES/LINK DIRETO/FILMES.txt"
 os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
