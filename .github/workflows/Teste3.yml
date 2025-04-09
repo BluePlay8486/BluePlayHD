@@ -4,7 +4,7 @@ on:
   workflow_dispatch:  # Permite rodar manualmente via GitHub Actions
   push:
     paths:
-      - 'converter_m3u_para_xml.py'
+      - 'converter_m3u_para_xml2.py'
       - '.github/workflows/gerar_xml.yml'
       - 'requirements.txt'
 
@@ -35,7 +35,7 @@ jobs:
       - name: Executar script Python para gerar XML
         run: |
           echo "Executando script de conversão..."
-          python3 converter_m3u_para_xml.py
+          python3 converter_m3u_para_xml2.py
 
       - name: Verificar se o arquivo XML foi gerado
         run: |
