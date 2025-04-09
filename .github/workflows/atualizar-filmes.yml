@@ -23,7 +23,7 @@ jobs:
           pip install requests
 
       - name: Executar script de conversão M3U para XML
-        run: python converter_m3u_para_xml.py
+        run: python converter_m3u_filmes_para_xml.py
 
       - name: Confirmar alterações
         run: |
