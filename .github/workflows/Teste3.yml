@@ -4,33 +4,38 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  gerar-filmes-xml:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout do repositório
-        uses: actions/checkout@v3
+    - name: '[SUCESSO] Clonando o repositório'
+      uses: actions/checkout@v3
 
-      - name: Configurar Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
+    - name: '[SUCESSO] Configurando Python'
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
 
-      - name: Instalar dependências
-        run: pip install requests
+    - name: '[SUCESSO] Instalando dependências'
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests beautifulsoup4
 
-      - name: Executar script para gerar XML
-        run: python3 converter_m3u_para_xml.py
+    - name: '[SUCESSO] Executando o script para gerar o XML'
+      run: |
+        python3 gerar_filmes.py
 
-      - name: Verificar se o XML foi gerado
-        run: |
-          if [ ! -f "BluePlay/FILMES/LINK DIRETO/FILMES.xml" ]; then
-            echo "Erro: XML não encontrado!"
-            exit 1
-          fi
+    - name: '[VALIDAÇÃO] Verificando se o XML foi gerado'
+      run: |
+        if [ -f "BluePlay/FILMES/LINK DIRETO/FILMES.xml" ]; then
+          echo "[SUCESSO] O arquivo XML foi gerado com sucesso."
+        else
+          echo "[ERRO] O arquivo XML NÃO foi gerado."
+          exit 1
+        fi
 
-      - name: Upload do arquivo XML gerado
-        uses: actions/upload-artifact@v2
-        with:
-          name: filmes_xml
-          path: BluePlay/FILMES/LINK DIRETO/FILMES.xml
+    - name: '[SUCESSO] Fazendo upload do XML gerado'
+      uses: actions/upload-artifact@v2.3.1
+      with:
+        name: filmes_xml
+        path: BluePlay/FILMES/LINK DIRETO/FILMES.xml
