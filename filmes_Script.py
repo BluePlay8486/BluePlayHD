@@ -3,37 +3,14 @@ import os
 import requests
 import xml.etree.ElementTree as ET
 from collections import defaultdict
-from datetime import datetime
 
 # URL do EPG
 EPG_URL = "https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/main/EPG/epg.xml"
 
-# Função para baixar e corrigir o EPG
-def obter_epg_corrigido():
-    try:
-        response = requests.get(EPG_URL, timeout=10)
-        epg_str = response.content.decode("utf-8", errors="ignore")
-        inicio = epg_str.find("<tv")
-        fim = epg_str.rfind("</tv>") + len("</tv>")
-        epg_str_corrigido = epg_str[inicio:fim]
-        return ET.fromstring(epg_str_corrigido)
-    except Exception as e:
-        print(f"[ERRO] Não foi possível carregar o EPG: {e}")
-        return None
+# URL da lista M3U
+M3U_URL = "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
 
-epg_tree = obter_epg_corrigido()
-if epg_tree is None:
-    exit(1)
-
-# Lê a lista M3U local
-try:
-    with open("lista.m3u", "r", encoding="utf-8") as f:
-        lines = f.readlines()
-except FileNotFoundError:
-    print("[ERRO] Arquivo 'lista.m3u' não encontrado.")
-    exit(1)
-
-# Lista de grupos que queremos incluir
+# Grupos desejados
 grupos_desejados = [
     "LANÇAMENTOS 2025", "LANÇAMENTOS 2024", "LANÇAMENTOS 2023", "LANÇAMENTOS 2022",
     "FILMES | LEGENDADOS", "FILMES DRAMA", "FILMES ROMANCE", "FILMES TERROR",
@@ -48,7 +25,7 @@ grupos_desejados = [
     "FILMES DC COMICS", "FILMES MARVEL", "FILMES | 007 COLEÇÃO"
 ]
 
-# Função para normalizar nomes
+# Normalizador de texto
 def normalize(txt):
     txt = txt.lower()
     txt = re.sub(r'[áàãâä]', 'a', txt)
@@ -62,7 +39,33 @@ def normalize(txt):
 grupos_norm = {normalize(g): g for g in grupos_desejados}
 canais_por_grupo = defaultdict(list)
 
-# Nova função para extrair grade personalizada (sem horário)
+# Corrige o EPG
+def obter_epg_corrigido():
+    try:
+        response = requests.get(EPG_URL, timeout=15)
+        epg_str = response.content.decode("utf-8", errors="ignore")
+        inicio = epg_str.find("<tv")
+        fim = epg_str.rfind("</tv>") + len("</tv>")
+        epg_str_corrigido = epg_str[inicio:fim]
+        return ET.fromstring(epg_str_corrigido)
+    except Exception as e:
+        print(f"[ERRO] EPG: {e}")
+        return None
+
+epg_tree = obter_epg_corrigido()
+if epg_tree is None:
+    exit(1)
+
+# Baixa a M3U
+try:
+    response = requests.get(M3U_URL, timeout=15)
+    response.encoding = 'utf-8'
+    lines = response.text.splitlines()
+except Exception as e:
+    print(f"[ERRO] Lista M3U: {e}")
+    exit(1)
+
+# Extrai info formatada
 def extrair_grade(epg_channel):
     grade = []
 
@@ -87,7 +90,7 @@ def extrair_grade(epg_channel):
 
     return "\n\n".join(grade)
 
-# Processa a M3U
+# Processa os itens
 i = 0
 while i < len(lines):
     if lines[i].startswith("#EXTINF"):
@@ -107,14 +110,12 @@ while i < len(lines):
                 print(f"[SEM EPG] {nome}")
                 grade_epg = "[COLOR red]Sem programação encontrada[/COLOR]"
 
-            info = grade_epg
-
             item = f"""<item>
 <title>{nome}</title>
 <link>{link}</link>
 <thumbnail>{logo_url}</thumbnail>
 <fanart>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/fanart.jpg</fanart>
-<info>{info}</info>
+<info>{grade_epg}</info>
 </item>"""
 
             canais_por_grupo[grupo].append(item)
@@ -122,12 +123,11 @@ while i < len(lines):
     else:
         i += 1
 
-# Diretório de saída e nome do XML
+# Gera XML final
 output_dir = "BluePlay/FILMES/LINK DIRETO"
 os.makedirs(output_dir, exist_ok=True)
 output_path = os.path.join(output_dir, "FILMES.xml")
 
-# Gera o XML final
 with open(output_path, "w", encoding="utf-8") as out:
     out.write('<?xml version="1.0" encoding="UTF-8"?>\n<channels>\n')
     for grupo, canais in canais_por_grupo.items():
@@ -141,4 +141,4 @@ with open(output_path, "w", encoding="utf-8") as out:
         out.write("\n</items>\n</channel>\n")
     out.write("</channels>")
 
-print(f"[SUCESSO] Arquivo XML gerado em: {output_path}")
+print(f"[SUCESSO] Arquivo gerado: {output_path}")
