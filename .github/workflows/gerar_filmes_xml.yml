@@ -2,7 +2,7 @@ name: Gerar XML de Filmes
 
 on:
   schedule:
-    - cron: '0 3 * * *'  # Executa diariamente às 03h UTC
+    - cron: '0 3 * * *'
   workflow_dispatch:
   push:
     paths:
