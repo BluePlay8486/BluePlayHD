@@ -1,4 +1,4 @@
-name: Atualizar FILMES.xml
+name: Atualizar Filmes XML
 
 on:
   workflow_dispatch:
@@ -6,35 +6,30 @@ on:
     - cron: '0 */6 * * *'  # Executa a cada 6 horas
 
 jobs:
-  gerar-filmes-xml:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout do repositório
-      uses: actions/checkout@v3
+      - name: Checkout do repositório
+        uses: actions/checkout@v3
 
-    - name: Configurar Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
 
-    - name: Instalar dependências
-      run: |
-        pip install --upgrade pip
-        pip install -r src/requirements.txt
+      - name: Instalar dependências
+        run: |
+          cd src
+          pip install -r requirements.txt
 
-    - name: Executar script para gerar FILMES.xml
-      run: python src/main.py
+      - name: Executar script principal
+        run: |
+          cd src
+          python main.py
 
-    - name: Verificar se o XML foi gerado
-      run: |
-        if [ ! -f BluePlay/FILMES/LINK DIRETO/FILMES.xml ]; then
-          echo "Arquivo FILMES.xml não encontrado!"
-          exit 1
-        fi
-
-    - name: Fazer upload do artefato FILMES.xml
-      uses: actions/upload-artifact@v3
-      with:
-        name: FILMES.xml
-        path: BluePlay/FILMES/LINK DIRETO/FILMES.xml
+      - name: Upload do XML gerado
+        uses: actions/upload-artifact@v3
+        with:
+          name: filmes-xml
+          path: BluePlay/FILMES/LINK DIRETO/FILMES.xml
