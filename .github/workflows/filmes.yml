@@ -29,7 +29,7 @@ jobs:
           python main.py
 
       - name: Upload do XML gerado
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: filmes-xml
           path: BluePlay/FILMES/LINK DIRETO/FILMES.xml
