@@ -6,23 +6,54 @@ import emoji
 import xml.etree.ElementTree as ET
 from collections import defaultdict
 
-# URLs
+# URLs e caminho de saída
 EPG_URL = "https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/main/EPG/epg.xml"
 M3U_URL = "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
+OUTPUT_PATH = "BluePlay/FILMES/LINK DIRETO/FILMES.xml"
+FANART_URL = "https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/fanart.jpg"
+THUMBNAIL_DEFAULT = "https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/main/icon.png"
 
 # Grupos desejados
 grupos_desejados = [
-    "LANÇAMENTOS 2025", "LANÇAMENTOS 2024", "LANÇAMENTOS 2023", "LANÇAMENTOS 2022",
-    "FILMES | LEGENDADOS", "FILMES DRAMA", "FILMES ROMANCE", "FILMES TERROR",
-    "FILMES AÇÃO", "FILMES FICÇÃO", "FILMES AVENTURA", "FILMES FANTASIA",
-    "FILMES | 4K", "FILMES SUSPENSE", "FILMES NACIONAL", "FILMES GUERRA",
-    "FILMES PRIME VIDEO", "FILMES ANIMAÇÃO", "FILMES COMÉDIA", "FILMES DOCUMENTÁRIOS",
-    "FILMES FAROESTE", "FILMES NETFLIX", "FILMES INFANTIL", "FILMES ANIME",
-    "FILMES DISNEY+", "FILMES APPLE TV+", "FILMES GLOBOPLAY", "FILMES PARAMOUNT+",
-    "FILMES HBO MAX", "FILMES STAR+", "FILMES CRIME", "FILMES | COPA DO MUNDO 2022",
-    "FILMES RELIGIOSOS", "FILMES BRASIL PARALELO",
-    "FILMES | DESPERTAR UMA NOVA CONSCIÊNCIA", "FILMES | SONS PARA DORMIR",
-    "FILMES DC COMICS", "FILMES MARVEL", "FILMES | 007 COLEÇÃO"
+    "LANÇAMENTOS 2025",
+    "LANÇAMENTOS 2024",
+    "LANÇAMENTOS 2023",
+    "LANÇAMENTOS 2022",
+    "FILMES | LEGENDADOS",
+    "FILMES DRAMA",
+    "FILMES ROMANCE",
+    "FILMES TERROR",
+    "FILMES AÇÃO",
+    "FILMES FICÇÃO",
+    "FILMES AVENTURA",
+    "FILMES FANTASIA",
+    "FILMES | 4K",
+    "FILMES SUSPENSE",
+    "FILMES NACIONAL",
+    "FILMES GUERRA",
+    "FILMES PRIME VIDEO",
+    "FILMES ANIMAÇÃO",
+    "FILMES COMÉDIA",
+    "FILMES DOCUMENTÁRIOS",
+    "FILMES FAROESTE",
+    "FILMES NETFLIX",
+    "FILMES INFANTIL",
+    "FILMES ANIME",
+    "FILMES DISNEY+",
+    "FILMES APPLE TV+",
+    "FILMES GLOBOPLAY",
+    "FILMES PARAMOUNT+",
+    "FILMES HBO MAX",
+    "FILMES STAR+",
+    "FILMES CRIME",
+    "FILMES | COPA DO MUNDO 2022",
+    "FILMES RELIGIOSOS",
+    "FILMES BRASIL PARALELO",
+    "FILMES | DESPERTAR UMA NOVA CONSCIÊNCIA",
+    "FILMES | SONS PARA DORMIR",
+    "FILMES DC COMICS",
+    "FILMES MARVEL",
+    "FILMES | 007 COLEÇÃO"
 ]
 
 # Funções auxiliares
@@ -43,27 +74,42 @@ def limpar_texto(texto):
     return html.escape(texto.strip())
 
 def validar_nome_titulo(titulo):
-    if titulo.startswith("/9j/") or "base64" in titulo.lower() or len(titulo) > 200:
-        return False
-    return True
-
-grupos_norm = {normalize(g): g for g in grupos_desejados}
-canais_por_grupo = defaultdict(list)
+    return not (
+        titulo.startswith("/9j/") or
+        "base64" in titulo.lower() or
+        len(titulo) > 200
+    )
 
 def obter_epg():
     try:
         r = requests.get(EPG_URL, timeout=15)
         r.encoding = 'utf-8'
-        epg_raw = r.text
-        inicio = epg_raw.find("<tv")
-        fim = epg_raw.rfind("</tv>") + len("</tv>")
-        return ET.fromstring(epg_raw[inicio:fim])
+        raw = r.text
+        return ET.fromstring(raw[raw.find("<tv"):raw.rfind("</tv>")+5])
     except Exception as e:
-        print(f"[ERRO] EPG: {e}")
+        print(f"[ERRO] Falha ao carregar EPG: {e}")
         return None
 
+def extrair_grade(epg, canal_id):
+    try:
+        blocos = []
+        for prog in epg.findall(f".//programme[@channel='{canal_id}']"):
+            titulo = limpar_texto(prog.findtext("title", default=""))
+            desc = limpar_texto(prog.findtext("desc", default=""))
+            categorias = [limpar_texto(c.text) for c in prog.findall("category") if c.text]
+            bloco = f"{titulo}"
+            if categorias:
+                bloco += f"\n[B][COLOR yellow]Gênero:[/COLOR][/B] {', '.join(categorias)}"
+            if desc:
+                bloco += f"\n[B][COLOR yellow]Sinopse:[/COLOR][/B]\n{desc}"
+            blocos.append(bloco)
+        return "\n\n".join(blocos)
+    except:
+        return ""
+
+# Início do processamento
 epg_tree = obter_epg()
-if epg_tree is None:
+if not epg_tree:
     exit(1)
 
 try:
@@ -71,42 +117,26 @@ try:
     m3u.encoding = 'utf-8'
     lines = m3u.text.splitlines()
 except Exception as e:
-    print(f"[ERRO] M3U: {e}")
+    print(f"[ERRO] Falha ao baixar lista M3U: {e}")
     exit(1)
 
-def extrair_grade(epg_channel):
-    grade = []
-    try:
-        for prog in epg_tree.findall(f".//programme[@channel='{epg_channel}']"):
-            titulo = limpar_texto(prog.findtext("title", default=""))
-            descricao = limpar_texto(prog.findtext("desc", default=""))
-            categorias = [limpar_texto(c.text) for c in prog.findall("category") if c.text]
-
-            genero = f"[B][COLOR yellow]Gênero:[/COLOR][/B] {', '.join(categorias)}" if categorias else ""
-            sinopse = f"[B][COLOR yellow]Sinopse:[/COLOR][/B]\\n{descricao}" if descricao else ""
-
-            bloco = f"{titulo}"
-            if genero: bloco += f"\\n{genero}"
-            if sinopse: bloco += f"\\n{sinopse}"
-            grade.append(bloco)
-    except:
-        return ""
-    return "\\n\\n".join(grade)
-
+# Mapeamento e extração
+grupos_norm = {normalize(g): g for g in grupos_desejados}
+canais_por_grupo = defaultdict(list)
 i = 0
+
 while i < len(lines):
     if lines[i].startswith("#EXTINF"):
-        group_match = re.search(r'group-title="([^"]+)"', lines[i])
-        grupo_raw = group_match.group(1) if group_match else None
-        grupo = grupos_norm.get(normalize(grupo_raw)) if grupo_raw else None
+        grupo_raw = re.search(r'group-title="([^"]+)"', lines[i])
+        grupo = grupos_norm.get(normalize(grupo_raw.group(1))) if grupo_raw else None
 
         if grupo:
-            nome_match = re.search(r',(.+)', lines[i])
-            if not nome_match:
+            nome_raw = re.search(r',(.+)', lines[i])
+            if not nome_raw:
                 i += 2
                 continue
 
-            nome_sujo = nome_match.group(1).strip()
+            nome_sujo = nome_raw.group(1).strip()
             if not validar_nome_titulo(nome_sujo):
                 print(f"[IGNORADO] Nome inválido: {nome_sujo}")
                 i += 2
@@ -122,22 +152,22 @@ while i < len(lines):
                 continue
 
             epg_id = re.search(r'tvg-id="([^"]+)"', lines[i])
-            epg_channel = epg_id.group(1) if epg_id else nome.lower().replace(" ", "_")
-            if epg_channel.startswith("data:image") or any(c in epg_channel for c in ['<', '>', '"', "'", '[', ']']):
-                print(f"[IGNORADO] tvg-id inválido: {epg_channel}")
+            canal_id = epg_id.group(1) if epg_id else nome.lower().replace(" ", "_")
+
+            if any(x in canal_id for x in ['<', '>', '"', "'", '[', ']', 'data:image']):
+                print(f"[IGNORADO] tvg-id inválido: {canal_id}")
                 i += 2
                 continue
 
-            grade = extrair_grade(epg_channel)
+            grade = extrair_grade(epg_tree, canal_id)
             if not grade:
-                print(f"[SEM EPG] {nome}")
                 grade = "[COLOR red]Sem programação encontrada[/COLOR]"
 
             item = f"""<item>
 <title>{nome}</title>
 <link>{link}</link>
 <thumbnail>{logo_url}</thumbnail>
-<fanart>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/fanart.jpg</fanart>
+<fanart>{FANART_URL}</fanart>
 <info><![CDATA[{grade}]]></info>
 </item>"""
 
@@ -146,18 +176,26 @@ while i < len(lines):
     else:
         i += 1
 
-output_dir = "BluePlay/FILMES/LINK DIRETO"
-os.makedirs(output_dir, exist_ok=True)
-with open(f"{output_dir}/FILMES.xml", "w", encoding="utf-8") as out:
-    out.write('<?xml version="1.0" encoding="UTF-8"?>\n<channels>\n')
+# Geração do XML
+os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
+with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
+    f.write('<?xml version="1.0" encoding="UTF-8"?>\n<channels>\n')
     for grupo, canais in canais_por_grupo.items():
-        out.write(f"""<channel>
+        f.write(f"""<channel>
 <name>[B][COLOR white]{grupo}[/COLOR][/B]</name>
-<thumbnail>https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/main/icon.png</thumbnail>
-<fanart>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/fanart.jpg</fanart>
+<thumbnail>{THUMBNAIL_DEFAULT}</thumbnail>
+<fanart>{FANART_URL}</fanart>
 <items>\n""")
-        out.write("\n".join(sorted(canais)))
-        out.write("\n</items>\n</channel>\n")
-    out.write("</channels>")
+        f.write("\n".join(sorted(canais)))
+        f.write("\n</items>\n</channel>\n")
+    f.write("</channels>")
 
-print("[SUCESSO] Arquivo FILMES.xml gerado com sucesso.")
+print(f"[OK] XML gerado em: {OUTPUT_PATH}")
+
+# Validação do XML gerado
+print("\n[VALIDAÇÃO] Verificando XML...")
+try:
+    ET.parse(OUTPUT_PATH)
+    print("[VALIDADO] XML bem formado e pronto para uso.")
+except Exception as e:
+    print(f"[ERRO XML] O XML possui erro: {e}")
