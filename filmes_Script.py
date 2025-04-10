@@ -3,11 +3,11 @@ import os
 import requests
 import xml.etree.ElementTree as ET
 from collections import defaultdict
+from datetime import datetime
+import emoji
 
-# URL do EPG
+# URL do EPG e M3U
 EPG_URL = "https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/main/EPG/epg.xml"
-
-# URL da lista M3U
 M3U_URL = "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
 
 # Grupos desejados
@@ -25,7 +25,6 @@ grupos_desejados = [
     "FILMES DC COMICS", "FILMES MARVEL", "FILMES | 007 COLEÇÃO"
 ]
 
-# Normalizador de texto
 def normalize(txt):
     txt = txt.lower()
     txt = re.sub(r'[áàãâä]', 'a', txt)
@@ -36,10 +35,17 @@ def normalize(txt):
     txt = re.sub(r'ç', 'c', txt)
     return re.sub(r'[^a-z0-9]', '', txt)
 
+def limpar_texto(texto):
+    if not texto:
+        return ""
+    texto = emoji.replace_emoji(texto, replace="")
+    texto = texto.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    texto = texto.replace('"', "&quot;").replace("'", "&apos;")
+    return texto.strip()
+
 grupos_norm = {normalize(g): g for g in grupos_desejados}
 canais_por_grupo = defaultdict(list)
 
-# Corrige o EPG
 def obter_epg_corrigido():
     try:
         response = requests.get(EPG_URL, timeout=15)
@@ -56,7 +62,6 @@ epg_tree = obter_epg_corrigido()
 if epg_tree is None:
     exit(1)
 
-# Baixa a M3U
 try:
     response = requests.get(M3U_URL, timeout=15)
     response.encoding = 'utf-8'
@@ -65,15 +70,13 @@ except Exception as e:
     print(f"[ERRO] Lista M3U: {e}")
     exit(1)
 
-# Extrai info formatada
 def extrair_grade(epg_channel):
     grade = []
-
-    for prog in epg_tree.findall(f".//programme[@channel='{epg_channel}']"):
-        try:
-            titulo = prog.findtext("title", default="").strip()
-            descricao = prog.findtext("desc", default="").strip()
-            categorias = [c.text for c in prog.findall("category") if c.text]
+    try:
+        for prog in epg_tree.findall(f".//programme[@channel='{epg_channel}']"):
+            titulo = limpar_texto(prog.findtext("title", default=""))
+            descricao = limpar_texto(prog.findtext("desc", default=""))
+            categorias = [limpar_texto(c.text) for c in prog.findall("category") if c.text]
 
             genero_str = f"[B][COLOR yellow]Gênero:[/COLOR][/B] {', '.join(categorias)}" if categorias else ""
             sinopse_str = f"[B][COLOR yellow]Sinopse:[/COLOR][/B]\n{descricao}" if descricao else ""
@@ -85,26 +88,36 @@ def extrair_grade(epg_channel):
                 bloco += f"\n{sinopse_str}"
 
             grade.append(bloco)
-        except:
-            continue
-
+    except SyntaxError:
+        return ""
     return "\n\n".join(grade)
 
-# Processa os itens
 i = 0
 while i < len(lines):
     if lines[i].startswith("#EXTINF"):
         group_match = re.search(r'group-title="([^"]+)"', lines[i])
-        grupo_raw = group_match.group(1) if group_match else "OUTROS"
-        grupo = grupos_norm.get(normalize(grupo_raw))
+        grupo_raw = group_match.group(1) if group_match else None
+        grupo = grupos_norm.get(normalize(grupo_raw)) if grupo_raw else None
         if grupo:
-            nome = re.search(r',(.+)', lines[i]).group(1).strip()
+            nome_match = re.search(r',(.+)', lines[i])
+            if not nome_match:
+                i += 2
+                continue
+            nome = limpar_texto(nome_match.group(1).strip())
             logo = re.search(r'tvg-logo="([^"]+)"', lines[i])
             logo_url = logo.group(1) if logo else ""
             link = lines[i + 1].strip()
-            epg_id = re.search(r'tvg-id="([^"]+)"', lines[i])
-            epg_channel = epg_id.group(1) if epg_id else nome.lower().replace(" ", "_")
 
+            epg_id = re.search(r'tvg-id="([^"]+)"', lines[i])
+            epg_channel_raw = epg_id.group(1) if epg_id else nome.lower().replace(" ", "_")
+
+            # Ignorar tvg-id inválido
+            if epg_channel_raw.startswith("data:image") or any(c in epg_channel_raw for c in ['<', '>', '"', "'", '[', ']']):
+                print(f"[IGNORADO] tvg-id inválido para '{nome}': {epg_channel_raw}")
+                i += 2
+                continue
+
+            epg_channel = epg_channel_raw
             grade_epg = extrair_grade(epg_channel)
             if not grade_epg:
                 print(f"[SEM EPG] {nome}")
@@ -123,7 +136,6 @@ while i < len(lines):
     else:
         i += 1
 
-# Gera XML final
 output_dir = "BluePlay/FILMES/LINK DIRETO"
 os.makedirs(output_dir, exist_ok=True)
 output_path = os.path.join(output_dir, "FILMES.xml")
