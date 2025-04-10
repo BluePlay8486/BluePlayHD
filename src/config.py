@@ -1,0 +1,49 @@
+# src/config.py
+
+M3U_URL = "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
+
+TMDB_API_KEY = "1fc5f9008cebf466afb65b5a4e0cf5fa"
+
+FANART_URL = "https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/fanart.jpg"
+
+GRUPOS_DESEJADOS = [
+    "LANÇAMENTOS 2025",
+    "LANÇAMENTOS 2024",
+    "LANÇAMENTOS 2023",
+    "LANÇAMENTOS 2022",
+    "FILMES | LEGENDADOS",
+    "FILMES DRAMA",
+    "FILMES ROMANCE",
+    "FILMES TERROR",
+    "FILMES AÇÃO",
+    "FILMES FICÇÃO",
+    "FILMES AVENTURA",
+    "FILMES FANTASIA",
+    "FILMES | 4K",
+    "FILMES SUSPENSE",
+    "FILMES NACIONAL",
+    "FILMES GUERRA",
+    "FILMES PRIME VIDEO",
+    "FILMES ANIMAÇÃO",
+    "FILMES COMÉDIA",
+    "FILMES DOCUMENTÁRIOS",
+    "FILMES FAROESTE",
+    "FILMES NETFLIX",
+    "FILMES INFANTIL",
+    "FILMES ANIME",
+    "FILMES DISNEY+",
+    "FILMES APPLE TV+",
+    "FILMES GLOBOPLAY",
+    "FILMES PARAMOUNT+",
+    "FILMES HBO MAX",
+    "FILMES STAR+",
+    "FILMES CRIME",
+    "FILMES | COPA DO MUNDO 2022",
+    "FILMES RELIGIOSOS",
+    "FILMES BRASIL PARALELO",
+    "FILMES | DESPERTAR UMA NOVA CONSCIÊNCIA",
+    "FILMES | SONS PARA DORMIR",
+    "FILMES DC COMICS",
+    "FILMES MARVEL",
+    "FILMES | 007 COLEÇÃO",
+]
