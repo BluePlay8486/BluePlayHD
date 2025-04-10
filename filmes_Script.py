@@ -1,9 +1,10 @@
 import re
 import os
 import requests
+import html
+import emoji
 import xml.etree.ElementTree as ET
 from collections import defaultdict
-import emoji
 
 # URLs
 EPG_URL = "https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/main/EPG/epg.xml"
@@ -24,7 +25,7 @@ grupos_desejados = [
     "FILMES DC COMICS", "FILMES MARVEL", "FILMES | 007 COLEÇÃO"
 ]
 
-# Normalização
+# Funções auxiliares
 def normalize(txt):
     txt = txt.lower()
     txt = re.sub(r'[áàãâä]', 'a', txt)
@@ -35,16 +36,12 @@ def normalize(txt):
     txt = re.sub(r'ç', 'c', txt)
     return re.sub(r'[^a-z0-9]', '', txt)
 
-# Limpeza para XML
 def limpar_texto(texto):
     if not texto:
         return ""
     texto = emoji.replace_emoji(texto, replace="")
-    texto = texto.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
-    texto = texto.replace('"', "&quot;").replace("'", "&apos;")
-    return texto.strip()
+    return html.escape(texto.strip())
 
-# Validação de título
 def validar_nome_titulo(titulo):
     if titulo.startswith("/9j/") or "base64" in titulo.lower() or len(titulo) > 200:
         return False
@@ -53,32 +50,30 @@ def validar_nome_titulo(titulo):
 grupos_norm = {normalize(g): g for g in grupos_desejados}
 canais_por_grupo = defaultdict(list)
 
-# EPG corrigido
-def obter_epg_corrigido():
+def obter_epg():
     try:
-        response = requests.get(EPG_URL, timeout=15)
-        epg_str = response.content.decode("utf-8", errors="ignore")
-        inicio = epg_str.find("<tv")
-        fim = epg_str.rfind("</tv>") + len("</tv>")
-        return ET.fromstring(epg_str[inicio:fim])
+        r = requests.get(EPG_URL, timeout=15)
+        r.encoding = 'utf-8'
+        epg_raw = r.text
+        inicio = epg_raw.find("<tv")
+        fim = epg_raw.rfind("</tv>") + len("</tv>")
+        return ET.fromstring(epg_raw[inicio:fim])
     except Exception as e:
         print(f"[ERRO] EPG: {e}")
         return None
 
-epg_tree = obter_epg_corrigido()
+epg_tree = obter_epg()
 if epg_tree is None:
     exit(1)
 
-# Baixa a M3U
 try:
-    response = requests.get(M3U_URL, timeout=15)
-    response.encoding = 'utf-8'
-    lines = response.text.splitlines()
+    m3u = requests.get(M3U_URL, timeout=15)
+    m3u.encoding = 'utf-8'
+    lines = m3u.text.splitlines()
 except Exception as e:
-    print(f"[ERRO] Lista M3U: {e}")
+    print(f"[ERRO] M3U: {e}")
     exit(1)
 
-# Extrai programação formatada
 def extrair_grade(epg_channel):
     grade = []
     try:
@@ -98,7 +93,6 @@ def extrair_grade(epg_channel):
         return ""
     return "\\n\\n".join(grade)
 
-# Processa a lista
 i = 0
 while i < len(lines):
     if lines[i].startswith("#EXTINF"):
@@ -123,25 +117,28 @@ while i < len(lines):
             logo_url = logo.group(1) if logo else ""
             link = lines[i + 1].strip()
 
-            epg_id = re.search(r'tvg-id="([^"]+)"', lines[i])
-            epg_channel_raw = epg_id.group(1) if epg_id else nome.lower().replace(" ", "_")
-
-            if epg_channel_raw.startswith("data:image") or any(c in epg_channel_raw for c in ['<', '>', '"', "'", '[', ']']):
-                print(f"[IGNORADO] tvg-id inválido: {epg_channel_raw}")
+            if not nome or not link:
                 i += 2
                 continue
 
-            grade_epg = extrair_grade(epg_channel_raw)
-            if not grade_epg:
+            epg_id = re.search(r'tvg-id="([^"]+)"', lines[i])
+            epg_channel = epg_id.group(1) if epg_id else nome.lower().replace(" ", "_")
+            if epg_channel.startswith("data:image") or any(c in epg_channel for c in ['<', '>', '"', "'", '[', ']']):
+                print(f"[IGNORADO] tvg-id inválido: {epg_channel}")
+                i += 2
+                continue
+
+            grade = extrair_grade(epg_channel)
+            if not grade:
                 print(f"[SEM EPG] {nome}")
-                grade_epg = "[COLOR red]Sem programação encontrada[/COLOR]"
+                grade = "[COLOR red]Sem programação encontrada[/COLOR]"
 
             item = f"""<item>
 <title>{nome}</title>
 <link>{link}</link>
 <thumbnail>{logo_url}</thumbnail>
 <fanart>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/fanart.jpg</fanart>
-<info>{grade_epg}</info>
+<info><![CDATA[{grade}]]></info>
 </item>"""
 
             canais_por_grupo[grupo].append(item)
@@ -149,22 +146,18 @@ while i < len(lines):
     else:
         i += 1
 
-# Salva o XML final
 output_dir = "BluePlay/FILMES/LINK DIRETO"
 os.makedirs(output_dir, exist_ok=True)
-output_path = os.path.join(output_dir, "FILMES.xml")
-
-with open(output_path, "w", encoding="utf-8") as out:
-    out.write('<?xml version="1.0" encoding="UTF-8"?>\\n<channels>\\n')
+with open(f"{output_dir}/FILMES.xml", "w", encoding="utf-8") as out:
+    out.write('<?xml version="1.0" encoding="UTF-8"?>\n<channels>\n')
     for grupo, canais in canais_por_grupo.items():
-        canais.sort()
         out.write(f"""<channel>
 <name>[B][COLOR white]{grupo}[/COLOR][/B]</name>
 <thumbnail>https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/main/icon.png</thumbnail>
 <fanart>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/fanart.jpg</fanart>
-<items>\\n""")
-        out.write("\\n".join(canais))
-        out.write("\\n</items>\\n</channel>\\n")
+<items>\n""")
+        out.write("\n".join(sorted(canais)))
+        out.write("\n</items>\n</channel>\n")
     out.write("</channels>")
 
-print(f"[SUCESSO] Arquivo gerado: {output_path}")
+print("[SUCESSO] Arquivo FILMES.xml gerado com sucesso.")
