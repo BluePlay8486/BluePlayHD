@@ -1,9 +1,9 @@
 name: Gerar XML de Filmes
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 3 * * *'
-  workflow_dispatch:
   push:
     paths:
       - filmes_Script.py
