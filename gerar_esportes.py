@@ -118,7 +118,7 @@ with open(output_path, "w", encoding="utf-8") as out:
         canais.sort()
         out.write(f"""<channel>
 <name>[B][COLOR white]{grupo}[/COLOR][/B]</name>
-<thumbnail>https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/main/icon.png</thumbnail>
+<thumbnail>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/ESPORTES.png</thumbnail>
 <fanart>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/fanart.jpg</fanart>
 <items>\n""")
         out.write("\n".join(canais))
