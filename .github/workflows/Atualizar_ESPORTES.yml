@@ -1,13 +1,10 @@
-name: Atualizar ESPORTES
+name: Gerar ESPORTES.xml
 
 on:
-  push:
-    paths:
-      - 'Atualizar_TV.AO.VIVO.yml'
-      - 'gerar_esportes.py'
+  workflow_dispatch:  # Executar manualmente pelo GitHub
 
 jobs:
-  gerar:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,19 +14,25 @@ jobs:
       - name: Configurar Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: '3.10'
 
       - name: Instalar dependências
-        run: |
-          pip install pyyaml requests
+        run: pip install requests
 
       - name: Executar script Python
         run: python gerar_esportes.py
 
-      - name: Commitar ESPORTES.txt gerado
+      - name: Configurar Git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add ESPORTES.txt
-          git commit -m "Atualizar ESPORTES.txt via workflow" || echo "Sem mudanças"
-          git push
+
+      - name: Adicionar ESPORTES.xml
+        run: git add "BluePlay/TV AO VIVO/ESPORTES/ESPORTES.xml"
+
+      - name: Commitar alterações
+        run: |
+          git commit -m "Atualização automática do ESPORTES.xml" || echo "Nenhuma alteração para commitar"
+
+      - name: Enviar alterações
+        run: git push
