@@ -1,16 +1,24 @@
 import os
 import re
-import yaml
 import requests
 import xml.etree.ElementTree as ET
 from collections import defaultdict
 from datetime import datetime
 
+# URL da lista M3U
+M3U_URL = "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
+
 # Grupos permitidos
 grupos_desejados = [
-    "ESPORTES PPV", "ESPORTES", "CAZÉ TV", "COMBATE | UFC", "DISNEY+ | HBO MAX",
-    "ESPN", "NBA LEAGUE | NFL", "NOSSO FUTEBOL", "PREMIERE", "SPORTV"
+    "ESPORTES PPV", "ESPORTES", "CAZÉ TV", "COMBATE | UFC",
+    "DISNEY+ | HBO MAX", "ESPN", "NBA LEAGUE | NFL",
+    "NOSSO FUTEBOL", "PREMIERE", "SPORTV"
 ]
+
+grupos_norm = {re.sub(r'[^a-z0-9]', '', g.lower()): g for g in grupos_desejados}
+
+# EPG remoto
+EPG_URL = "https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/refs/heads/main/EPG/epg.xml"
 
 def normalize(txt):
     txt = txt.lower()
@@ -21,11 +29,6 @@ def normalize(txt):
     txt = re.sub(r'[úùûü]', 'u', txt)
     txt = re.sub(r'ç', 'c', txt)
     return re.sub(r'[^a-z0-9]', '', txt)
-
-grupos_norm = {normalize(g): g for g in grupos_desejados}
-
-# EPG online
-EPG_URL = "https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/refs/heads/main/EPG/epg.xml"
 
 def obter_epg_corrigido():
     try:
@@ -38,11 +41,7 @@ def obter_epg_corrigido():
         print(f"[ERRO] Não foi possível carregar o EPG: {e}")
         return None
 
-epg_tree = obter_epg_corrigido()
-if epg_tree is None:
-    exit(1)
-
-def extrair_grade(epg_channel):
+def extrair_grade(epg_channel, epg_tree):
     grade = []
     hoje = datetime.now().date()
     for prog in epg_tree.findall(f".//programme[@channel='{epg_channel}']"):
@@ -58,49 +57,60 @@ def extrair_grade(epg_channel):
             continue
     return "\n".join(grade)
 
-# Arquivo de entrada
-yaml_file = ".github/workflows/Atualizar_ESPORTES.yml"
-output_file = "ESPORTES.txt"
-
-# Lê YAML
+# Baixa a lista M3U
 try:
-    with open(yaml_file, "r", encoding="utf-8") as f:
-        canais = yaml.safe_load(f)
-except FileNotFoundError:
-    print(f"[ERRO] Arquivo '{yaml_file}' não encontrado.")
+    resposta = requests.get(M3U_URL, timeout=15)
+    m3u_lines = resposta.text.splitlines()
+except Exception as e:
+    print(f"[ERRO] Não foi possível baixar a M3U: {e}")
+    exit(1)
+
+epg_tree = obter_epg_corrigido()
+if epg_tree is None:
     exit(1)
 
 canais_por_grupo = defaultdict(list)
+i = 0
+while i < len(m3u_lines):
+    if m3u_lines[i].startswith("#EXTINF"):
+        group_match = re.search(r'group-title="([^"]+)"', m3u_lines[i])
+        grupo_raw = group_match.group(1) if group_match else "OUTROS"
+        grupo = grupos_norm.get(normalize(grupo_raw))
+        if grupo:
+            nome = re.search(r',(.+)', m3u_lines[i]).group(1).strip()
+            logo = re.search(r'tvg-logo="([^"]+)"', m3u_lines[i])
+            logo_url = logo.group(1) if logo else ""
+            link = m3u_lines[i + 1].strip()
+            epg_id = re.search(r'tvg-id="([^"]+)"', m3u_lines[i])
+            epg_channel = epg_id.group(1) if epg_id else nome.lower().replace(" ", "_")
 
-for canal in canais:
-    nome = canal.get("nome", "Sem Nome")
-    link = canal.get("link", "")
-    logo = canal.get("logo", "")
-    grupo_raw = canal.get("grupo", "OUTROS")
-    grupo = grupos_norm.get(normalize(grupo_raw))
-    if not grupo:
-        continue
+            grade_epg = extrair_grade(epg_channel, epg_tree)
+            if not grade_epg:
+                print(f"[SEM EPG] {nome}")
+                grade_epg = "[COLOR red]Sem programação encontrada[/COLOR]"
 
-    epg_id = canal.get("epg", nome.lower().replace(" ", "_"))
-    grade_epg = extrair_grade(epg_id)
-    if not grade_epg:
-        print(f"[SEM EPG] {nome}")
-        grade_epg = "[COLOR red]Sem programação encontrada[/COLOR]"
+            info = f"[COLOR yellow]Programação Completa:[/COLOR]\n{grade_epg}"
 
-    info = f"[COLOR yellow]Programação Completa:[/COLOR]\n{grade_epg}"
-
-    item = f"""<item>
+            item = f"""<item>
 <title>{nome}</title>
 <link>{link}</link>
-<thumbnail>{logo}</thumbnail>
+<thumbnail>{logo_url}</thumbnail>
 <fanart>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/fanart.jpg</fanart>
 <info>{info}</info>
 </item>"""
 
-    canais_por_grupo[grupo].append(item)
+            canais_por_grupo[grupo].append(item)
+        i += 2
+    else:
+        i += 1
 
-# Gera o XML personalizado
-with open(output_file, "w", encoding="utf-8") as out:
+# Caminho e nome final do XML
+output_dir = "BluePlay/TV AO VIVO/ESPORTES"
+os.makedirs(output_dir, exist_ok=True)
+output_path = os.path.join(output_dir, "ESPORTES.xml")
+
+# Gera XML final
+with open(output_path, "w", encoding="utf-8") as out:
     out.write('<?xml version="1.0" encoding="UTF-8"?>\n<channels>\n')
     for grupo, canais in canais_por_grupo.items():
         canais.sort()
@@ -113,4 +123,4 @@ with open(output_file, "w", encoding="utf-8") as out:
         out.write("\n</items>\n</channel>\n")
     out.write("</channels>")
 
-print(f"[SUCESSO] Arquivo gerado: {output_file}")
+print(f"[SUCESSO] Arquivo XML gerado em: {output_path}")
