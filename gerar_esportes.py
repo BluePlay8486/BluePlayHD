@@ -59,7 +59,7 @@ def extrair_grade(epg_channel):
     return "\n".join(grade)
 
 # Arquivo de entrada
-yaml_file = "Atualizar_TV.AO.VIVO.yml"
+yaml_file = "Atualizar_ESPORTES.yml"
 output_file = "ESPORTES.txt"
 
 # Lê YAML
