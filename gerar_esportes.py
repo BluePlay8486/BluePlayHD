@@ -5,21 +5,17 @@ import xml.etree.ElementTree as ET
 from collections import defaultdict
 from datetime import datetime
 
-# URL da lista M3U
+# CONFIGURAÇÕES
 M3U_URL = "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
-
-# Grupos permitidos
-grupos_desejados = [
-    "ESPORTES PPV", "ESPORTES", "CAZÉ TV", "COMBATE | UFC",
-    "DISNEY+ | HBO MAX", "ESPN", "NBA LEAGUE | NFL",
-    "NOSSO FUTEBOL", "PREMIERE", "SPORTV"
-]
-
-grupos_norm = {re.sub(r'[^a-z0-9]', '', g.lower()): g for g in grupos_desejados}
-
-# EPG remoto
 EPG_URL = "https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/refs/heads/main/EPG/epg.xml"
+GRUPOS_DESEJADOS = [
+    "ESPORTES PPV", "ESPORTES", "CAZÉ TV", "COMBATE | UFC", "DISNEY+ | HBO MAX",
+    "ESPN", "NBA LEAGUE | NFL", "NOSSO FUTEBOL", "PREMIERE", "SPORTV"
+]
+OUTPUT_DIR = "BluePlay/TV AO VIVO/ESPORTES"
+OUTPUT_FILE = "ESPORTES.xml"
 
+# FUNÇÕES AUXILIARES
 def normalize(txt):
     txt = txt.lower()
     txt = re.sub(r'[áàãâä]', 'a', txt)
@@ -30,7 +26,9 @@ def normalize(txt):
     txt = re.sub(r'ç', 'c', txt)
     return re.sub(r'[^a-z0-9]', '', txt)
 
-def obter_epg_corrigido():
+grupos_norm = {normalize(g): g for g in GRUPOS_DESEJADOS}
+
+def obter_epg():
     try:
         response = requests.get(EPG_URL, timeout=10)
         epg_str = response.content.decode("utf-8", errors="ignore")
@@ -57,7 +55,8 @@ def extrair_grade(epg_channel, epg_tree):
             continue
     return "\n".join(grade)
 
-# Baixa a lista M3U
+# INÍCIO DO SCRIPT
+print("[INFO] Baixando lista M3U...")
 try:
     resposta = requests.get(M3U_URL, timeout=15)
     m3u_lines = resposta.text.splitlines()
@@ -65,17 +64,21 @@ except Exception as e:
     print(f"[ERRO] Não foi possível baixar a M3U: {e}")
     exit(1)
 
-epg_tree = obter_epg_corrigido()
+print("[INFO] Carregando EPG...")
+epg_tree = obter_epg()
 if epg_tree is None:
     exit(1)
 
+print("[INFO] Processando canais...")
 canais_por_grupo = defaultdict(list)
 i = 0
+
 while i < len(m3u_lines):
     if m3u_lines[i].startswith("#EXTINF"):
         group_match = re.search(r'group-title="([^"]+)"', m3u_lines[i])
         grupo_raw = group_match.group(1) if group_match else "OUTROS"
         grupo = grupos_norm.get(normalize(grupo_raw))
+
         if grupo:
             nome = re.search(r',(.+)', m3u_lines[i]).group(1).strip()
             logo = re.search(r'tvg-logo="([^"]+)"', m3u_lines[i])
@@ -104,12 +107,11 @@ while i < len(m3u_lines):
     else:
         i += 1
 
-# Caminho e nome final do XML
-output_dir = "BluePlay/TV AO VIVO/ESPORTES"
-os.makedirs(output_dir, exist_ok=True)
-output_path = os.path.join(output_dir, "ESPORTES.xml")
+# GERANDO XML
+print(f"[INFO] Gerando XML em: {OUTPUT_DIR}/{OUTPUT_FILE}")
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+output_path = os.path.join(OUTPUT_DIR, OUTPUT_FILE)
 
-# Gera XML final
 with open(output_path, "w", encoding="utf-8") as out:
     out.write('<?xml version="1.0" encoding="UTF-8"?>\n<channels>\n')
     for grupo, canais in canais_por_grupo.items():
@@ -123,4 +125,4 @@ with open(output_path, "w", encoding="utf-8") as out:
         out.write("\n</items>\n</channel>\n")
     out.write("</channels>")
 
-print(f"[SUCESSO] Arquivo XML gerado em: {output_path}")
+print(f"[SUCESSO] Arquivo XML salvo em: {output_path}")
