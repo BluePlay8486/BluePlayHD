@@ -36,7 +36,7 @@ def corrigir_titulo(titulo):
     return titulo.title()
 
 try:
-    response = requests.get(M3U_URL, timeout=10)
+    response = requests.get(M3U_URL, timeout=30)
     lines = response.text.splitlines()
 except Exception as e:
     print(f"[ERRO] Falha ao baixar a lista M3U: {e}")
