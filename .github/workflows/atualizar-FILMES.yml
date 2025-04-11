@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Clonar o repositório
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Instalar dependências Python
         run: pip install requests
