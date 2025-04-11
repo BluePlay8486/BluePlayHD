@@ -1,12 +1,11 @@
 import re
 import os
 import requests
+import html
 from collections import defaultdict
 
-# URL da lista M3U
 M3U_URL = "http://cdn.pthdtv.top:80/get.php?username=630922725&password=280890306&type=m3u_plus&output=mpegts"
 
-# Lista de grupos desejados
 grupos_desejados = [
     "LANÇAMENTOS 2025", "LANÇAMENTOS 2024", "LANÇAMENTOS 2023", "LANÇAMENTOS 2022",
     "FILMES | LEGENDADOS", "FILMES DRAMA", "FILMES ROMANCE", "FILMES TERROR", "FILMES AÇÃO",
@@ -20,7 +19,6 @@ grupos_desejados = [
     "FILMES DC COMICS", "FILMES MARVEL", "FILMES | 007 COLEÇÃO"
 ]
 
-# Normalizador de texto
 def normalize(txt):
     txt = txt.lower()
     txt = re.sub(r'[áàãâä]', 'a', txt)
@@ -31,7 +29,12 @@ def normalize(txt):
     txt = re.sub(r'ç', 'c', txt)
     return re.sub(r'[^a-z0-9]', '', txt)
 
-# Download da M3U
+def corrigir_titulo(titulo):
+    titulo = html.unescape(titulo).strip()
+    if len(titulo) < 3 or "filme" in titulo.lower() and len(titulo.split()) < 2:
+        return None
+    return titulo.title()
+
 try:
     response = requests.get(M3U_URL, timeout=10)
     lines = response.text.splitlines()
@@ -42,7 +45,6 @@ except Exception as e:
 grupos_norm = {normalize(g): g for g in grupos_desejados}
 canais_por_grupo = defaultdict(list)
 
-# Processamento da lista
 i = 0
 while i < len(lines):
     if lines[i].startswith("#EXTINF"):
@@ -51,12 +53,16 @@ while i < len(lines):
         grupo = grupos_norm.get(normalize(grupo_raw))
         if grupo:
             nome = re.search(r',(.+)', lines[i]).group(1).strip()
+            nome_corrigido = corrigir_titulo(nome)
+            if not nome_corrigido:
+                i += 2
+                continue
             logo = re.search(r'tvg-logo="([^"]+)"', lines[i])
             logo_url = logo.group(1) if logo else ""
             link = lines[i + 1].strip()
 
             item = f"""<item>
-<title>{nome}</title>
+<title>{nome_corrigido}</title>
 <link>{link}</link>
 <thumbnail>{logo_url}</thumbnail>
 <fanart>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/fanart.jpg</fanart>
@@ -68,15 +74,16 @@ while i < len(lines):
     else:
         i += 1
 
-# Caminho de saída
 output_dir = "BluePlay/FILMES/LINK DIRETO"
 os.makedirs(output_dir, exist_ok=True)
 output_path = os.path.join(output_dir, "FILMES.xml")
 
-# Geração do XML final
 with open(output_path, "w", encoding="utf-8") as out:
     out.write('<?xml version="1.0" encoding="UTF-8"?>\n<channels>\n')
-    for grupo, canais in canais_por_grupo.items():
+    for grupo in grupos_desejados:
+        canais = canais_por_grupo.get(grupo, [])
+        if not canais:
+            continue
         canais.sort()
         out.write(f"""<channel>
 <name>[B][COLOR white]{grupo}[/COLOR][/B]</name>
