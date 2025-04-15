@@ -6,6 +6,22 @@
 
 
 <channel>
+    <name>Ash vs Evil Dead</name>
+    <thumbnail>https://image.tmdb.org/t/p/w500/zsX1atjvymc4CKu72jE400QJGzL.jpg</thumbnail>
+    <fanart>https://image.tmdb.org/t/p/original/kTllqBdy0vjwoMhvzZPABD3Bo4k.jpg</fanart>
+    <info>30 anos depois, o caçador de demônios Ash Williams está de volta para enfrentar uma nova praga Deadite. Ele pode ter perdido a mão, mas não o seu toque.</info>
+    <genre>Comédia, Desconhecido, Desconhecido</genre>
+    <items>
+      <item>
+        <title>Ash vs Evil Dead - 1ª Temporada</title>
+        <thumbnail>https://image.tmdb.org/t/p/w500/zsX1atjvymc4CKu72jE400QJGzL.jpg</thumbnail>
+        <fanart>https://image.tmdb.org/t/p/original/kTllqBdy0vjwoMhvzZPABD3Bo4k.jpg</fanart>
+        <link>plugin://plugin.video.elementum/play?uri=magnet:?xt=urn:btih:2EC28D954FE6B5190E3C3C25B23BD1387114200C&dn=Ash%20vs.%20Evil%20Dead%201%c2%aa%20Temporada%20Completa%202015%20%5bBluRay%5d%20%5b1080p%5d%20%5bDUAL%5d%20&tr=udp%3a%2f%2ftracker.openbittorrent.com%3a80%2fannounce&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969%2fannounce&tr=http%3a%2f%2fglotorrents.pw%3a80%2fannounce&tr=udp%3a%2f%2ftracker4.piratux.com%3a6969%2fannounce&tr=udp%3a%2f%2fcoppersurfer.tk%3a6969%2fannounce&tr=http%3a%2f%2ft2.pow7.com%2fannounce&tr=http%3a%2f%2ftracker.yify-torrents.com%2fanno...&tr=http%3a%2f%2fwww.h33t.com%3a3310%2fannounce&tr=http%3a%2f%2fexodus.desync.com%2fannounce&tr=http%3a%2f%2ftracker.coppersurfer.tk%3a6969%2fa...&tr=http%3a%2f%2fbt.careland.com.cn%3a6969%2fannounce&tr=http%3a%2f%2fexodus.desync.com%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.publicbt.com%3a80%2fannounce&tr=udp%3a%2f%2ftracker.istole.it%3a80%2fannounce&tr=http%3a%2f%2ftracker.blazing.de%2fannounce&tr=udp%3a%2f%2ftracker.openbittorrent.com%3a80%2fannounce&tr=udp%3a%2f%2ftracker.yify-torrents.com%3a80%2fannounce&tr=udp%3a%2f%2ftracker.prq.to%2fannounce&tr=udp%3a%2f%2ftracker.1337x.org%3a80%2fannounce&tr=udp%3a%2f%2f9.rarbg.com%3a2750%2fannounce&tr=udp%3a%2f%2ftracker.ex.ua%3a80%2fannounce&tr=udp%3a%2f%2fipv4.tracker.harry.lu%3a80%2fannounce&tr=udp%3a%2f%2f12.rarbg.me%3a80%2fannounce&tr=udp%3a%2f%2ftracker.publicbt.com%3a80%2f%2fannounce&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce&tr=udp%3a%2f%2f11.rarbg.com%2fannounce&tr=udp%3a%2f%2ftracker.ccc.de%3a80%2fannounce&tr=udp%3a%2f%2ffr33dom.h33t.com%3a3310%2fannounce$$lsname=[COLOR white]EPISÓDIO 1[/COLOR] - [COLOR yellow]Episódio 1[/COLOR]</link>
+      </item>
+    </items>
+</channel>
+
+<channel>
     <name>O Dia do Chacal</name>
     <thumbnail>https://image.tmdb.org/t/p/w500/9So7vXZMXg16JHTxSGfzM8NaShl.jpg</thumbnail>
     <fanart>https://image.tmdb.org/t/p/original/enVrO8TRkdT8dmYXTfI4sEjR5Kp.jpg</fanart>
