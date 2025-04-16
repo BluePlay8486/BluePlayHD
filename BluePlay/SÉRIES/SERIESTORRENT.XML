@@ -3,14 +3,14 @@
 <channels>
 
 <channel>
-<name>[B][COLOR aquamarine]SÉRIES[/COLOR] [COLOR green]| LANÇAMENTOS/ TESTE[/COLOR][/B]</name>
+<name>[B][COLOR aquamarine]SÉRIES[/COLOR] [COLOR white]| LANÇAMENTOS[/COLOR][/B]</name>
 <thumbnail>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/SÉRIES.png</thumbnail>
 <fanart>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png</fanart>
 <externallink>https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/refs/heads/main/ARES%20%C3%81REA%20DE%20FILMES%20E%20S%C3%89RIES/S%C3%89RIES/LANCAMENTOS.XML</externallink>
 </channel>
 
 <channel>
-<name>[B][COLOR blue]SÉRIES[/COLOR] [COLOR white]| AÇÃO/TESTE[/COLOR][/B]</name>
+<name>[B][COLOR aquamarine]SÉRIES[/COLOR] [COLOR white]| AÇÃO[/COLOR][/B]</name>
 <thumbnail>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/SÉRIES.png</thumbnail>
 <fanart>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png</fanart>
 <externallink>https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/refs/heads/main/ARES%20%C3%81REA%20DE%20FILMES%20E%20S%C3%89RIES/S%C3%89RIES/ACAO.XML</externallink>
@@ -59,10 +59,10 @@
 </channel>
 
 <channel>
-<name>[B][COLOR aquamarine]SÉRIES[/COLOR] [COLOR white]| DOCUMENTARIA[/COLOR][/B]</name>
+<name>[B][COLOR aquamarine]SÉRIES[/COLOR] [COLOR white]| DOCUMENTARIO[/COLOR][/B]</name>
 <thumbnail>https://github.com/AnimeSoul8585/BlackPlay-Tv/raw/refs/heads/main/ICONS%20ADDON/SÉRIES.png</thumbnail>
 <fanart>https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png</fanart>
-<externallink>https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/refs/heads/main/ARES%20%C3%81REA%20DE%20SÉRIES%20E%20S%C3%89RIES/SÉRIES/DOCUMENTARIOS.XML</externallink>
+<externallink>https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/refs/heads/main/ARES%20%C3%81REA%20DE%20FILMES%20E%20S%C3%89RIES/S%C3%89RIES/DOCUMENTARIO.XML</externallink>
 </channel>
   
 <channel>
