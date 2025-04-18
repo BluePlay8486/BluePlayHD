@@ -4,6 +4,22 @@
 
 
 
+<channel>
+    <name>Maria e o Cangaço</name>
+    <thumbnail>https://image.tmdb.org/t/p/w500/bfFZwA6GHW4lkDQcKxCwwGBWsEU.jpg</thumbnail>
+    <fanart>https://image.tmdb.org/t/p/original/9g4iGqPniDP3ueKCDwVfRUAu14T.jpg</fanart>
+    <info>Maria de Déa, companheira de Lampião e a primeira mulher cangaceira, é uma jovem destemida que ousa ter voz num grupo de foras-da-lei. Numa vida de fugas e conflitos armados, Maria é surpreendida por uma gravidez e submetida à mais dura lei do cangaço: entregar o bebê para ser criado por outra pessoa. Passa a viver dividida entre a vida no grupo e o desejo impossível de criar a filha.</info>
+    <genre>Drama, Faroeste</genre>
+    <items>
+      <item>
+        <title>Maria e o Cangaço - 1ª Temporada</title>
+        <thumbnail>https://image.tmdb.org/t/p/w500/bfFZwA6GHW4lkDQcKxCwwGBWsEU.jpg</thumbnail>
+        <fanart>https://image.tmdb.org/t/p/original/9g4iGqPniDP3ueKCDwVfRUAu14T.jpg</fanart>
+        <link>plugin://plugin.video.elementum/play?uri=magnet:?xt=urn:btih:b17cb4fc589b422a7076871235e62880c4b0b5fe&dn=HIDRATORRENTS.ORG..MKV.Maria%20e%20o%20Canga%C3%A7o%20S01%202025%20WEB-DL%201080p%20x264%20NACIONAL%205.1&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.trackerfix.com%3A83%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.trackerfix.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Feddie4.nl%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fzer0day.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftorrent.gresille.org%3A80%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337$$lsname=[COLOR white]EPISÓDIO 1[/COLOR] - [COLOR yellow]Noite sem lua[/COLOR]</link>
+      </item>
+    </items>
+</channel>
+
 <item>
     <title>Casa de Davi - 1ª Temporada</title>
     <link>plugin://plugin.video.elementum/play?uri=magnet:?xt=urn:btih:d5dfb933fc269ee295576025eafc7407aff6d3d0&dn=HIDRATORRENTS.ORG.-DUBLADO-DUAL-AUDIO-.Casa.de.Davi.S01E01-02-03.1080p.WEB-DL.DUAL.5.1&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.ccc.de%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce$$lsname=[COLOR white]EPISÓDIO 1[/COLOR]</link>
