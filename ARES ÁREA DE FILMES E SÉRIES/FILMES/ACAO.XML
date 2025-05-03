@@ -2,6 +2,13 @@
 <items>
 
 <item>
+<title>Buscar Filmes</title>
+<link>plugin://plugin.video.seuaddon/?action=search&amp;from=https://meusite.com/conteudo.xml</link>
+<thumbnail>https://meusite.com/busca.jpg</thumbnail>
+<info>Buscar no catálogo de filmes</info>
+</item>
+
+<item>
 <title>[COLOR silver][B]G20[/B][/COLOR][COLOR yellow] FULL HD[/COLOR]</title>
 <link>plugin://plugin.video.elementum/play?uri=magnet:?xt=urn:btih:174948ca3eabc67fed49559b70e3b8d185b76e1a&dn=G20.2025.1080p.WEB-DL.DUAL.5.1&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce$$lsname=[COLOR white]TORRENT[/COLOR]</link>
 <link>plugin://plugin.video.youtube/play/?video_id=_l33LRrrbzs$$lsname=[COLOR aquamarine]TRAILER[/COLOR]</link>
