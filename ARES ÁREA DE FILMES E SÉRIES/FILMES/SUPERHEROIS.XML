@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <items>
 
-
+<item>
+<title>Buscar Filmes</title>
+<link>plugin://plugin.video.seuaddon/?action=search&amp;from=https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/ARES%20%C3%81REA%20DE%20FILMES%20E%20S%C3%89RIES/FILMES/SUPERHEROIS.XML</link>
+<thumbnail>https://meusite.com/busca.jpg</thumbnail>
+<info>Buscar no catálogo de filmes</info>
+</item>
 
 <item>
 <title>[COLOR silver][B]Batman Ninja vs. Liga da Yakuza 2025[/B][/COLOR][COLOR yellow] FULL HD[/COLOR]</title>
