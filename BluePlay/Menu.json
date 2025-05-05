@@ -1,82 +1,32 @@
 [
   {
-    "label": "[B][COLOR aquamarine]:::[/COLOR][COLOR white]BLUEPLAY[/COLOR][COLOR aquamarine]:::[/COLOR][/B]",
-    "thumbnail": "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/LOGO.png",
-    "fanart": "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png",
-    "info": "Bem-vindo ao BluePlay! Desfrute de uma experiência incrível com uma vasta seleção de filmes, séries, animes, desenhos e muito mais. Navegue e encontre tudo o que você adora, em um único lugar como:\n\n[B][COLOR green]●[/COLOR] [COLOR white]TV AO VIVO[/COLOR][/B]\n[B][COLOR green]●[/COLOR] [COLOR white]FILMES[/COLOR][/B]\n[B][COLOR green]●[/COLOR] [COLOR white]SÉRIES[/COLOR][/B]\n[B][COLOR green]●[/COLOR] [COLOR white]RADIO[/COLOR][/B]\n[B][COLOR green]●[/COLOR] [COLOR white]DESENHOS[/COLOR][/B]\n[B][COLOR green]●[/COLOR] [COLOR white]ANIMES[/COLOR][/B]\n[B][COLOR green]●[/COLOR] [COLOR white]DORAMAS[/COLOR][/B]\n[B][COLOR green]●[/COLOR] [COLOR white]NOVELAS[/COLOR][/B]\n\n[B][COLOR aquamarine]DOAÇÃO:[/COLOR][/B]\n\n[COLOR blue]TeamBluePlay@gmail.com[/COLOR]",
-    "url": "https://github.com/BluePlay8486/BluePlay/raw/refs/heads/main/TESTES%20BLUEPLAY/Menu_items.xml",
-    "tipo": "xml"
+    "title": "Filmes",
+    "url": "https://seusite.com/filmes.json",
+    "thumbnail": "https://exemplo.com/thumb_filmes.jpg",
+    "fanart": "https://exemplo.com/fanart_filmes.jpg",
+    "type": "directory"
   },
   {
-    "label": "[B][COLOR lime]●[/COLOR] [COLOR white]TV AO VIVO[/COLOR][/B]",
-    "thumbnail": "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/TV%20AO%20VIVO.png",
-    "fanart": "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png",
-    "info": "Assista a uma seleção de canais ao vivo organizados por categorias...",
-    "url": "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/BluePlay/TV%20AO%20VIVO/Menu_TV.xml",
-    "tipo": "xml"
+    "title": "Séries",
+    "url": "https://seusite.com/series.json",
+    "thumbnail": "https://exemplo.com/thumb_series.jpg",
+    "fanart": "https://exemplo.com/fanart_series.jpg",
+    "type": "directory"
   },
   {
-    "label": "[B][COLOR lime]●[/COLOR] [COLOR white]FILMES[/COLOR][/B]",
-    "thumbnail": "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FILMES.png",
-    "fanart": "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png",
-    "info": "Explore um vasto catálogo de filmes com os melhores lançamentos...",
-    "url": "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/BluePlay/FILMES/Menu_Filmes.xml",
-    "tipo": "xml"
+    "title": "Buscar Filmes",
+    "search": true,
+    "searchType": "movie",
+    "thumbnail": "https://exemplo.com/thumb_busca.jpg",
+    "fanart": "https://exemplo.com/fanart_busca.jpg",
+    "type": "search"
   },
   {
-    "label": "[B][COLOR lime]●[/COLOR] [COLOR white]SÉRIES[/COLOR][/B]",
-    "thumbnail": "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/S%C3%89RIES.png",
-    "fanart": "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png",
-    "info": "Explore uma seleção de séries envolventes...",
-    "url": "https://raw.githubusercontent.com/BluePlay8486/BluePlayHD/refs/heads/main/BluePlay/S%C3%89RIES/SERIES%20CATEGORIAS/painelcategoriasdeseries.xml",
-    "tipo": "xml"
-  },
-  {
-    "label": "[B][COLOR lime]●[/COLOR] [COLOR white]RÁDIO[/COLOR][/B]",
-    "thumbnail": "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/R%C3%81DIO.png",
-    "fanart": "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png",
-    "info": "Sintonize em uma variedade de estações de rádio...",
-    "url": "https://github.com/BluePlay8486/BluePlay/raw/refs/heads/main/BluePlay/R%C3%81DIO/Menu_Radio.xml",
-    "tipo": "xml"
-  },
-  {
-    "label": "[B][COLOR lime]●[/COLOR] [COLOR white]DESENHOS[/COLOR][/B]",
-    "thumbnail": "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/DESENHOS.png",
-    "fanart": "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png",
-    "info": "Entre no universo dos desenhos animados...",
-    "url": "https://github.com/BluePlay8486/BluePlay/raw/refs/heads/main/BluePlay/DESENHOS/DESENHOS.txt",
-    "tipo": "xml"
-  },
-  {
-    "label": "[B][COLOR lime]●[/COLOR] [COLOR white]ANIMES[/COLOR][/B]",
-    "thumbnail": "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/ANIMES.png",
-    "fanart": "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png",
-    "info": "Explore um mundo de animes com diversas opções...",
-    "url": "https://github.com/BluePlay8486/BluePlay/raw/refs/heads/main/BluePlay/ANIMES/Menu_Animes.xml",
-    "tipo": "xml"
-  },
-  {
-    "label": "[B][COLOR lime]●[/COLOR] [COLOR white]DORAMAS[/COLOR][/B]",
-    "thumbnail": "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/DORAMAS.png",
-    "fanart": "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png",
-    "info": "Mergulhe no universo dos dramas asiáticos...",
-    "url": "https://github.com/AnimeSoul8585/Reposit-rio-AnimeSoul/raw/refs/heads/main/Pesquisar.xml",
-    "tipo": "xml"
-  },
-  {
-    "label": "[B][COLOR lime]●[/COLOR] [COLOR white]NOVELAS[/COLOR][/B]",
-    "thumbnail": "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/NOVELAS.png",
-    "fanart": "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png",
-    "info": "Reviva as tramas emocionantes das novelas...",
-    "url": "https://github.com/BluePlay8486/BluePlay/raw/refs/heads/main/TESTES%20BLUEPLAY/Menu_items.xml",
-    "tipo": "xml"
-  },
-  {
-    "label": "[B][COLOR aquamarine]●[/COLOR] [COLOR white]PEDIDOS DE[/COLOR][COLOR aquamarine] USUÁRIOS[/COLOR][/B]",
-    "thumbnail": "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/PEDIDOS%20USU%C3%81RIOS.png",
-    "fanart": "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Artes%20Addon/FANART.png",
-    "info": "[COLOR aquamarine]AREAS DE PEDIDOS DE USUÁRIOS: [/COLOR]Os seus Pedidos de Filmes e Séries e etc ficam aqui...",
-    "url": "https://github.com/BluePlay8486/BluePlayHD/raw/refs/heads/main/Pedidos%20de%20Usu%C3%A1rios/Menu_Pedidos.xml",
-    "tipo": "xml"
+    "title": "Filme Exemplo (via TMDb)",
+    "id": "550",
+    "tmdbType": "movie",
+    "type": "video",
+    "thumbnail": "https://image.tmdb.org/t/p/w500/placeholder.jpg",
+    "fanart": "https://image.tmdb.org/t/p/original/placeholder_bg.jpg"
   }
 ]
